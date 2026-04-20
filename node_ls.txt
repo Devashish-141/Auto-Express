@@ -1,0 +1,2 @@
+total 0
+-rw-r--r--. 1 nickson nickson 0 Apr 20 10:12 write_test.txt

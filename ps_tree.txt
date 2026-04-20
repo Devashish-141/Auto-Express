@@ -1,0 +1,485 @@
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root           2  0.0  0.0      0     0 ?        S    Apr19   0:00 [kthreadd]
+root           3  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [pool_workqueue_release]
+root           4  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/R-rcu_gp]
+root           5  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/R-sync_wq]
+root           6  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/R-kvfree_rcu_reclaim]
+root           7  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/R-slub_flushwq]
+root           8  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/R-netns]
+root          10  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/0:0H-events_highpri]
+root          13  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/R-mm_percpu_wq]
+root          15  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [ksoftirqd/0]
+root          16  0.0  0.0      0     0 ?        I    Apr19   0:10  \_ [rcu_preempt]
+root          17  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [rcu_exp_par_gp_kthread_worker/0]
+root          18  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [rcu_exp_gp_kthread_worker]
+root          19  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [migration/0]
+root          20  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [idle_inject/0]
+root          21  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [cpuhp/0]
+root          22  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [cpuhp/2]
+root          23  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [idle_inject/2]
+root          24  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [migration/2]
+root          25  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [ksoftirqd/2]
+root          27  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/2:0H-events_highpri]
+root          28  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [cpuhp/4]
+root          29  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [idle_inject/4]
+root          30  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [migration/4]
+root          31  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [ksoftirqd/4]
+root          33  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/4:0H-events_highpri]
+root          34  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [cpuhp/6]
+root          35  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [idle_inject/6]
+root          36  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [migration/6]
+root          37  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [ksoftirqd/6]
+root          39  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/6:0H-events_highpri]
+root          40  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [cpuhp/8]
+root          41  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [idle_inject/8]
+root          42  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [migration/8]
+root          43  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [ksoftirqd/8]
+root          45  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/8:0H-events_highpri]
+root          46  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [cpuhp/10]
+root          47  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [idle_inject/10]
+root          48  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [migration/10]
+root          49  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [ksoftirqd/10]
+root          51  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/10:0H-events_highpri]
+root          52  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [cpuhp/12]
+root          53  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [idle_inject/12]
+root          54  0.0  0.0      0     0 ?        S    Apr19   0:01  \_ [migration/12]
+root          55  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [ksoftirqd/12]
+root          57  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/12:0H-events_highpri]
+root          58  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [cpuhp/13]
+root          59  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [idle_inject/13]
+root          60  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [migration/13]
+root          61  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [ksoftirqd/13]
+root          63  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/13:0H-events_highpri]
+root          64  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [cpuhp/14]
+root          65  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [idle_inject/14]
+root          66  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [migration/14]
+root          67  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [ksoftirqd/14]
+root          69  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/14:0H-events_highpri]
+root          70  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [cpuhp/15]
+root          71  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [idle_inject/15]
+root          72  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [migration/15]
+root          73  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [ksoftirqd/15]
+root          75  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/15:0H-events_highpri]
+root          76  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [cpuhp/1]
+root          77  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [idle_inject/1]
+root          78  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [migration/1]
+root          79  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [ksoftirqd/1]
+root          81  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/1:0H-events_highpri]
+root          82  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [cpuhp/3]
+root          83  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [idle_inject/3]
+root          84  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [migration/3]
+root          85  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [ksoftirqd/3]
+root          87  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/3:0H-events_highpri]
+root          88  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [cpuhp/5]
+root          89  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [idle_inject/5]
+root          90  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [migration/5]
+root          91  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [ksoftirqd/5]
+root          93  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/5:0H-events_highpri]
+root          94  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [cpuhp/7]
+root          95  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [idle_inject/7]
+root          96  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [migration/7]
+root          97  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [ksoftirqd/7]
+root          99  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/7:0H-events_highpri]
+root         100  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [cpuhp/9]
+root         101  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [idle_inject/9]
+root         102  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [migration/9]
+root         103  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [ksoftirqd/9]
+root         105  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/9:0H-events_highpri]
+root         106  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [cpuhp/11]
+root         107  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [idle_inject/11]
+root         108  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [migration/11]
+root         109  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [ksoftirqd/11]
+root         111  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/11:0H-events_highpri]
+root         112  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [kdevtmpfs]
+root         113  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/R-inet_frag_wq]
+root         114  0.0  0.0      0     0 ?        I    Apr19   0:00  \_ [rcu_tasks_kthread]
+root         115  0.0  0.0      0     0 ?        I    Apr19   0:00  \_ [rcu_tasks_rude_kthread]
+root         116  0.0  0.0      0     0 ?        I    Apr19   0:00  \_ [rcu_tasks_trace_kthread]
+root         117  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [kauditd]
+root         118  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [oom_reaper]
+root         120  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/R-writeback]
+root         121  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [kcompactd0]
+root         122  0.0  0.0      0     0 ?        SN   Apr19   0:00  \_ [ksmd]
+root         123  0.0  0.0      0     0 ?        SN   Apr19   0:00  \_ [khugepaged]
+root         124  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/R-kblockd]
+root         125  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/R-blkcg_punt_bio]
+root         126  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/R-kintegrityd]
+root         127  0.0  0.0      0     0 ?        I    Apr19   0:00  \_ [kworker/13:1-events_power_efficient]
+root         128  0.0  0.0      0     0 ?        S    Apr19   0:01  \_ [irq/9-acpi]
+root         129  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/R-tpm_dev_wq]
+root         130  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/R-ata_sff]
+root         131  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/R-md]
+root         132  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/R-md_bitmap]
+root         133  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/R-edac-poller]
+root         134  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/R-devfreq_wq]
+root         135  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [watchdogd]
+root         136  0.0  0.0      0     0 ?        I    Apr19   0:00  \_ [kworker/15:1-mm_percpu_wq]
+root         137  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/13:1H-kblockd]
+root         139  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [kswapd0]
+root         140  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/R-cryptd]
+root         143  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/R-kthrotld]
+root         145  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/R-acpi_thermal_pm]
+root         148  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [hwrng]
+root         153  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/R-hfi-updates]
+root         155  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/R-dm_bufio_cache]
+root         156  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/R-mld]
+root         157  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/R-ipv6_addrconf]
+root         158  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/2:1H-kblockd]
+root         160  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/R-kstrp]
+root         165  0.0  0.0      0     0 ?        I    Apr19   0:04  \_ [kworker/5:1-nouveau_sched_wq_shared]
+root         166  0.0  0.0      0     0 ?        I    Apr19   0:00  \_ [kworker/6:1-events]
+root         168  0.0  0.0      0     0 ?        I    Apr19   0:13  \_ [kworker/11:1-mm_percpu_wq]
+root         169  0.0  0.0      0     0 ?        I    Apr19   0:00  \_ [kworker/7:1-events]
+root         170  0.0  0.0      0     0 ?        I    Apr19   0:01  \_ [kworker/12:1-nouveau_sched_wq_shared]
+root         180  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/u65:0-hci0]
+root         211  0.0  0.0      0     0 ?        I    Apr19   0:00  \_ [kworker/9:1-mm_percpu_wq]
+root         247  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/0:1H-kblockd]
+root         249  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/4:1H-kblockd]
+root         251  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/15:1H-kblockd]
+root         290  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/3:1H-kblockd]
+root         292  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/8:1H-kblockd]
+root         295  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/6:1H-kblockd]
+root         299  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/12:1H-kblockd]
+root         301  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/10:1H-kblockd]
+root         415  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/14:1H-kblockd]
+root         416  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/1:1H-kblockd]
+root         417  0.0  0.0      0     0 ?        I    Apr19   0:00  \_ [kworker/1:2-events_freezable_pwr_efficient]
+root         462  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/7:1H-kblockd]
+root         463  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/5:1H-kblockd]
+root         464  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/9:1H-kblockd]
+root         466  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/11:1H-kblockd]
+root         476  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [irq/140-ELAN0788:00]
+root         487  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/R-nvme-wq]
+root         488  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/R-nvme-reset-wq]
+root         489  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/R-nvme-delete-wq]
+root         490  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/R-nvme-auth-wq]
+root         501  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/R-USBC000:00-con1]
+root         505  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/R-ttm]
+root         506  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/R-btrfs-worker]
+root         507  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/R-btrfs-delalloc]
+root         508  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/R-btrfs-flush_delalloc]
+root         509  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/R-btrfs-cache]
+root         510  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/R-btrfs-fixup]
+root         511  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/R-btrfs-endio]
+root         512  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/R-btrfs-endio-meta]
+root         513  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/R-btrfs-rmw]
+root         514  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/R-btrfs-endio-write]
+root         515  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/R-btrfs-compressed-write]
+root         516  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/R-btrfs-freespace-write]
+root         517  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/R-btrfs-delayed-meta]
+root         518  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/R-btrfs-qgroup-rescan]
+root         519  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [btrfs-cleaner]
+root         520  0.0  0.0      0     0 ?        S    Apr19   0:02  \_ [btrfs-transaction]
+root         544  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [card1-crtc0]
+root         545  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [card1-crtc1]
+root         546  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [card1-crtc2]
+root         547  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [card1-crtc3]
+root         558  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/R-ttm]
+root         559  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [card0-crtc0]
+root         560  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [card0-crtc1]
+root         561  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [card0-crtc2]
+root         562  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [card0-crtc3]
+root         646  0.0  0.0      0     0 ?        I    Apr19   0:01  \_ [kworker/10:2-mm_percpu_wq]
+root         673  0.0  0.0      0     0 ?        I    Apr19   0:00  \_ [kworker/0:2-events]
+root         675  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [psimon]
+root         783  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/R-cfg80211]
+root         788  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [irq/16-processor_thermal_device_pci]
+root         790  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [irq/163-iwlwifi:default_queue]
+root         791  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [irq/164-iwlwifi:queue_1]
+root         792  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [irq/165-iwlwifi:queue_2]
+root         793  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [irq/166-iwlwifi:queue_3]
+root         794  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [irq/167-iwlwifi:queue_4]
+root         795  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [irq/168-iwlwifi:queue_5]
+root         796  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [irq/169-iwlwifi:queue_6]
+root         797  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [irq/170-iwlwifi:queue_7]
+root         798  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [irq/171-iwlwifi:queue_8]
+root         799  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [irq/172-iwlwifi:queue_9]
+root         800  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [irq/173-iwlwifi:queue_10]
+root         801  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [irq/174-iwlwifi:queue_11]
+root         802  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [irq/175-iwlwifi:queue_12]
+root         803  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [irq/176-iwlwifi:queue_13]
+root         804  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [irq/177-iwlwifi:queue_14]
+root         805  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [irq/178-iwlwifi:exception]
+root         807  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/u65:1-ttm]
+root         859  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [irq/179-AudioDSP]
+root         872  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [jbd2/nvme0n1p5-8]
+root         873  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/R-ext4-rsv-conversion]
+root        1146  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/R-rpciod]
+root        1147  0.0  0.0      0     0 ?        I<   Apr19   0:00  \_ [kworker/R-xprtiod]
+root        1744  0.0  0.0      0     0 ?        S<   Apr19   0:00  \_ [krfcommd]
+root        5453  0.0  0.0      0     0 ?        I    Apr19   0:00  \_ [kworker/4:0-events]
+root        5514  0.0  0.0      0     0 ?        I    Apr19   0:00  \_ [kworker/2:0-mm_percpu_wq]
+root        7338  0.0  0.0      0     0 ?        I    Apr19   0:00  \_ [kworker/13:2-nouveau_sched_wq_shared]
+root        9398  0.0  0.0      0     0 ?        I    Apr19   0:00  \_ [kworker/2:1-i915-unordered]
+root       11139  0.0  0.0      0     0 ?        I    Apr19   0:00  \_ [kworker/14:0-nouveau_sched_wq_shared]
+root       11323  0.0  0.0      0     0 ?        I    Apr19   0:16  \_ [kworker/u64:7-btrfs-compressed-write]
+root       11325  0.0  0.0      0     0 ?        I    Apr19   0:29  \_ [kworker/u64:11-btrfs-endio-write]
+root       11947  0.0  0.0      0     0 ?        I    Apr19   0:00  \_ [kworker/4:2-cgroup_free]
+root       12505  0.0  0.0      0     0 ?        I    Apr19   0:14  \_ [kworker/u64:2-btrfs-endio-write]
+root       12556  0.0  0.0      0     0 ?        I    Apr19   0:00  \_ [kworker/8:0-mm_percpu_wq]
+root       12904  0.0  0.0      0     0 ?        I    Apr19   0:02  \_ [kworker/3:0-events]
+root       12934  0.0  0.0      0     0 ?        I    Apr19   0:00  \_ [kworker/9:0]
+root       13254  0.0  0.0      0     0 ?        S    Apr19   0:00  \_ [psimon]
+root       13269  0.0  0.0      0     0 ?        I    Apr19   0:00  \_ [kworker/14:2-cgroup_free]
+root       13527  0.0  0.0      0     0 ?        I    Apr19   0:00  \_ [kworker/11:0-events]
+root       13580  0.0  0.0      0     0 ?        I    Apr19   0:08  \_ [kworker/u64:0-btrfs-endio-write]
+root       13597  0.0  0.0      0     0 ?        I    Apr19   0:00  \_ [kworker/3:2-nouveau_sched_wq_shared]
+root       13618  0.0  0.0      0     0 ?        I    Apr19   0:00  \_ [kworker/8:3-events]
+root       13622  0.0  0.0      0     0 ?        I    Apr19   0:07  \_ [kworker/u64:8-btrfs-compressed-write]
+root       13623  0.0  0.0      0     0 ?        I    Apr19   0:00  \_ [kworker/u64:9-blkcg_punt_bio]
+root       13632  0.0  0.0      0     0 ?        I    Apr19   0:00  \_ [kworker/u64:14-btrfs-compressed-write]
+root       13636  0.0  0.0      0     0 ?        I    Apr19   0:03  \_ [kworker/u64:19-btrfs-endio-write]
+root       13643  0.0  0.0      0     0 ?        I    Apr19   0:05  \_ [kworker/u64:26-btrfs-endio-write]
+root       13644  0.0  0.0      0     0 ?        I    Apr19   0:06  \_ [kworker/u64:27-blkcg_punt_bio]
+root       13646  0.0  0.0      0     0 ?        I    Apr19   0:00  \_ [kworker/5:3-events]
+root       13647  0.0  0.0      0     0 ?        I    Apr19   0:00  \_ [kworker/1:0-mm_percpu_wq]
+root       13648  2.5  0.0      0     0 ?        I    10:04   0:15  \_ [kworker/u64:29-events_unbound]
+root       13649  1.8  0.0      0     0 ?        I    10:04   0:10  \_ [kworker/u64:30-btrfs-endio-write]
+root       13662  0.0  0.0      0     0 ?        I    10:04   0:00  \_ [kworker/15:0-events]
+root       13663  0.0  0.0      0     0 ?        S    10:04   0:00  \_ [irq/142-mei_me]
+root       13664  0.0  0.0      0     0 ?        I    10:04   0:00  \_ [kworker/6:0-cgroup_free]
+root       13666  0.0  0.0      0     0 ?        I    10:04   0:00  \_ [kworker/0:0-mm_percpu_wq]
+root       13747  0.0  0.0      0     0 ?        I    10:04   0:00  \_ [kworker/7:2]
+root       13794  0.0  0.0      0     0 ?        I    10:04   0:00  \_ [kworker/10:1]
+root       13857  0.0  0.0      0     0 ?        I    10:04   0:00  \_ [kworker/12:2-nouveau_sched_wq_shared]
+root       14231  0.0  0.0      0     0 ?        I    10:09   0:00  \_ [kworker/13:0]
+root       14272  2.2  0.0      0     0 ?        I    10:09   0:06  \_ [kworker/u64:1-btrfs-endio-write]
+root       14532  0.0  0.0      0     0 ?        I    10:11   0:00  \_ [kworker/8:1-nouveau_sched_wq_shared]
+root       14533  0.0  0.0      0     0 ?        I    10:11   0:00  \_ [kworker/0:1]
+root       14890  0.0  0.0      0     0 ?        I    10:13   0:00  \_ [kworker/3:1-nouveau_sched_wq_shared]
+root       14938  2.1  0.0      0     0 ?        I    10:13   0:01  \_ [kworker/u64:3-btrfs-endio-write]
+root       14939  0.0  0.0      0     0 ?        I    10:13   0:00  \_ [kworker/u64:4]
+root       14943  0.0  0.0      0     0 ?        I    10:13   0:00  \_ [kworker/2:2]
+root           1  0.0  0.1  39108 21104 ?        Ss   Apr19   0:02 /usr/lib/systemd/systemd --switched-root --system --deserialize=60 rhgb
+root         627  0.0  0.1 183440 19808 ?        Ss   Apr19   0:00 /usr/lib/systemd/systemd-journald
+root         644  0.0  0.0  16564  6952 ?        Ss   Apr19   0:00 /usr/lib/systemd/systemd-userdbd
+root       14549  0.0  0.0  17016  7888 ?        S    10:12   0:00  \_ systemd-userwork: waiting...
+root       15109  0.0  0.0  17016  7204 ?        S    10:13   0:00  \_ systemd-userwork: waiting...
+root       15137  0.0  0.0  17016  7244 ?        S    10:14   0:00  \_ systemd-userwork: waiting...
+root         670  0.0  0.0  40752 15928 ?        Ss   Apr19   0:00 /usr/lib/systemd/systemd-udevd
+systemd+     904  0.0  0.1  24076 16520 ?        Ss   Apr19   0:00 /usr/lib/systemd/systemd-resolved
+root         907  0.0  0.0  29132  3480 ?        S<sl Apr19   0:00 /usr/bin/auditd
+root         909  0.0  0.0   6592  3664 ?        S<   Apr19   0:00  \_ /usr/sbin/sedispatch
+dbus         935  0.0  0.0   9588  5148 ?        Ss   Apr19   0:00 /usr/bin/dbus-broker-launch --scope system --audit
+dbus         936  0.0  0.0  10304  6428 ?        S    Apr19   0:01  \_ dbus-broker --log 10 --controller 9 --machine-id 00b569430e474a3cb5388dd442e10870 --max-bytes 536870912 --max-fds 4096 --max-matches 131072 --audit
+avahi        939  0.0  0.0   6560  4600 ?        Ss   Apr19   0:00 avahi-daemon: running [fedora.local]
+avahi        986  0.0  0.0   6560  1660 ?        S    Apr19   0:00  \_ avahi-daemon: chroot helper
+root         940  0.0  0.0   9352  6144 ?        Ss   Apr19   0:00 /usr/libexec/bluetooth/bluetoothd
+root         943  0.0  0.0  81020  4400 ?        Ssl  Apr19   0:00 /usr/sbin/irqbalance
+chrony       945  0.0  0.0  86448  6636 ?        Ss   Apr19   0:00 /usr/sbin/chronyd -n -F 2
+root         946  0.0  0.0   3208  2028 ?        Ss   Apr19   0:00 /usr/sbin/mcelog --daemon --foreground
+polkitd      949  0.0  0.0 611428 12808 ?        Ssl  Apr19   0:00 /usr/lib/polkit-1/polkitd --no-debug --log-level=notice
+rtkit        952  0.0  0.0  87256  3620 ?        SNsl Apr19   0:00 /usr/libexec/rtkit-daemon
+root         953  0.0  0.0   9676  6024 ?        Ss   Apr19   0:00 /usr/bin/smartd -n -q never --capabilities=mail
+root         954  0.0  0.0 531456  7340 ?        Ssl  Apr19   0:00 /usr/libexec/switcheroo-control
+root         958  0.0  0.0 610704 10336 ?        Ssl  Apr19   0:01 /usr/bin/thermald --systemd --dbus-enable --adaptive
+root         959  0.0  0.0 542812 14904 ?        Ssl  Apr19   0:00 /usr/libexec/udisks2/udisksd
+root         961  0.0  0.0 542136 11192 ?        Ssl  Apr19   0:01 /usr/libexec/upowerd
+root         978  0.0  0.0 534012  8452 ?        Ssl  Apr19   0:00 /usr/libexec/accounts-daemon
+root         984  0.0  0.0  20164 12112 ?        Ss   Apr19   0:00 /usr/lib/systemd/systemd-logind
+root         997  0.0  0.0   4976  3640 ?        SNs  Apr19   0:00 /usr/sbin/alsactl -s -n 19 -c -E ALSA_CONFIG_PATH=/etc/alsa/alsactl.conf --initfile=/lib/alsa/init/00main rdaemon
+root        1002  0.0  0.0 553688 14596 ?        Ssl  Apr19   0:00 /usr/sbin/abrtd -d -s
+root        1059  0.0  0.0 391360 13968 ?        Ssl  Apr19   0:00 /usr/bin/ModemManager
+root        1062  0.0  0.3 369404 50104 ?        Ssl  Apr19   0:00 /usr/bin/python3 -sP /usr/bin/firewalld --nofork --nopid
+root        1068  0.0  0.1 398300 21460 ?        Ss   Apr19   0:00 /usr/bin/abrt-dump-journal-core -D -T -f -e
+root        1069  0.0  0.1 398348 24112 ?        Ss   Apr19   0:00 /usr/bin/abrt-dump-journal-oops -fxtD
+root        1070  0.0  0.1 397452 18372 ?        Ss   Apr19   0:00 /usr/bin/abrt-dump-journal-xorg -fxtD
+root        1124  0.0  0.1 559204 23188 ?        Ssl  Apr19   0:02 /usr/bin/NetworkManager --no-daemon
+root        1164  0.0  0.0  16624 11488 ?        Ss   Apr19   0:00 /usr/sbin/wpa_supplicant -c /etc/wpa_supplicant/wpa_supplicant.conf -u -s
+root        1182  0.0  0.0 252400 11700 ?        Ss   Apr19   0:00 /usr/bin/cupsd -l
+root        1183  0.0  0.0 282356  8392 ?        Ssl  Apr19   0:00 /usr/bin/gssproxy -i
+root        1185  0.0  0.2 499740 36296 ?        Ssl  Apr19   0:01 /usr/bin/python3 -Es /usr/sbin/tuned -l -P
+root        1537  0.0  0.2 498252 34360 ?        Ssl  Apr19   0:00 /usr/bin/python3 -Es /usr/sbin/tuned-ppd -l
+root        1590  0.0  0.0 294748 15120 ?        Ssl  Apr19   0:00 /usr/sbin/rsyslogd -n
+root        1594  0.0  0.0   5112  3288 ?        Ss   Apr19   0:00 /usr/sbin/atd -f
+root        1595  0.0  0.0 232568  4048 ?        Ss   Apr19   0:00 /usr/sbin/crond -n
+root        1604  0.0  0.1 384400 27028 ?        Ssl  Apr19   0:00 /usr/bin/sddm
+root        1864  0.0  0.1 308344 25480 ?        S    Apr19   0:00  \_ /usr/libexec/sddm-helper --socket /tmp/sddm-auth-5ca2466e-4aae-4239-8898-749213b38b05 --id 1 --start /usr/libexec/plasma-dbus-run-session-if-needed /usr/bin/startplasma-wayland --user nickson
+nickson     1918  0.0  0.3 523608 48368 tty2     Ssl+ Apr19   0:00      \_ /usr/bin/startplasma-wayland
+root        1624  0.0  0.0 306140  7328 ?        Ssl  Apr19   0:00 /usr/libexec/uresourced
+nickson     1871  0.0  0.0  24340 15788 ?        Ss   Apr19   0:00 /usr/lib/systemd/systemd --user
+nickson     1874  0.0  0.0  16980  3368 ?        S    Apr19   0:00  \_ (sd-pam)
+nickson     1913  0.0  0.0   8960  4608 ?        Ss   Apr19   0:00  \_ /usr/bin/dbus-broker-launch --scope user
+nickson     1914  0.0  0.0   8340  6472 ?        S    Apr19   0:01  |   \_ dbus-broker --log 11 --controller 10 --machine-id 00b569430e474a3cb5388dd442e10870 --max-bytes 100000000000000 --max-fds 25000000000000 --max-matches 5000000000
+nickson     2181  0.0  0.1 382744 20528 ?        Ssl  Apr19   0:00  \_ /usr/bin/kwin_wayland_wrapper --xwayland
+nickson     2197  0.6  1.9 3149524 317336 ?      SLl  Apr19   5:54  |   \_ /usr/bin/kwin_wayland --wayland-fd 7 --socket wayland-0 --xwayland-fd 8 --xwayland-fd 9 --xwayland-display :0 --xwayland-xauthority /run/user/1000/xauth_Yxbakp --xwayland
+nickson     2313  0.0  0.4 348020 72300 ?        Sl   Apr19   0:00  |       \_ /usr/bin/Xwayland :0 -auth /run/user/1000/xauth_Yxbakp -listenfd 8 -listenfd 9 -displayfd 101 -wm 103 -rootless -enable-ei-portal
+nickson    13327  0.0  0.8 1531884 128648 ?      Sl   Apr19   0:00  |       \_ /usr/bin/maliit-keyboard
+nickson     2182  0.0  0.0 381500  9884 ?        Ssl  Apr19   0:00  \_ /usr/libexec/uresourced --user
+nickson     2187  0.0  0.1 336236 17764 ?        Ssl  Apr19   0:00  \_ /usr/bin/pipewire
+nickson     2189  0.0  0.1 939824 29128 ?        Ssl  Apr19   0:01  \_ /usr/bin/wireplumber
+nickson     2193  0.0  0.1 411324 18716 ?        Ssl  Apr19   0:00  \_ /usr/bin/pipewire-pulse
+nickson     2196  0.0  0.1 268900748 27296 ?     SNsl Apr19   0:00  \_ /usr/libexec/kf6/baloo_file
+nickson     2220  0.0  0.1 1321716 18096 ?       Ssl  Apr19   0:00  \_ /usr/libexec/xdg-desktop-portal
+nickson     2226  0.0  0.0 530816  6544 ?        Ssl  Apr19   0:00  \_ /usr/libexec/xdg-permission-store
+nickson     2234  0.0  0.0 764184  7748 ?        Ssl  Apr19   0:00  \_ /usr/libexec/xdg-document-portal
+root        2243  0.0  0.0   2588  1916 ?        Ss   Apr19   0:00  |   \_ fusermount3 -o rw,nosuid,nodev,fsname=portal,auto_unmount,subtype=portal -- /run/user/1000/doc
+nickson     2362  0.0  0.0 380652  7792 ?        Ssl  Apr19   0:00  \_ /usr/libexec/at-spi-bus-launcher
+nickson     2375  0.0  0.0   8960  4180 ?        S    Apr19   0:00  |   \_ /usr/bin/dbus-broker-launch --config-file=/usr/share/defaults/at-spi2/accessibility.conf --scope user
+nickson     2377  0.0  0.0   5080  3140 ?        S    Apr19   0:00  |       \_ dbus-broker --log 10 --controller 9 --machine-id 00b569430e474a3cb5388dd442e10870 --max-bytes 100000000000000 --max-fds 6400000 --max-matches 5000000000
+nickson     2383  0.0  0.5 830292 92160 ?        Ssl  Apr19   0:00  \_ /usr/bin/ksmserver
+nickson     2387  0.0  0.9 2012724 145784 ?      Ssl  Apr19   0:02  \_ /usr/bin/kded6
+nickson     2448  0.0  0.0 163932  6176 ?        Ssl  Apr19   0:00  \_ /usr/libexec/dconf-service
+nickson     2453  0.0  3.2 6389552 522656 ?      SLsl Apr19   0:22  \_ /usr/bin/plasmashell --no-respawn
+nickson     2457  0.0  0.0 168400  7636 ?        Ssl  Apr19   0:00  \_ /usr/libexec/at-spi2-registryd --use-gnome-session
+nickson     2468  0.0  0.2 874740 46512 ?        Ssl  Apr19   0:00  \_ /usr/libexec/kactivitymanagerd
+nickson     2502  0.0  0.1 459716 27340 ?        Ssl  Apr19   0:00  \_ /usr/bin/gmenudbusmenuproxy
+nickson     2503  0.0  0.5 830468 92608 ?        Ssl  Apr19   0:00  \_ /usr/bin/kaccess
+nickson     2509  0.0  0.9 1664880 157528 ?      Ssl  Apr19   0:00  \_ /usr/libexec/kf6/polkit-kde-authentication-agent-1
+nickson     2510  0.0  0.3 906656 59960 ?        Ssl  Apr19   0:05  \_ /usr/libexec/org_kde_powerdevil
+nickson     2511  0.0  0.8 1915524 135416 ?      Ssl  Apr19   0:04  \_ /usr/libexec/xdg-desktop-portal-kde
+nickson     2513  0.0  0.1 459132 26596 ?        Ssl  Apr19   0:00  \_ /usr/bin/xembedsniproxy
+nickson     2514  0.0  0.0   8664  5440 ?        Ss   Apr19   0:00  \_ /usr/bin/ssh-agent -D
+nickson     2515  0.0  0.0  47672  8552 ?        Ss   Apr19   0:00  \_ /usr/libexec/bluetooth/obexd
+nickson     2541  0.0  0.0   7844  4676 ?        S    Apr19   0:00  \_ /usr/bin/xsettingsd
+nickson     2709  0.0  0.1 513828 23144 ?        Ssl  Apr19   0:00  \_ /usr/bin/abrt-applet --gapplication-service
+nickson     2717  0.0  0.6 927176 102244 ?       Ssl  Apr19   0:00  \_ /usr/bin/kdeconnectd
+nickson     2724  0.0  0.6 1281012 104788 ?      Ssl  Apr19   0:00  \_ /usr/bin/xwaylandvideobridge
+nickson     2726  0.0  0.3 750920 54920 ?        Ssl  Apr19   0:00  \_ /usr/bin/python3 -Es /usr/bin/seapplet
+nickson     2734  0.0  0.1 396788 28180 ?        Ssl  Apr19   0:00  \_ /usr/bin/kunifiedpush-distributor
+nickson     2743  0.0  0.1 714652 25380 ?        Ssl  Apr19   0:00  \_ /usr/libexec/xdg-desktop-portal-gtk
+nickson     2747  0.0  0.0 541768  9428 ?        Ssl  Apr19   0:00  \_ /usr/libexec/geoclue-2.0/demos/agent
+nickson     2751  0.0  2.1 1417088 341412 ?      Ssl  Apr19   0:01  \_ /usr/libexec/DiscoverNotifier --check-delay 20
+nickson     2752  0.0  0.9 1421316 152176 ?      Ssl  Apr19   0:00  \_ /usr/bin/kalendarac
+nickson     2896  0.0  0.5 1053116 93044 ?       Sl   Apr19   0:00  \_ /usr/bin/akonadi_control
+nickson     2921  0.0  0.3 2650132 49372 ?       Sl   Apr19   0:00  |   \_ /usr/bin/akonadiserver
+nickson     2932  0.0  0.4 2630120 72336 ?       Sl   Apr19   0:00  |   |   \_ /usr/libexec/mysqld --defaults-file=/home/nickson/.local/share/akonadi/mysql.conf --datadir=/home/nickson/.local/share/akonadi/db_data/ --socket=/run/user/1000/akonadi/mysql.socket --pid-file=/run/user/1000/akonadi/mysql.pid
+nickson     2966  0.0  0.9 1425676 153000 ?      Sl   Apr19   0:00  |   \_ /usr/bin/akonadi_archivemail_agent --identifier akonadi_archivemail_agent
+nickson     2967  0.0  0.2 495476 36020 ?        Sl   Apr19   0:00  |   \_ /usr/bin/akonadi_birthdays_resource --identifier akonadi_birthdays_resource
+nickson     2968  0.0  0.2 493804 35256 ?        Sl   Apr19   0:00  |   \_ /usr/bin/akonadi_contacts_resource --identifier akonadi_contacts_resource_0
+nickson     2969  0.0  0.6 995884 97620 ?        Sl   Apr19   0:00  |   \_ /usr/bin/akonadi_followupreminder_agent --identifier akonadi_followupreminder_agent
+nickson     2970  0.0  0.2 495916 38740 ?        Sl   Apr19   0:00  |   \_ /usr/bin/akonadi_ical_resource --identifier akonadi_ical_resource_0
+nickson     2971  0.0  0.2 516620 45280 ?        SNl  Apr19   0:00  |   \_ /usr/bin/akonadi_indexing_agent --identifier akonadi_indexing_agent
+nickson     2972  0.0  0.2 509628 41976 ?        Sl   Apr19   0:00  |   \_ /usr/bin/akonadi_maildir_resource --identifier akonadi_maildir_resource_0
+nickson     2973  0.0  0.6 994796 97440 ?        Sl   Apr19   0:00  |   \_ /usr/bin/akonadi_maildispatcher_agent --identifier akonadi_maildispatcher_agent
+nickson     2974  0.0  0.9 1425796 153148 ?      Sl   Apr19   0:00  |   \_ /usr/bin/akonadi_mailfilter_agent --identifier akonadi_mailfilter_agent
+nickson     2975  0.0  0.6 1007116 104636 ?      Sl   Apr19   0:00  |   \_ /usr/bin/akonadi_mailmerge_agent --identifier akonadi_mailmerge_agent
+nickson     2976  0.0  0.6 995700 97008 ?        Sl   Apr19   0:00  |   \_ /usr/bin/akonadi_migration_agent --identifier akonadi_migration_agent
+nickson     2977  0.0  0.6 943760 105316 ?       Sl   Apr19   0:00  |   \_ /usr/bin/akonadi_newmailnotifier_agent --identifier akonadi_newmailnotifier_agent
+nickson     2978  0.0  0.9 1356684 150292 ?      Sl   Apr19   0:00  |   \_ /usr/bin/akonadi_sendlater_agent --identifier akonadi_sendlater_agent
+nickson     2979  0.0  0.9 1360236 151132 ?      Sl   Apr19   0:00  |   \_ /usr/bin/akonadi_unifiedmailbox_agent --identifier akonadi_unifiedmailbox_agent
+nickson     2993  0.0  0.0 404320 10676 ?        Ssl  Apr19   0:00  \_ /usr/libexec/imsettings-daemon
+nickson     4080  0.0  0.5 269356412 92444 ?     Ssl  Apr19   0:00  \_ /usr/libexec/baloorunner
+nickson     4105  0.0  0.0 232024  3900 ?        Ss   Apr19   0:00  \_ /bin/bash /usr/bin/brave-browser-stable
+nickson     4109  0.0  0.0 230624  2032 ?        S    Apr19   0:00  |   \_ cat
+nickson     4110  0.0  0.0 230624  2036 ?        S    Apr19   0:00  |   \_ cat
+nickson     4111  0.6  3.1 51773948 500128 ?     Sl   Apr19   5:42  |   \_ /opt/brave.com/brave/brave
+nickson     4121  0.0  0.4 51199984 76136 ?      S    Apr19   0:00  |       \_ /opt/brave.com/brave/brave --type=zygote --no-zygote-sandbox --crashpad-handler-pid=4113 --enable-crash-reporter=, --change-stack-guard-on-fork=enable
+nickson     4169  0.1  1.8 51694624 290048 ?     Sl   Apr19   1:12  |       |   \_ /opt/brave.com/brave/brave --type=gpu-process --ozone-platform=wayland --render-node-override=/dev/dri/renderD128 --crashpad-handler-pid=4113 --enable-crash-reporter=, --change-stack-guard-on-fork=enable --gpu-preferences=UAAAAAAAAAAgAQAEAAAAAAAAAAAAAGAAAQAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAYAAAAAAAAABgAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAA --shared-files --metrics-shmem-handle=4,i,15280245577487430138,6008252648667874478,262144 --field-trial-handle=3,i,3958187259441093502,9993362795654037024,262144 --disable-features=EyeDropper --variations-seed-version=main@f8e33f076d1cfb35494da2da32ae65df3b5dc18e --pseudonymization-salt-handle=7,i,2657668306578491839,2506813987306480994,4 --trace-process-track-uuid=3190708988185955192
+nickson     4122  0.0  0.4 51199968 76860 ?      S    Apr19   0:00  |       \_ /opt/brave.com/brave/brave --type=zygote --crashpad-handler-pid=4113 --enable-crash-reporter=, --change-stack-guard-on-fork=enable
+nickson     4124  0.0  0.1 51199996 20720 ?      S    Apr19   0:00  |       |   \_ /opt/brave.com/brave/brave --type=zygote --crashpad-handler-pid=4113 --enable-crash-reporter=, --change-stack-guard-on-fork=enable
+nickson     4219  0.0  0.4 51269236 67156 ?      Sl   Apr19   0:00  |       |       \_ /opt/brave.com/brave/brave --type=utility --utility-sub-type=storage.mojom.StorageService --lang=en-US --service-sandbox-type=utility --render-node-override=/dev/dri/renderD128 --crashpad-handler-pid=4113 --enable-crash-reporter=, --change-stack-guard-on-fork=enable --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,12695530118208556217,5275628428551284637,524288 --field-trial-handle=3,i,3958187259441093502,9993362795654037024,262144 --disable-features=EyeDropper --variations-seed-version=main@f8e33f076d1cfb35494da2da32ae65df3b5dc18e --pseudonymization-salt-handle=7,i,2657668306578491839,2506813987306480994,4 --trace-process-track-uuid=3190708990060038890
+nickson     4236  0.0  1.3 1460321732 215688 ?   Sl   Apr19   0:04  |       |       \_ /opt/brave.com/brave/brave --type=renderer --crashpad-handler-pid=4113 --enable-crash-reporter=, --enable-distillability-service --origin-trial-public-key=bYUKPJoPnCxeNvu72j4EmPuK7tr1PAC7SHh8ld9Mw3E=,fMS4mpO6buLQ/QMd+zJmxzty/VQ6B1EUZqoCU04zoRU= --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=6 --time-ticks-at-unix-epoch=-1776609337825109 --launch-time-ticks=67199820 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,1311453330825925020,295085528403421562,2097152 --field-trial-handle=3,i,3958187259441093502,9993362795654037024,262144 --disable-features=EyeDropper --variations-seed-version=main@f8e33f076d1cfb35494da2da32ae65df3b5dc18e --pseudonymization-salt-handle=7,i,2657668306578491839,2506813987306480994,4 --trace-process-track-uuid=3190708991934122588
+nickson     4938  0.0  2.0 1460286828 322572 ?   Sl   Apr19   0:11  |       |       \_ /opt/brave.com/brave/brave --type=renderer --crashpad-handler-pid=4113 --enable-crash-reporter=, --enable-distillability-service --origin-trial-public-key=bYUKPJoPnCxeNvu72j4EmPuK7tr1PAC7SHh8ld9Mw3E=,fMS4mpO6buLQ/QMd+zJmxzty/VQ6B1EUZqoCU04zoRU= --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=36 --time-ticks-at-unix-epoch=-1776609337825109 --launch-time-ticks=135212584 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,18228325454928261569,11428666258223402629,2097152 --field-trial-handle=3,i,3958187259441093502,9993362795654037024,262144 --disable-features=EyeDropper --variations-seed-version=main@f8e33f076d1cfb35494da2da32ae65df3b5dc18e --pseudonymization-salt-handle=7,i,2657668306578491839,2506813987306480994,4 --trace-process-track-uuid=3190709020045378058
+nickson     5054  0.0  1.8 1460294808 289020 ?   Sl   Apr19   0:10  |       |       \_ /opt/brave.com/brave/brave --type=renderer --crashpad-handler-pid=4113 --enable-crash-reporter=, --enable-distillability-service --origin-trial-public-key=bYUKPJoPnCxeNvu72j4EmPuK7tr1PAC7SHh8ld9Mw3E=,fMS4mpO6buLQ/QMd+zJmxzty/VQ6B1EUZqoCU04zoRU= --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=48 --time-ticks-at-unix-epoch=-1776609337825109 --launch-time-ticks=181942080 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,2882611461497797279,7933193378394359099,2097152 --field-trial-handle=3,i,3958187259441093502,9993362795654037024,262144 --disable-features=EyeDropper --variations-seed-version=main@f8e33f076d1cfb35494da2da32ae65df3b5dc18e --pseudonymization-salt-handle=7,i,2657668306578491839,2506813987306480994,4 --trace-process-track-uuid=3190709031289880246
+nickson     5082  0.0  0.7 1460270008 125436 ?   Sl   Apr19   0:00  |       |       \_ /opt/brave.com/brave/brave --type=renderer --crashpad-handler-pid=4113 --enable-crash-reporter=, --enable-distillability-service --origin-trial-public-key=bYUKPJoPnCxeNvu72j4EmPuK7tr1PAC7SHh8ld9Mw3E=,fMS4mpO6buLQ/QMd+zJmxzty/VQ6B1EUZqoCU04zoRU= --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=51 --time-ticks-at-unix-epoch=-1776609337825109 --launch-time-ticks=184189149 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,17054257100154904540,3693911290589062795,2097152 --field-trial-handle=3,i,3958187259441093502,9993362795654037024,262144 --disable-features=EyeDropper --variations-seed-version=main@f8e33f076d1cfb35494da2da32ae65df3b5dc18e --pseudonymization-salt-handle=7,i,2657668306578491839,2506813987306480994,4 --trace-process-track-uuid=3190709034101005793
+nickson     5104  0.0  1.0 1460285840 170120 ?   Sl   Apr19   0:05  |       |       \_ /opt/brave.com/brave/brave --type=renderer --crashpad-handler-pid=4113 --enable-crash-reporter=, --enable-distillability-service --origin-trial-public-key=bYUKPJoPnCxeNvu72j4EmPuK7tr1PAC7SHh8ld9Mw3E=,fMS4mpO6buLQ/QMd+zJmxzty/VQ6B1EUZqoCU04zoRU= --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=52 --time-ticks-at-unix-epoch=-1776609337825109 --launch-time-ticks=184919954 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,3066569542379777916,16981031213247623703,2097152 --field-trial-handle=3,i,3958187259441093502,9993362795654037024,262144 --disable-features=EyeDropper --variations-seed-version=main@f8e33f076d1cfb35494da2da32ae65df3b5dc18e --pseudonymization-salt-handle=7,i,2657668306578491839,2506813987306480994,4 --trace-process-track-uuid=3190709035038047642
+nickson     5128  0.0  1.9 1460291152 318100 ?   Sl   Apr19   0:13  |       |       \_ /opt/brave.com/brave/brave --type=renderer --crashpad-handler-pid=4113 --enable-crash-reporter=, --enable-distillability-service --origin-trial-public-key=bYUKPJoPnCxeNvu72j4EmPuK7tr1PAC7SHh8ld9Mw3E=,fMS4mpO6buLQ/QMd+zJmxzty/VQ6B1EUZqoCU04zoRU= --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=54 --time-ticks-at-unix-epoch=-1776609337825109 --launch-time-ticks=185800981 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,10619191296121683899,11210892658359041993,2097152 --field-trial-handle=3,i,3958187259441093502,9993362795654037024,262144 --disable-features=EyeDropper --variations-seed-version=main@f8e33f076d1cfb35494da2da32ae65df3b5dc18e --pseudonymization-salt-handle=7,i,2657668306578491839,2506813987306480994,4 --trace-process-track-uuid=3190709036912131340
+nickson     5244  0.1  1.9 1460298556 313084 ?   Sl   Apr19   1:22  |       |       \_ /opt/brave.com/brave/brave --type=renderer --crashpad-handler-pid=4113 --enable-crash-reporter=, --enable-distillability-service --origin-trial-public-key=bYUKPJoPnCxeNvu72j4EmPuK7tr1PAC7SHh8ld9Mw3E=,fMS4mpO6buLQ/QMd+zJmxzty/VQ6B1EUZqoCU04zoRU= --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=62 --time-ticks-at-unix-epoch=-1776609337825109 --launch-time-ticks=241473195 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,12289247218841353706,1237784295462125904,2097152 --field-trial-handle=3,i,3958187259441093502,9993362795654037024,262144 --disable-features=EyeDropper --variations-seed-version=main@f8e33f076d1cfb35494da2da32ae65df3b5dc18e --pseudonymization-salt-handle=7,i,2657668306578491839,2506813987306480994,4 --trace-process-track-uuid=3190709044408466132
+nickson     5269  0.0  1.3 1460313264 219572 ?   Sl   Apr19   0:05  |       |       \_ /opt/brave.com/brave/brave --type=renderer --crashpad-handler-pid=4113 --enable-crash-reporter=, --enable-distillability-service --origin-trial-public-key=bYUKPJoPnCxeNvu72j4EmPuK7tr1PAC7SHh8ld9Mw3E=,fMS4mpO6buLQ/QMd+zJmxzty/VQ6B1EUZqoCU04zoRU= --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=63 --time-ticks-at-unix-epoch=-1776609337825109 --launch-time-ticks=247804798 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,5108994274011013452,10373375642731397656,2097152 --field-trial-handle=3,i,3958187259441093502,9993362795654037024,262144 --disable-features=EyeDropper --variations-seed-version=main@f8e33f076d1cfb35494da2da32ae65df3b5dc18e --pseudonymization-salt-handle=7,i,2657668306578491839,2506813987306480994,4 --trace-process-track-uuid=3190709045345507981
+nickson     8219  1.4  5.2 1468264912 837240 ?   Sl   Apr19  10:15  |       |       \_ /opt/brave.com/brave/brave --type=renderer --crashpad-handler-pid=4113 --enable-crash-reporter=, --enable-distillability-service --origin-trial-public-key=bYUKPJoPnCxeNvu72j4EmPuK7tr1PAC7SHh8ld9Mw3E=,fMS4mpO6buLQ/QMd+zJmxzty/VQ6B1EUZqoCU04zoRU= --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=78 --time-ticks-at-unix-epoch=-1776609337825109 --launch-time-ticks=2563677104 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,9198489918647041774,16505372550577027132,2097152 --field-trial-handle=3,i,3958187259441093502,9993362795654037024,262144 --disable-features=EyeDropper --variations-seed-version=main@f8e33f076d1cfb35494da2da32ae65df3b5dc18e --pseudonymization-salt-handle=7,i,2657668306578491839,2506813987306480994,4 --trace-process-track-uuid=3190709059401135716
+nickson    11422  0.0  1.6 1460350644 268488 ?   Sl   Apr19   0:26  |       |       \_ /opt/brave.com/brave/brave --type=renderer --crashpad-handler-pid=4113 --enable-crash-reporter=, --enable-distillability-service --origin-trial-public-key=bYUKPJoPnCxeNvu72j4EmPuK7tr1PAC7SHh8ld9Mw3E=,fMS4mpO6buLQ/QMd+zJmxzty/VQ6B1EUZqoCU04zoRU= --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=103 --time-ticks-at-unix-epoch=-1776609337825109 --launch-time-ticks=6187677093 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,167593335105192762,4327651219123949012,2097152 --field-trial-handle=3,i,3958187259441093502,9993362795654037024,262144 --disable-features=EyeDropper --variations-seed-version=main@f8e33f076d1cfb35494da2da32ae65df3b5dc18e --pseudonymization-salt-handle=7,i,2657668306578491839,2506813987306480994,4 --trace-process-track-uuid=3190709082827181941
+nickson    11682  0.0  0.9 1460270600 146652 ?   Sl   Apr19   0:00  |       |       \_ /opt/brave.com/brave/brave --type=renderer --crashpad-handler-pid=4113 --enable-crash-reporter=, --enable-distillability-service --origin-trial-public-key=bYUKPJoPnCxeNvu72j4EmPuK7tr1PAC7SHh8ld9Mw3E=,fMS4mpO6buLQ/QMd+zJmxzty/VQ6B1EUZqoCU04zoRU= --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=116 --time-ticks-at-unix-epoch=-1776609337825109 --launch-time-ticks=6280025248 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,14773586761223565275,12576593416368300074,2097152 --field-trial-handle=3,i,3958187259441093502,9993362795654037024,262144 --disable-features=EyeDropper --variations-seed-version=main@f8e33f076d1cfb35494da2da32ae65df3b5dc18e --pseudonymization-salt-handle=7,i,2657668306578491839,2506813987306480994,4 --trace-process-track-uuid=3190709095008725978
+nickson    11691  0.0  0.8 1460275440 133704 ?   Sl   Apr19   0:00  |       |       \_ /opt/brave.com/brave/brave --type=renderer --crashpad-handler-pid=4113 --enable-crash-reporter=, --enable-distillability-service --origin-trial-public-key=bYUKPJoPnCxeNvu72j4EmPuK7tr1PAC7SHh8ld9Mw3E=,fMS4mpO6buLQ/QMd+zJmxzty/VQ6B1EUZqoCU04zoRU= --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=117 --time-ticks-at-unix-epoch=-1776609337825109 --launch-time-ticks=6280050439 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,124671857545256625,8647934653293411729,2097152 --field-trial-handle=3,i,3958187259441093502,9993362795654037024,262144 --disable-features=EyeDropper --variations-seed-version=main@f8e33f076d1cfb35494da2da32ae65df3b5dc18e --pseudonymization-salt-handle=7,i,2657668306578491839,2506813987306480994,4 --trace-process-track-uuid=3190709095945767827
+nickson    13529  0.0  0.9 1462243828 153504 ?   Sl   Apr19   0:00  |       |       \_ /opt/brave.com/brave/brave --type=renderer --crashpad-handler-pid=4113 --enable-crash-reporter=, --enable-distillability-service --origin-trial-public-key=bYUKPJoPnCxeNvu72j4EmPuK7tr1PAC7SHh8ld9Mw3E=,fMS4mpO6buLQ/QMd+zJmxzty/VQ6B1EUZqoCU04zoRU= --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=129 --time-ticks-at-unix-epoch=-1776609337825109 --launch-time-ticks=7980002475 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,14787970418012467123,6242184634522650622,2097152 --field-trial-handle=3,i,3958187259441093502,9993362795654037024,262144 --disable-features=EyeDropper --variations-seed-version=main@f8e33f076d1cfb35494da2da32ae65df3b5dc18e --pseudonymization-salt-handle=7,i,2657668306578491839,2506813987306480994,4 --trace-process-track-uuid=3190709107190270015
+nickson    13946  4.2  2.2 1460338852 355216 ?   Sl   10:05   0:21  |       |       \_ /opt/brave.com/brave/brave --type=renderer --crashpad-handler-pid=4113 --enable-crash-reporter=, --enable-distillability-service --origin-trial-public-key=bYUKPJoPnCxeNvu72j4EmPuK7tr1PAC7SHh8ld9Mw3E=,fMS4mpO6buLQ/QMd+zJmxzty/VQ6B1EUZqoCU04zoRU= --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=138 --time-ticks-at-unix-epoch=-1776609337825109 --launch-time-ticks=8473850814 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,3116262366301625642,16663799638226337089,2097152 --field-trial-handle=3,i,3958187259441093502,9993362795654037024,262144 --disable-features=EyeDropper --variations-seed-version=main@f8e33f076d1cfb35494da2da32ae65df3b5dc18e --pseudonymization-salt-handle=7,i,2657668306578491839,2506813987306480994,4 --trace-process-track-uuid=3190709115623646656
+nickson    13991  0.2  1.1 1460273496 178568 ?   Sl   10:05   0:01  |       |       \_ /opt/brave.com/brave/brave --type=renderer --crashpad-handler-pid=4113 --enable-crash-reporter=, --enable-distillability-service --origin-trial-public-key=bYUKPJoPnCxeNvu72j4EmPuK7tr1PAC7SHh8ld9Mw3E=,fMS4mpO6buLQ/QMd+zJmxzty/VQ6B1EUZqoCU04zoRU= --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=140 --time-ticks-at-unix-epoch=-1776609337825109 --launch-time-ticks=8484453314 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,7065541950616179778,6283344823488598088,2097152 --field-trial-handle=3,i,3958187259441093502,9993362795654037024,262144 --disable-features=EyeDropper --variations-seed-version=main@f8e33f076d1cfb35494da2da32ae65df3b5dc18e --pseudonymization-salt-handle=7,i,2657668306578491839,2506813987306480994,4 --trace-process-track-uuid=3190709117497730354
+nickson    14011  0.2  0.9 1460290852 157928 ?   Sl   10:06   0:01  |       |       \_ /opt/brave.com/brave/brave --type=renderer --crashpad-handler-pid=4113 --enable-crash-reporter=, --enable-distillability-service --origin-trial-public-key=bYUKPJoPnCxeNvu72j4EmPuK7tr1PAC7SHh8ld9Mw3E=,fMS4mpO6buLQ/QMd+zJmxzty/VQ6B1EUZqoCU04zoRU= --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=142 --time-ticks-at-unix-epoch=-1776609337825109 --launch-time-ticks=8536854859 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,17074878140125702175,14293636902003032601,2097152 --field-trial-handle=3,i,3958187259441093502,9993362795654037024,262144 --disable-features=EyeDropper --variations-seed-version=main@f8e33f076d1cfb35494da2da32ae65df3b5dc18e --pseudonymization-salt-handle=7,i,2657668306578491839,2506813987306480994,4 --trace-process-track-uuid=3190709119371814052
+nickson    14021  0.3  1.0 1460290568 171200 ?   Sl   10:06   0:01  |       |       \_ /opt/brave.com/brave/brave --type=renderer --crashpad-handler-pid=4113 --enable-crash-reporter=, --enable-distillability-service --origin-trial-public-key=bYUKPJoPnCxeNvu72j4EmPuK7tr1PAC7SHh8ld9Mw3E=,fMS4mpO6buLQ/QMd+zJmxzty/VQ6B1EUZqoCU04zoRU= --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=143 --time-ticks-at-unix-epoch=-1776609337825109 --launch-time-ticks=8546941912 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,18127831203326020867,3071192438224837294,2097152 --field-trial-handle=3,i,3958187259441093502,9993362795654037024,262144 --disable-features=EyeDropper --variations-seed-version=main@f8e33f076d1cfb35494da2da32ae65df3b5dc18e --pseudonymization-salt-handle=7,i,2657668306578491839,2506813987306480994,4 --trace-process-track-uuid=3190709120308855901
+nickson    14047  0.0  0.9 1460271300 148468 ?   Sl   10:07   0:00  |       |       \_ /opt/brave.com/brave/brave --type=renderer --crashpad-handler-pid=4113 --enable-crash-reporter=, --extension-process --init-isolate-as-foreground --enable-distillability-service --origin-trial-public-key=bYUKPJoPnCxeNvu72j4EmPuK7tr1PAC7SHh8ld9Mw3E=,fMS4mpO6buLQ/QMd+zJmxzty/VQ6B1EUZqoCU04zoRU= --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=144 --time-ticks-at-unix-epoch=-1776609337825109 --launch-time-ticks=8574157195 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,8296975801970887543,13552955607893452374,2097152 --field-trial-handle=3,i,3958187259441093502,9993362795654037024,262144 --disable-features=EyeDropper --variations-seed-version=main@f8e33f076d1cfb35494da2da32ae65df3b5dc18e --pseudonymization-salt-handle=7,i,2657668306578491839,2506813987306480994,4 --trace-process-track-uuid=3190709121245897750
+nickson    14060  0.1  1.0 1462220664 170500 ?   Sl   10:07   0:00  |       |       \_ /opt/brave.com/brave/brave --type=renderer --crashpad-handler-pid=4113 --enable-crash-reporter=, --enable-distillability-service --origin-trial-public-key=bYUKPJoPnCxeNvu72j4EmPuK7tr1PAC7SHh8ld9Mw3E=,fMS4mpO6buLQ/QMd+zJmxzty/VQ6B1EUZqoCU04zoRU= --change-stack-guard-on-fork=enable --pdf-renderer --ozone-platform=wayland --lang=en-US --js-flags=--jitless --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=145 --time-ticks-at-unix-epoch=-1776609337825109 --launch-time-ticks=8574247914 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,17052159125523388523,1721136493425447211,2097152 --field-trial-handle=3,i,3958187259441093502,9993362795654037024,262144 --disable-features=EyeDropper --variations-seed-version=main@f8e33f076d1cfb35494da2da32ae65df3b5dc18e --pseudonymization-salt-handle=7,i,2657668306578491839,2506813987306480994,4 --trace-process-track-uuid=3190709122182939599
+nickson    14101  0.0  0.8 1460223752 128512 ?   Sl   10:08   0:00  |       |       \_ /opt/brave.com/brave/brave --type=renderer --crashpad-handler-pid=4113 --enable-crash-reporter=, --enable-distillability-service --origin-trial-public-key=bYUKPJoPnCxeNvu72j4EmPuK7tr1PAC7SHh8ld9Mw3E=,fMS4mpO6buLQ/QMd+zJmxzty/VQ6B1EUZqoCU04zoRU= --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=146 --time-ticks-at-unix-epoch=-1776609337825109 --launch-time-ticks=8628803823 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,2502817240021670482,6951454557096514858,2097152 --field-trial-handle=3,i,3958187259441093502,9993362795654037024,262144 --disable-features=EyeDropper --variations-seed-version=main@f8e33f076d1cfb35494da2da32ae65df3b5dc18e --pseudonymization-salt-handle=7,i,2657668306578491839,2506813987306480994,4 --trace-process-track-uuid=3190709123119981448
+nickson    14135  4.3  1.7 1460298812 277344 ?   Sl   10:08   0:14  |       |       \_ /opt/brave.com/brave/brave --type=renderer --crashpad-handler-pid=4113 --enable-crash-reporter=, --enable-distillability-service --origin-trial-public-key=bYUKPJoPnCxeNvu72j4EmPuK7tr1PAC7SHh8ld9Mw3E=,fMS4mpO6buLQ/QMd+zJmxzty/VQ6B1EUZqoCU04zoRU= --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=148 --time-ticks-at-unix-epoch=-1776609337825109 --launch-time-ticks=8651745505 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,6279681822883243527,7143140310525845209,2097152 --field-trial-handle=3,i,3958187259441093502,9993362795654037024,262144 --disable-features=EyeDropper --variations-seed-version=main@f8e33f076d1cfb35494da2da32ae65df3b5dc18e --pseudonymization-salt-handle=7,i,2657668306578491839,2506813987306480994,4 --trace-process-track-uuid=3190709124994065146
+nickson    14688  4.1  1.2 1460306308 198848 ?   Sl   10:12   0:03  |       |       \_ /opt/brave.com/brave/brave --type=renderer --crashpad-handler-pid=4113 --enable-crash-reporter=, --enable-distillability-service --origin-trial-public-key=bYUKPJoPnCxeNvu72j4EmPuK7tr1PAC7SHh8ld9Mw3E=,fMS4mpO6buLQ/QMd+zJmxzty/VQ6B1EUZqoCU04zoRU= --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=158 --time-ticks-at-unix-epoch=-1776609337825109 --launch-time-ticks=8903342313 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,2602597267402378936,8719815536061964808,2097152 --field-trial-handle=3,i,3958187259441093502,9993362795654037024,262144 --disable-features=EyeDropper --variations-seed-version=main@f8e33f076d1cfb35494da2da32ae65df3b5dc18e --pseudonymization-salt-handle=7,i,2657668306578491839,2506813987306480994,4 --trace-process-track-uuid=3190709134364483636
+nickson    14747  0.0  0.7 1460245488 123256 ?   Sl   10:13   0:00  |       |       \_ /opt/brave.com/brave/brave --type=renderer --crashpad-handler-pid=4113 --enable-crash-reporter=, --enable-distillability-service --origin-trial-public-key=bYUKPJoPnCxeNvu72j4EmPuK7tr1PAC7SHh8ld9Mw3E=,fMS4mpO6buLQ/QMd+zJmxzty/VQ6B1EUZqoCU04zoRU= --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=159 --time-ticks-at-unix-epoch=-1776609337825109 --launch-time-ticks=8912827686 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,3725177128494349094,10396998260232679314,2097152 --field-trial-handle=3,i,3958187259441093502,9993362795654037024,262144 --disable-features=EyeDropper --variations-seed-version=main@f8e33f076d1cfb35494da2da32ae65df3b5dc18e --pseudonymization-salt-handle=7,i,2657668306578491839,2506813987306480994,4 --trace-process-track-uuid=3190709135301525485
+nickson    14776  0.0  0.4 1460162684 79720 ?    Sl   10:13   0:00  |       |       \_ /opt/brave.com/brave/brave --type=renderer --crashpad-handler-pid=4113 --enable-crash-reporter=, --enable-distillability-service --origin-trial-public-key=bYUKPJoPnCxeNvu72j4EmPuK7tr1PAC7SHh8ld9Mw3E=,fMS4mpO6buLQ/QMd+zJmxzty/VQ6B1EUZqoCU04zoRU= --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=160 --time-ticks-at-unix-epoch=-1776609337825109 --launch-time-ticks=8915023674 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,2217431908723689074,7497977146034461933,2097152 --field-trial-handle=3,i,3958187259441093502,9993362795654037024,262144 --disable-features=EyeDropper --variations-seed-version=main@f8e33f076d1cfb35494da2da32ae65df3b5dc18e --pseudonymization-salt-handle=7,i,2657668306578491839,2506813987306480994,4 --trace-process-track-uuid=3190709136238567334
+nickson     4171  0.0  0.9 51095772 145696 ?     Sl   Apr19   0:30  |       \_ /opt/brave.com/brave/brave --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --render-node-override=/dev/dri/renderD128 --crashpad-handler-pid=4113 --enable-crash-reporter=, --change-stack-guard-on-fork=enable --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,14793701551480756537,18296785753235185827,524288 --field-trial-handle=3,i,3958187259441093502,9993362795654037024,262144 --disable-features=EyeDropper --variations-seed-version=main@f8e33f076d1cfb35494da2da32ae65df3b5dc18e --pseudonymization-salt-handle=7,i,2657668306578491839,2506813987306480994,4 --trace-process-track-uuid=3190708989122997041
+nickson     4625  0.0  0.6 51082300 102132 ?     Sl   Apr19   0:00  |       \_ /opt/brave.com/brave/brave --type=utility --utility-sub-type=audio.mojom.AudioService --lang=en-US --service-sandbox-type=none --render-node-override=/dev/dri/renderD128 --crashpad-handler-pid=4113 --enable-crash-reporter=, --change-stack-guard-on-fork=enable --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,331298630306481573,8304475074960884408,524288 --field-trial-handle=3,i,3958187259441093502,9993362795654037024,262144 --disable-features=EyeDropper --variations-seed-version=main@f8e33f076d1cfb35494da2da32ae65df3b5dc18e --pseudonymization-salt-handle=7,i,2657668306578491839,2506813987306480994,4 --trace-process-track-uuid=3190709009737917719
+nickson     4113  0.0  0.0 50353764 3912 ?       Sl   Apr19   0:00  \_ /opt/brave.com/brave/chrome_crashpad_handler --monitor-self --monitor-self-annotation=ptype=crashpad-handler --database=/home/nickson/.config/BraveSoftware/Brave-Browser/Crash Reports --url=https://cr.brave.com --annotation=lsb-release=Fedora Linux 43 (KDE Plasma Desktop Edition) --annotation=plat=Linux --annotation=prod=Chrome_Linux --annotation=ver=146.1.88.138 --initial-client-fd=5 --shared-client-connection
+nickson     4115  0.0  0.0 50345552 3656 ?       Sl   Apr19   0:00  \_ /opt/brave.com/brave/chrome_crashpad_handler --no-periodic-tasks --monitor-self-annotation=ptype=crashpad-handler --database=/home/nickson/.config/BraveSoftware/Brave-Browser/Crash Reports --url=https://cr.brave.com --annotation=lsb-release=Fedora Linux 43 (KDE Plasma Desktop Edition) --annotation=plat=Linux --annotation=prod=Chrome_Linux --annotation=ver=146.1.88.138 --initial-client-fd=4 --shared-client-connection
+nickson     4173  0.0  0.6 1060284 96904 ?       SLsl Apr19   0:00  \_ /usr/bin/kwalletd6
+nickson     5694  0.2  1.9 1461897160 318940 ?   Ssl  Apr19   2:05  \_ /usr/share/antigravity/antigravity
+nickson     5697  0.0  0.3 51096756 57852 ?      S    Apr19   0:00  |   \_ /usr/share/antigravity/antigravity --type=zygote --no-zygote-sandbox
+nickson     5736  0.5  1.2 51509648 199708 ?     Sl   Apr19   3:52  |   |   \_ /usr/share/antigravity/antigravity --type=zygote --no-zygote-sandbox
+nickson     5698  0.0  0.3 51096744 57740 ?      S    Apr19   0:00  |   \_ /usr/share/antigravity/antigravity --type=zygote
+nickson     5700  0.0  0.0 51096768 14536 ?      S    Apr19   0:00  |   |   \_ /usr/share/antigravity/antigravity --type=zygote
+nickson     5795  0.0  1.6 1477020944 268768 ?   Sl   Apr19   0:42  |   |       \_ /usr/share/antigravity/antigravity --type=zygote
+nickson     5813  0.0  1.1 1476934848 177320 ?   Sl   Apr19   0:02  |   |       \_ /usr/share/antigravity/antigravity --type=zygote
+nickson     6569  0.8  3.5 1476998296 576536 ?   Rl   Apr19   6:40  |   |       \_ /usr/share/antigravity/antigravity --type=zygote
+nickson     6700  0.1  2.1 1478751196 350632 ?   Sl   Apr19   0:48  |   |       \_ /usr/share/antigravity/antigravity --type=zygote
+nickson     5745  0.0  0.5 34151352 91096 ?      Sl   Apr19   0:21  |   \_ /proc/self/exe --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --render-node-override=/dev/dri/renderD128 --enable-crash-reporter=9597b2d3-f7e5-45c4-9bd7-aec9585710a2,no_channel --user-data-dir=/home/nickson/.config/Antigravity --standard-schemes=vscode-webview,vscode-file --enable-sandbox --secure-schemes=vscode-webview,vscode-file --cors-schemes=vscode-webview,vscode-file --fetch-schemes=vscode-webview,vscode-file --service-worker-schemes=vscode-webview --code-cache-schemes=vscode-webview,vscode-file --shared-files=v8_context_snapshot_data:100 --field-trial-handle=3,i,14720725700649545773,17121303497733222846,262144 --enable-features=DocumentPolicyIncludeJSCallStacksInCrashReports,EarlyEstablishGpuChannel,EstablishGpuChannelAsync,PdfUseShowSaveFilePicker --disable-features=CalculateNativeWinOcclusion,LocalNetworkAccessChecks,ScreenAIOCREnabled,SpareRendererForSitePerProcess,TraceSiteInstanceGetProcessCreation --variations-seed-version --trace-process-track-uuid=3190708989122997041
+nickson     5870  0.1  1.1 1461568192 181108 ?   Sl   Apr19   0:46  |   \_ /proc/self/exe --type=utility --utility-sub-type=node.mojom.NodeService --lang=en-US --service-sandbox-type=none --render-node-override=/dev/dri/renderD128 --enable-crash-reporter=9597b2d3-f7e5-45c4-9bd7-aec9585710a2,no_channel --user-data-dir=/home/nickson/.config/Antigravity --standard-schemes=vscode-webview,vscode-file --enable-sandbox --secure-schemes=vscode-webview,vscode-file --cors-schemes=vscode-webview,vscode-file --fetch-schemes=vscode-webview,vscode-file --service-worker-schemes=vscode-webview --code-cache-schemes=vscode-webview,vscode-file --shared-files=v8_context_snapshot_data:100 --field-trial-handle=3,i,14720725700649545773,17121303497733222846,262144 --enable-features=DocumentPolicyIncludeJSCallStacksInCrashReports,EarlyEstablishGpuChannel,EstablishGpuChannelAsync,PdfUseShowSaveFilePicker --disable-features=CalculateNativeWinOcclusion,LocalNetworkAccessChecks,ScreenAIOCREnabled,SpareRendererForSitePerProcess,TraceSiteInstanceGetProcessCreation --variations-seed-version --trace-process-track-uuid=3190708991934122588
+nickson     5871  0.0  0.7 1461603800 115068 ?   Sl   Apr19   0:02  |   \_ /proc/self/exe --type=utility --utility-sub-type=node.mojom.NodeService --lang=en-US --service-sandbox-type=none --render-node-override=/dev/dri/renderD128 --enable-crash-reporter=9597b2d3-f7e5-45c4-9bd7-aec9585710a2,no_channel --user-data-dir=/home/nickson/.config/Antigravity --standard-schemes=vscode-webview,vscode-file --enable-sandbox --secure-schemes=vscode-webview,vscode-file --cors-schemes=vscode-webview,vscode-file --fetch-schemes=vscode-webview,vscode-file --service-worker-schemes=vscode-webview --code-cache-schemes=vscode-webview,vscode-file --shared-files=v8_context_snapshot_data:100 --field-trial-handle=3,i,14720725700649545773,17121303497733222846,262144 --enable-features=DocumentPolicyIncludeJSCallStacksInCrashReports,EarlyEstablishGpuChannel,EstablishGpuChannelAsync,PdfUseShowSaveFilePicker --disable-features=CalculateNativeWinOcclusion,LocalNetworkAccessChecks,ScreenAIOCREnabled,SpareRendererForSitePerProcess,TraceSiteInstanceGetProcessCreation --variations-seed-version --trace-process-track-uuid=3190708992871164437
+nickson     5880  0.0  1.5 1461590008 249976 ?   Sl   Apr19   0:30  |   \_ /proc/self/exe --type=utility --utility-sub-type=node.mojom.NodeService --lang=en-US --service-sandbox-type=none --render-node-override=/dev/dri/renderD128 --dns-result-order=ipv4first --experimental-network-inspection --inspect-port=0 --enable-crash-reporter=9597b2d3-f7e5-45c4-9bd7-aec9585710a2,no_channel --user-data-dir=/home/nickson/.config/Antigravity --standard-schemes=vscode-webview,vscode-file --enable-sandbox --secure-schemes=vscode-webview,vscode-file --cors-schemes=vscode-webview,vscode-file --fetch-schemes=vscode-webview,vscode-file --service-worker-schemes=vscode-webview --code-cache-schemes=vscode-webview,vscode-file --shared-files=v8_context_snapshot_data:100 --field-trial-handle=3,i,14720725700649545773,17121303497733222846,262144 --enable-features=DocumentPolicyIncludeJSCallStacksInCrashReports,EarlyEstablishGpuChannel,EstablishGpuChannelAsync,PdfUseShowSaveFilePicker --disable-features=CalculateNativeWinOcclusion,LocalNetworkAccessChecks,ScreenAIOCREnabled,SpareRendererForSitePerProcess,TraceSiteInstanceGetProcessCreation --variations-seed-version --trace-process-track-uuid=3190708993808206286
+nickson     6535  0.0  0.9 3679884 147688 ?      Sl   Apr19   0:08  |   |   \_ /usr/share/antigravity/resources/app/extensions/antigravity/bin/language_server_linux_x64 --enable_lsp --csrf_token cbf317de-c960-4e63-a2ea-ae302ea302a1 --extension_server_port 44407 --extension_server_csrf_token ea71e5e1-5d36-4a76-8f4c-e5b10f44cd9e --https_server_port 34327 --lsp_port 43389 --cloud_code_endpoint https://daily-cloudcode-pa.googleapis.com --app_data_dir antigravity --parent_pipe_path /tmp/server_f4b7d8f841ef42a4
+nickson     5934  0.0  0.8 1461718720 134280 ?   Sl   Apr19   0:19  |   \_ /proc/self/exe --type=utility --utility-sub-type=node.mojom.NodeService --lang=en-US --service-sandbox-type=none --render-node-override=/dev/dri/renderD128 --enable-crash-reporter=9597b2d3-f7e5-45c4-9bd7-aec9585710a2,no_channel --user-data-dir=/home/nickson/.config/Antigravity --standard-schemes=vscode-webview,vscode-file --enable-sandbox --secure-schemes=vscode-webview,vscode-file --cors-schemes=vscode-webview,vscode-file --fetch-schemes=vscode-webview,vscode-file --service-worker-schemes=vscode-webview --code-cache-schemes=vscode-webview,vscode-file --shared-files=v8_context_snapshot_data:100 --field-trial-handle=3,i,14720725700649545773,17121303497733222846,262144 --enable-features=DocumentPolicyIncludeJSCallStacksInCrashReports,EarlyEstablishGpuChannel,EstablishGpuChannelAsync,PdfUseShowSaveFilePicker --disable-features=CalculateNativeWinOcclusion,LocalNetworkAccessChecks,ScreenAIOCREnabled,SpareRendererForSitePerProcess,TraceSiteInstanceGetProcessCreation --variations-seed-version --trace-process-track-uuid=3190708994745248135
+nickson     5953  0.0  0.0 233456  5856 pts/1    Ss+  Apr19   0:00  |   |   \_ /usr/bin/bash --init-file /usr/share/antigravity/resources/app/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh
+nickson     6958  0.0  0.0 233456  5804 pts/2    Ss   Apr19   0:00  |   |   \_ /usr/bin/bash --init-file /usr/share/antigravity/resources/app/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh
+nickson     7248  0.0  0.0 233456  3796 pts/2    S+   Apr19   0:00  |   |   |   \_ /usr/bin/bash --init-file /usr/share/antigravity/resources/app/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh
+nickson     7249  0.0  0.0 605068  7008 pts/2    Sl+  Apr19   0:00  |   |   |       \_ /usr/libexec/pk-command-not-found npx -y create-vite@latest --help
+nickson     7339  0.0  0.0 233456  5604 pts/3    Ss   Apr19   0:00  |   |   \_ /usr/bin/bash --init-file /usr/share/antigravity/resources/app/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh
+nickson     7572  0.0  0.0 233456  3804 pts/3    S+   Apr19   0:00  |   |   |   \_ /usr/bin/bash --init-file /usr/share/antigravity/resources/app/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh
+nickson     7573  0.0  0.0 605068  6928 pts/3    Sl+  Apr19   0:00  |   |   |       \_ /usr/libexec/pk-command-not-found npx -y create-vite@latest auto-express --template react
+nickson     7614  0.0  0.0 233452  5740 pts/4    Ss   Apr19   0:00  |   |   \_ /usr/bin/bash --init-file /usr/share/antigravity/resources/app/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh
+nickson     7911  0.0  0.0 233452  3752 pts/4    S+   Apr19   0:00  |   |   |   \_ /usr/bin/bash --init-file /usr/share/antigravity/resources/app/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh
+nickson     7912  0.0  0.0 605068  7004 pts/4    Sl+  Apr19   0:00  |   |   |       \_ /usr/libexec/pk-command-not-found npm install --no-audit --no-fund
+nickson     7951  0.0  0.0 233456  5744 pts/5    Ss   Apr19   0:00  |   |   \_ /usr/bin/bash --init-file /usr/share/antigravity/resources/app/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh
+nickson     8072  0.0  0.0 233456  3756 pts/5    S+   Apr19   0:00  |   |   |   \_ /usr/bin/bash --init-file /usr/share/antigravity/resources/app/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh
+nickson     8073  0.0  0.0 605068  6904 pts/5    Sl+  Apr19   0:00  |   |   |       \_ /usr/libexec/pk-command-not-found node -v
+nickson     8931  0.0  0.0 233456  5816 pts/6    Ss   Apr19   0:00  |   |   \_ /usr/bin/bash --init-file /usr/share/antigravity/resources/app/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh
+nickson     9678 10.8  0.1 255920 27460 pts/6    R+   Apr19  75:47  |   |   |   \_ grep --color=auto -r Migration Block 001 /
+nickson     9679  0.0  0.0 230372  2316 pts/6    S+   Apr19   0:00  |   |   |   \_ head -n 5
+nickson     9718  0.0  0.0 233456  5816 pts/7    Ss   Apr19   0:00  |   |   \_ /usr/bin/bash --init-file /usr/share/antigravity/resources/app/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh
+nickson    10062  0.0  0.0 233456  3768 pts/7    S+   Apr19   0:00  |   |   |   \_ /usr/bin/bash --init-file /usr/share/antigravity/resources/app/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh
+nickson    10063  0.0  0.0 605068  6992 pts/7    Sl+  Apr19   0:00  |   |   |       \_ /usr/libexec/pk-command-not-found npx create-next-app@latest --help
+nickson    10107  0.0  0.0 233456  5908 pts/8    Ss   Apr19   0:00  |   |   \_ /usr/bin/bash --init-file /usr/share/antigravity/resources/app/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh
+nickson    10791  0.0  0.0 233456  3756 pts/8    S+   Apr19   0:00  |   |   |   \_ /usr/bin/bash --init-file /usr/share/antigravity/resources/app/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh
+nickson    10792  0.0  0.0 605068  6840 pts/8    Sl+  Apr19   0:00  |   |   |       \_ /usr/libexec/pk-command-not-found npx create-next-app --version
+nickson    10229  0.0  0.0 233456  5872 pts/9    Ss   Apr19   0:00  |   |   \_ /usr/bin/bash --init-file /usr/share/antigravity/resources/app/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh
+nickson    10333  0.0  0.0 233456  3848 pts/9    S+   Apr19   0:00  |   |   |   \_ /usr/bin/bash --init-file /usr/share/antigravity/resources/app/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh
+nickson    10334  0.0  0.0 605068  6976 pts/9    Sl+  Apr19   0:00  |   |   |       \_ /usr/libexec/pk-command-not-found npm run dev -- --port 5173 --host 0.0.0.0
+nickson    10356  0.0  0.0 233456  5608 pts/10   Ss   Apr19   0:00  |   |   \_ /usr/bin/bash --init-file /usr/share/antigravity/resources/app/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh
+nickson    10885  0.0  0.0 233456  3808 pts/10   S+   Apr19   0:00  |   |   |   \_ /usr/bin/bash --init-file /usr/share/antigravity/resources/app/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh
+nickson    10886  0.0  0.0 605068  6968 pts/10   Sl+  Apr19   0:00  |   |   |       \_ /usr/libexec/pk-command-not-found npm install
+nickson    10930  0.0  0.0 233456  5804 pts/11   Ss   Apr19   0:00  |   |   \_ /usr/bin/bash --init-file /usr/share/antigravity/resources/app/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh
+nickson    11191  0.0  0.0 233456  3856 pts/11   S+   Apr19   0:00  |   |   |   \_ /usr/bin/bash --init-file /usr/share/antigravity/resources/app/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh
+nickson    11192  0.0  0.0 605068  7052 pts/11   Sl+  Apr19   0:00  |   |   |       \_ /usr/libexec/pk-command-not-found npm install framer-motion lucide-react @supabase/supabase-js
+nickson    11829  0.0  0.0 233456  5600 pts/12   Ss   Apr19   0:00  |   |   \_ /usr/bin/bash --init-file /usr/share/antigravity/resources/app/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh
+nickson    12118  0.0  0.0 233456  3816 pts/12   S+   Apr19   0:00  |   |   |   \_ /usr/bin/bash --init-file /usr/share/antigravity/resources/app/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh
+nickson    12119  0.0  0.0 605068  6968 pts/12   Sl+  Apr19   0:00  |   |   |       \_ /usr/libexec/pk-command-not-found npm install
+nickson    12298  0.0  0.0 233456  5872 pts/13   Ss   Apr19   0:00  |   |   \_ /usr/bin/bash --init-file /usr/share/antigravity/resources/app/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh
+nickson    12445  0.0  0.0 233456  3784 pts/13   S+   Apr19   0:00  |   |   |   \_ /usr/bin/bash --init-file /usr/share/antigravity/resources/app/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh
+nickson    12446  0.0  0.0 605068  6960 pts/13   Sl+  Apr19   0:00  |   |   |       \_ /usr/libexec/pk-command-not-found npm install
+nickson    12946  0.0  0.0 233456  5904 pts/16   Ss   Apr19   0:00  |   |   \_ /usr/bin/bash --init-file /usr/share/antigravity/resources/app/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh
+nickson    14325  0.0  0.0 233456  3828 pts/16   S+   10:10   0:00  |   |   |   \_ /usr/bin/bash --init-file /usr/share/antigravity/resources/app/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh
+nickson    14326  0.0  0.0 605068  6924 pts/16   Sl+  10:10   0:00  |   |   |       \_ /usr/libexec/pk-command-not-found npm ping
+nickson    14369  0.0  0.0 233456  5808 pts/15   Ss   10:10   0:00  |   |   \_ /usr/bin/bash --init-file /usr/share/antigravity/resources/app/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh
+nickson    14477  0.0  0.0 233456  3832 pts/15   S+   10:11   0:00  |   |   |   \_ /usr/bin/bash --init-file /usr/share/antigravity/resources/app/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh
+nickson    14478  0.0  0.0 605068  6992 pts/15   Sl+  10:11   0:00  |   |   |       \_ /usr/libexec/pk-command-not-found npm install next@14.2.3 react@18 react-dom@18 --no-bin-links --no-package-lock
+nickson    14534  0.0  0.0 233456  5736 pts/17   Ss   10:12   0:00  |   |   \_ /usr/bin/bash --init-file /usr/share/antigravity/resources/app/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh
+nickson    14715  0.0  0.0 233456  3872 pts/17   S+   10:12   0:00  |   |   |   \_ /usr/bin/bash --init-file /usr/share/antigravity/resources/app/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh
+nickson    14716  0.0  0.0 605068  6920 pts/17   Sl+  10:12   0:00  |   |   |       \_ /usr/libexec/pk-command-not-found node -e console.log('node is healthy')
+nickson    14788  0.0  0.0 233456  5876 pts/18   Ss   10:13   0:00  |   |   \_ /usr/bin/bash --init-file /usr/share/antigravity/resources/app/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh
+nickson    14982  0.0  0.0 233456  3848 pts/18   S+   10:13   0:00  |   |   |   \_ /usr/bin/bash --init-file /usr/share/antigravity/resources/app/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh
+nickson    14983  0.0  0.0 605068  6932 pts/18   Sl+  10:13   0:00  |   |   |       \_ /usr/libexec/pk-command-not-found npm --version
+nickson    15013  0.0  0.0 233456  5888 pts/19   Ss   10:13   0:00  |   |   \_ /usr/bin/bash --init-file /usr/share/antigravity/resources/app/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh
+nickson    15151  0.0  0.0 234912  5256 pts/19   R+   10:14   0:00  |   |       \_ ps auxf
+nickson     6063  0.0  0.4 34184932 71200 ?      Sl   Apr19   0:00  |   \_ /proc/self/exe --type=utility --utility-sub-type=audio.mojom.AudioService --lang=en-US --service-sandbox-type=none --render-node-override=/dev/dri/renderD128 --enable-crash-reporter=9597b2d3-f7e5-45c4-9bd7-aec9585710a2,no_channel --user-data-dir=/home/nickson/.config/Antigravity --standard-schemes=vscode-webview,vscode-file --enable-sandbox --secure-schemes=vscode-webview,vscode-file --cors-schemes=vscode-webview,vscode-file --fetch-schemes=vscode-webview,vscode-file --service-worker-schemes=vscode-webview --code-cache-schemes=vscode-webview,vscode-file --shared-files=v8_context_snapshot_data:100 --field-trial-handle=3,i,14720725700649545773,17121303497733222846,262144 --enable-features=DocumentPolicyIncludeJSCallStacksInCrashReports,EarlyEstablishGpuChannel,EstablishGpuChannelAsync,PdfUseShowSaveFilePicker --disable-features=CalculateNativeWinOcclusion,LocalNetworkAccessChecks,ScreenAIOCREnabled,SpareRendererForSitePerProcess,TraceSiteInstanceGetProcessCreation --variations-seed-version --trace-process-track-uuid=3190708995682289984
+nickson     6824  0.0  0.7 1478381016 121568 ?   Sl   Apr19   0:03  |   \_ /proc/self/exe --type=utility --utility-sub-type=node.mojom.NodeService --lang=en-US --service-sandbox-type=none --render-node-override=/dev/dri/renderD128 --enable-crash-reporter=9597b2d3-f7e5-45c4-9bd7-aec9585710a2,no_channel --user-data-dir=/home/nickson/.config/Antigravity --standard-schemes=vscode-webview,vscode-file --enable-sandbox --secure-schemes=vscode-webview,vscode-file --cors-schemes=vscode-webview,vscode-file --fetch-schemes=vscode-webview,vscode-file --service-worker-schemes=vscode-webview --code-cache-schemes=vscode-webview,vscode-file --shared-files=v8_context_snapshot_data:100 --field-trial-handle=3,i,14720725700649545773,17121303497733222846,262144 --enable-features=DocumentPolicyIncludeJSCallStacksInCrashReports,EarlyEstablishGpuChannel,EstablishGpuChannelAsync,PdfUseShowSaveFilePicker --disable-features=CalculateNativeWinOcclusion,LocalNetworkAccessChecks,ScreenAIOCREnabled,SpareRendererForSitePerProcess,TraceSiteInstanceGetProcessCreation --variations-seed-version --trace-process-track-uuid=3190709005989750323
+nickson     6839  0.0  1.7 1461588208 286236 ?   Sl   Apr19   0:39  |   \_ /proc/self/exe --type=utility --utility-sub-type=node.mojom.NodeService --lang=en-US --service-sandbox-type=none --render-node-override=/dev/dri/renderD128 --dns-result-order=ipv4first --experimental-network-inspection --inspect-port=0 --enable-crash-reporter=9597b2d3-f7e5-45c4-9bd7-aec9585710a2,no_channel --user-data-dir=/home/nickson/.config/Antigravity --standard-schemes=vscode-webview,vscode-file --enable-sandbox --secure-schemes=vscode-webview,vscode-file --cors-schemes=vscode-webview,vscode-file --fetch-schemes=vscode-webview,vscode-file --service-worker-schemes=vscode-webview --code-cache-schemes=vscode-webview,vscode-file --shared-files=v8_context_snapshot_data:100 --field-trial-handle=3,i,14720725700649545773,17121303497733222846,262144 --enable-features=DocumentPolicyIncludeJSCallStacksInCrashReports,EarlyEstablishGpuChannel,EstablishGpuChannelAsync,PdfUseShowSaveFilePicker --disable-features=CalculateNativeWinOcclusion,LocalNetworkAccessChecks,ScreenAIOCREnabled,SpareRendererForSitePerProcess,TraceSiteInstanceGetProcessCreation --variations-seed-version --trace-process-track-uuid=3190709006926792172
+nickson     7011  0.1  1.7 4947724 272848 ?      Rl   Apr19   1:18  |       \_ /usr/share/antigravity/resources/app/extensions/antigravity/bin/language_server_linux_x64 --enable_lsp --csrf_token 78259883-b670-4f78-b6fc-59eb106bcfe8 --extension_server_port 41057 --extension_server_csrf_token 2e790d84-b2ff-427f-9b69-f6cf88e39ad5 --workspace_id file_home_nickson_Documents_auto_20express --cloud_code_endpoint https://daily-cloudcode-pa.googleapis.com --app_data_dir antigravity --parent_pipe_path /tmp/server_7713db92a3f95a49
+nickson     7320  0.0  0.6 1459542372 98828 ?    Sl   Apr19   0:00  |       \_ /usr/share/antigravity/antigravity /usr/share/antigravity/resources/app/extensions/markdown-language-features/dist/serverWorkerMain --node-ipc --clientProcessId=6839
+nickson     7737  0.0  0.6 1459575220 109472 ?   Sl   Apr19   0:01  |       \_ /usr/share/antigravity/antigravity /usr/share/antigravity/resources/app/extensions/json-language-features/server/dist/node/jsonServerMain --node-ipc --clientProcessId=6839
+nickson     7762  0.0  0.8 1459542372 143488 ?   Sl   Apr19   0:01  |       \_ /usr/share/antigravity/antigravity --max-old-space-size=3072 /usr/share/antigravity/resources/app/extensions/node_modules/typescript/lib/tsserver.js --serverMode partialSemantic --useInferredProjectPerProjectRoot --disableAutomaticTypingAcquisition --cancellationPipeName /tmp/vscode-typescript1000/f64ef52d51ea0fd50554/tscancellation-a3bbb466b9f621ceb7fe.tmp* --locale en --noGetErrOnBackgroundUpdate --canUseWatchEvents --validateDefaultNpmLocation --useNodeIpc
+nickson     7763  0.0  1.1 1459542372 179504 ?   Sl   Apr19   0:04  |       \_ /usr/share/antigravity/antigravity --max-old-space-size=3072 /usr/share/antigravity/resources/app/extensions/node_modules/typescript/lib/tsserver.js --useInferredProjectPerProjectRoot --enableTelemetry --cancellationPipeName /tmp/vscode-typescript1000/f64ef52d51ea0fd50554/tscancellation-978ad03e8f7a0e27724e.tmp* --locale en --noGetErrOnBackgroundUpdate --canUseWatchEvents --validateDefaultNpmLocation --useNodeIpc
+nickson     7778  0.0  0.7 1459542372 115432 ?   Sl   Apr19   0:00  |       |   \_ /usr/share/antigravity/antigravity /usr/share/antigravity/resources/app/extensions/node_modules/typescript/lib/typingsInstaller.js --globalTypingsCacheLocation /home/nickson/.cache/typescript/5.9 --enableTelemetry --typesMapLocation /usr/share/antigravity/resources/app/extensions/node_modules/typescript/lib/typesMap.json --validateDefaultNpmLocation
+nickson     7819  0.0  0.7 1459542372 121948 ?   Sl   Apr19   0:00  |       \_ /usr/share/antigravity/antigravity /usr/share/antigravity/resources/app/extensions/html-language-features/server/dist/node/htmlServerMain --node-ipc --clientProcessId=6839
+nickson     7837  0.0  0.6 1476319588 101444 ?   Sl   Apr19   0:00  |       \_ /usr/share/antigravity/antigravity /usr/share/antigravity/resources/app/extensions/css-language-features/server/dist/node/cssServerMain --node-ipc --clientProcessId=6839
+nickson     6635  0.0  1.0 1916444 175776 ?      Ssl  Apr19   0:02  \_ /usr/bin/dolphin
+nickson    12585  0.0  0.9 1466096 154288 ?      Ssl  Apr19   0:00  \_ /usr/bin/konsole
+nickson    12601  0.0  0.0 233288  5840 pts/14   Ss+  Apr19   0:00  |   \_ /bin/bash
+nickson    14233  0.4  1.7 2187948 274640 ?      Ssl  10:09   0:01  \_ /usr/bin/spectacle --dbus
+nickson     1917  0.0  0.6 926044 97396 ?        SLl  Apr19   0:00 /usr/bin/ksecretd --pam-login 13 14
+root        2785  0.0  0.0 554204 15164 ?        Ssl  Apr19   0:00 /usr/sbin/abrt-dbus -t133
+root        3335  0.0  0.0 674696  8304 ?        Ssl  Apr19   0:00 /usr/bin/pcscd --foreground --auto-exit
+root       14332  1.1  1.4 787468 238196 ?       Ssl  10:10   0:02 /usr/libexec/packagekitd
