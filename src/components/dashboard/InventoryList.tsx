@@ -15,7 +15,7 @@ const inventoryData = [
     mileage: '900',
     location: 'USA',
     price: '$265,000',
-    image: 'https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?q=80&w=200&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?q=80&w=300&auto=format&fit=crop',
     statusColor: 'text-green-400 border-green-400/30',
   },
   {
@@ -28,7 +28,7 @@ const inventoryData = [
     mileage: '900',
     location: 'USA',
     price: '$198,500',
-    image: 'https://images.unsplash.com/photo-1503376711100-349f7baaa5b3?q=80&w=200&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=300&auto=format&fit=crop',
     statusColor: 'text-amber-400 border-amber-400/30',
   },
   {
@@ -41,7 +41,7 @@ const inventoryData = [
     mileage: '900',
     location: 'USA',
     price: '$198,500',
-    image: 'https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=200&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=300&auto=format&fit=crop',
     statusColor: 'text-white border-white/30',
   },
   {
@@ -54,7 +54,7 @@ const inventoryData = [
     mileage: '900',
     location: 'USA',
     price: '$125,000',
-    image: 'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=200&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=300&auto=format&fit=crop',
     statusColor: 'text-rose-400 border-rose-400/30',
   },
   {
@@ -67,7 +67,7 @@ const inventoryData = [
     mileage: '500',
     location: 'USA',
     price: '$175,000',
-    image: 'https://images.unsplash.com/photo-1620882745778-43e9365e64ec?q=80&w=200&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1621136531940-0e1a14a79901?q=80&w=300&auto=format&fit=crop',
     statusColor: 'text-rose-400 border-rose-400/30',
   },
 ];
@@ -142,13 +142,15 @@ const InventoryList = () => {
               <tr key={item.id} className="group hover:bg-white/[0.02] transition-colors">
                 <td className="py-3">
                   <div className="flex items-center gap-4">
-                    <div className="w-16 h-10 rounded-md overflow-hidden relative border border-gray-800 bg-navy-card flex items-center justify-center">
-                      <Image 
+                    <div className="w-16 h-10 rounded-md overflow-hidden relative border border-gray-800 bg-navy-card/50 flex items-center justify-center">
+                      {/* Using standard img for reliability with external domains */}
+                      <img 
                         src={item.image} 
                         alt={item.model}
-                        fill
-                        className="object-cover"
-                        unoptimized
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          e.currentTarget.src = 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=200&auto=format&fit=crop'; // Final fallback
+                        }}
                       />
                     </div>
                     <div>

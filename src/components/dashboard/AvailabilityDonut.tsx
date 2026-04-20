@@ -49,7 +49,7 @@ const AvailabilityDonut = () => {
               <Tooltip 
                 contentStyle={{ backgroundColor: '#0f172a', borderColor: '#1e293b', fontSize: '12px', borderRadius: '8px' }}
                 itemStyle={{ color: '#ffffff' }}
-                formatter={(value: number) => [`${value}%`, 'Share']}
+                formatter={(value: any) => [`${value}%`, 'Share']}
               />
             </PieChart>
           </ResponsiveContainer>
