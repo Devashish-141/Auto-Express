@@ -100,6 +100,21 @@ export async function logPayment({ dealId, amount, date, method, repCode }: LogP
   return data;
 }
 
+export async function voidPayment(paymentId: string, reason: string) {
+  const { data, error } = await supabase
+    .from('payments')
+    .update({ 
+      is_voided: true, 
+      void_reason: reason
+    })
+    .eq('id', paymentId)
+    .select()
+    .single();
+
+  if (error) throw error;
+  return data;
+}
+
 export async function getFinancialStatusByVehicle(vehicleId: string) {
   // 1. Get the latest deal for this vehicle
   const { data: deal, error: dealError } = await supabase

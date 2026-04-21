@@ -18,6 +18,7 @@ import {
   Hash
 } from 'lucide-react';
 import Link from 'next/link';
+import WaterfallSequence from '@/components/WaterfallSequence';
 
 interface Deal {
   id: string;
@@ -31,12 +32,17 @@ interface Deal {
     vin: string;
     image_url?: string;
   };
+  unfinanceable?: boolean;
 }
 
 interface Payment {
   id: string;
   amount: number;
   is_voided: boolean;
+  payment_date: string;
+  method: string;
+  rep_code: string;
+  void_reason?: string;
 }
 
 interface FinanceApp {
@@ -46,7 +52,7 @@ interface FinanceApp {
   approved_amount: number;
 }
 
-const LENDERS = ['Finance Ireland', 'Close Brothers', 'Finance4U'];
+
 
 export default function GarageDealPage() {
   const params = useParams();
@@ -72,7 +78,14 @@ export default function GarageDealPage() {
           vin: isDemo1 ? 'AMVDB12V8SK9012' : 'WBA53CM040N1234'
         }
       });
-      setPayments([{ id: 'p1', amount: isDemo1 ? 50000 : 25000, is_voided: false }]);
+      setPayments([{ 
+        id: 'p1', 
+        amount: isDemo1 ? 50000 : 25000, 
+        is_voided: false,
+        payment_date: new Date().toISOString(),
+        method: 'Transfer',
+        rep_code: 'DEMO-REP'
+      }]);
       setFinanceApps([
         { id: 'f1', lender_name: 'Finance Ireland', status: isDemo1 ? 'approved' : 'declined', approved_amount: isDemo1 ? 200000 : 0 }
       ]);
@@ -87,6 +100,7 @@ export default function GarageDealPage() {
         id, 
         customer_name, 
         status,
+        unfinanceable,
         vehicles (make, model, price, vin, image_url)
       `)
       .eq('id', dealId)
@@ -101,8 +115,9 @@ export default function GarageDealPage() {
     // 2. Fetch Payments
     const { data: paymentsData } = await supabase
       .from('payments')
-      .select('id, amount, is_voided')
-      .eq('deal_id', dealId);
+      .select('id, amount, is_voided, payment_date, method, rep_code, void_reason')
+      .eq('deal_id', dealId)
+      .order('payment_date', { ascending: false });
 
     if (paymentsData) setPayments(paymentsData);
 
@@ -148,38 +163,7 @@ export default function GarageDealPage() {
     return 'text-rose-500';
   };
 
-  const getLenderStatus = (name: string) => {
-    const app = financeApps.find(a => a.lender_name === name);
-    if (app) return app.status === 'active' ? 'pending' : app.status;
-    
-    // Waterfall logic for UI locking
-    const index = LENDERS.indexOf(name);
-    if (index === 0) return 'pending'; 
-    
-    const prevLender = LENDERS[index - 1];
-    const prevApp = financeApps.find(a => a.lender_name === prevLender);
-    
-    if (prevApp?.status === 'declined') return 'pending';
-    return 'locked';
-  };
 
-  const handleUpdateFinance = async (lender: string, status: string) => {
-    const existing = financeApps.find(a => a.lender_name === lender);
-    if (existing) {
-      await supabase
-        .from('finance_apps')
-        .update({ status, updated_at: new Date().toISOString() })
-        .eq('id', existing.id);
-    } else {
-      await supabase
-        .from('finance_apps')
-        .insert({
-          deal_id: dealId,
-          lender_name: lender,
-          status
-        });
-    }
-  };
 
   if (loading) {
     return (
@@ -300,100 +284,10 @@ export default function GarageDealPage() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div className="lg:col-span-2 space-y-8">
               {/* Payment Logger Component */}
-              <PaymentLogger dealId={dealId} onPaymentLogged={fetchData} />
+              <PaymentLogger dealId={dealId} payments={payments} onPaymentLogged={fetchData} />
 
               {/* Finance Waterfall Section */}
-              <div className="space-y-6">
-                <div className="flex items-center justify-between px-2">
-                  <div>
-                    <h2 className="text-2xl font-black tracking-tight uppercase">Finance Waterfall</h2>
-                    <p className="text-gray-500 uppercase tracking-widest text-[9px] mt-1 font-bold">[KI-001] Sequential Application Gate</p>
-                  </div>
-                  <div className="px-4 py-2 bg-amber-500/10 border border-amber-500/20 rounded-xl text-[10px] font-black text-amber-500 tracking-tighter uppercase italic">
-                    Sequential Locking Active
-                  </div>
-                </div>
-
-                <div className="grid gap-4">
-                  {LENDERS.map((name, index) => {
-                    const status = getLenderStatus(name);
-                    const isLocked = status === 'locked';
-                    
-                    return (
-                      <motion.div 
-                        key={name}
-                        initial={false}
-                        animate={{ 
-                          filter: isLocked ? 'blur(4px)' : 'blur(0px)',
-                          opacity: isLocked ? 0.3 : 1,
-                          scale: isLocked ? 0.98 : 1
-                        }}
-                        transition={{ duration: 0.4, ease: 'easeOut' }}
-                        className={`relative group ${isLocked ? 'pointer-events-none' : ''}`}
-                      >
-                        <div className="glass-card p-6 flex flex-col md:flex-row md:items-center justify-between gap-6 overflow-hidden bg-black/20 hover:bg-black/40 transition-all border-white/5 group-hover:border-white/20">
-                          {isLocked && (
-                            <div className="absolute inset-0 z-20 flex items-center justify-center bg-black/40 backdrop-blur-[2px]">
-                              <div className="flex flex-col items-center gap-2">
-                                <Lock className="text-gray-600" size={20} />
-                                <span className="text-[8px] uppercase tracking-[0.3em] text-gray-600 font-bold font-mono">Sequential Lock</span>
-                              </div>
-                            </div>
-                          )}
-                          
-                          <div className="flex items-center gap-6">
-                            <div className={`w-14 h-14 rounded-2xl flex items-center justify-center border transition-all ${
-                              status === 'approved' ? 'bg-teal-500/10 text-teal-500 border-teal-500/30' :
-                              status === 'declined' ? 'bg-rose-500/10 text-rose-500 border-rose-500/30' :
-                              'bg-amber-500/10 text-amber-500 border-amber-500/30'
-                            }`}>
-                              {status === 'approved' ? <CheckCircle2 size={28} /> :
-                               status === 'declined' ? <XCircle size={28} /> :
-                               <AlertCircle size={28} />}
-                            </div>
-                            <div>
-                              <h4 className="text-xl font-black uppercase tracking-tight">{name}</h4>
-                              <div className="flex items-center gap-2 mt-1">
-                                <span className="text-[9px] text-gray-500 uppercase tracking-widest font-mono">Status:</span>
-                                <span className={`text-[9px] font-black uppercase tracking-widest ${
-                                  status === 'approved' ? 'text-teal-500' :
-                                  status === 'declined' ? 'text-rose-500' :
-                                  'text-amber-500'
-                                }`}>{status}</span>
-                              </div>
-                            </div>
-                          </div>
-
-                          <div className="flex items-center gap-4">
-                            {status === 'pending' && (
-                              <div className="flex items-center gap-2">
-                                <button 
-                                  onClick={() => handleUpdateFinance(name, 'declined')}
-                                  className="px-6 py-3 rounded-xl border border-rose-500/30 text-rose-500 text-[10px] font-black uppercase tracking-[0.2em] hover:bg-rose-500/10 transition-all"
-                                >
-                                  Decline
-                                </button>
-                                <button 
-                                  onClick={() => handleUpdateFinance(name, 'approved')}
-                                  className="btn-primary py-3 px-8 text-[10px] font-black uppercase tracking-[0.2em] shadow-[0_10px_20px_rgba(245,158,11,0.2)]"
-                                >
-                                  Approve
-                                </button>
-                              </div>
-                            )}
-                            {status === 'approved' && (
-                              <div className="text-right p-4 bg-teal-500/5 rounded-2xl border border-teal-500/10">
-                                <p className="text-[8px] text-gray-500 uppercase tracking-widest mb-1">Allocated Funding</p>
-                                <p className="text-2xl font-mono text-teal-500 font-black tracking-tighter">€{(Number(financeApps.find(a => a.lender_name === name)?.approved_amount) || 25000).toLocaleString()}</p>
-                              </div>
-                            )}
-                          </div>
-                        </div>
-                      </motion.div>
-                    );
-                  })}
-                </div>
-              </div>
+              <WaterfallSequence dealId={dealId} onUpdate={fetchData} />
             </div>
 
             {/* Sidebar / Info */}
