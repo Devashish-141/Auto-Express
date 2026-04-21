@@ -15,7 +15,12 @@ export const RepProvider = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     const savedRep = localStorage.getItem('rep_code');
-    if (savedRep) setRep(savedRep);
+    if (savedRep) {
+      setRep(savedRep);
+    } else {
+      // Default to DEMO-01 to bypass gate for now
+      setRep('DEMO-01');
+    }
   }, []);
 
   const login = (code: string) => {

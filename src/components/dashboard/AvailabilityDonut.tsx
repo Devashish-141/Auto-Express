@@ -11,18 +11,16 @@ const data = [
   { name: 'Hypercar', value: 10 },
 ];
 
-const COLORS = ['#ffffff', '#94a3b8', '#4a5568', '#2d3748'];
+const COLORS = ['#020617', '#1e293b', '#f59e0b', '#64748b'];
 
 const AvailabilityDonut = () => {
   return (
-    <div className="bg-navy-card border border-navy-border rounded-xl p-5 h-full flex flex-col relative overflow-hidden">
-      <div className="absolute inset-0 bg-navy-card-gradient opacity-50 pointer-events-none rounded-xl" />
-      
+    <div className="bg-white border border-navy-border rounded-xl p-5 h-full flex flex-col relative overflow-hidden shadow-sm">
       <div className="relative z-10 flex items-center justify-between mb-2">
-        <h3 className="text-xs tracking-widest text-gray-300 uppercase">Vehicle Availability</h3>
+        <h3 className="text-xs font-black tracking-widest text-navy-accent uppercase">Vehicle Availability</h3>
         <button 
           onClick={() => alert('Availability options clicked')}
-          className="text-gray-500 hover:text-navy-accent"
+          className="text-slate-400 hover:text-navy-accent"
         >
           <MoreVertical size={16} />
         </button>
@@ -38,7 +36,8 @@ const AvailabilityDonut = () => {
                 cy="50%"
                 innerRadius={60}
                 outerRadius={80}
-                stroke="none"
+                stroke="#ffffff"
+                strokeWidth={2}
                 paddingAngle={2}
                 dataKey="value"
               >
@@ -47,36 +46,36 @@ const AvailabilityDonut = () => {
                 ))}
               </Pie>
               <Tooltip 
-                contentStyle={{ backgroundColor: '#0f172a', borderColor: '#1e293b', fontSize: '12px', borderRadius: '8px' }}
-                itemStyle={{ color: '#ffffff' }}
+                contentStyle={{ backgroundColor: '#ffffff', borderColor: '#e2e8f0', fontSize: '12px', borderRadius: '8px', boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)' }}
+                itemStyle={{ color: '#020617' }}
                 formatter={(value: any) => [`${value}%`, 'Share']}
               />
             </PieChart>
           </ResponsiveContainer>
           
-          {/* Custom Labels overlay since recharts labels can be tricky to position exactly like the image */}
+          {/* Custom Labels overlay */}
           <div className="absolute inset-0 pointer-events-none">
             <div className="absolute top-[20%] right-[10%] text-right">
-              <p className="text-[10px] text-gray-400">Sedan</p>
-              <p className="text-xs font-bold text-white">38%</p>
+              <p className="text-[10px] text-slate-500 font-bold uppercase">Sedan</p>
+              <p className="text-xs font-black text-navy-accent">38%</p>
             </div>
             <div className="absolute bottom-[10%] right-[25%] text-right">
-              <p className="text-[10px] text-gray-400">SUV</p>
-              <p className="text-xs font-bold text-white">35%</p>
+              <p className="text-[10px] text-slate-500 font-bold uppercase">SUV</p>
+              <p className="text-xs font-black text-navy-accent">35%</p>
             </div>
             <div className="absolute top-[35%] left-[5%]">
-              <p className="text-[10px] text-gray-400">Coupe</p>
-              <p className="text-xs font-bold text-white">17%</p>
+              <p className="text-[10px] text-slate-500 font-bold uppercase">Coupe</p>
+              <p className="text-xs font-black text-navy-accent">17%</p>
             </div>
             <div className="absolute bottom-[15%] left-[5%]">
-              <p className="text-[10px] text-gray-400">Hypercar</p>
-              <p className="text-xs font-bold text-white">10%</p>
+              <p className="text-[10px] text-slate-500 font-bold uppercase">Hypercar</p>
+              <p className="text-xs font-black text-navy-accent">10%</p>
             </div>
           </div>
         </div>
       </div>
       
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-[1px] bg-navy-gradient opacity-50" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-[2px] bg-navy-accent opacity-10" />
     </div>
   );
 };

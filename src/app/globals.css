@@ -5,16 +5,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --background: #020617;
-  --foreground: #f8fafc;
+  --background: #ffffff;
+  --foreground: #020617;
   
-  --chrome-gold: #f59e0b; /* Amber for pending/finance */
-  --success-teal: #14b8a6; /* Teal for success/balance=0 */
-  --danger-rose: #f43f5e; /* Rose for declined/unfinanceable */
+  --chrome-gold: #b45309; /* Darker Amber for white background contrast */
+  --success-teal: #0d9488; /* Darker Teal */
+  --danger-rose: #e11d48; /* Darker Rose */
   
-  --glass-blur: 16px;
-  --glass-bg: rgba(255, 255, 255, 0.03);
-  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-blur: 20px;
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(2, 6, 23, 0.1);
   
   --transition-standard: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
   --font-mono: 'JetBrains Mono', 'Courier New', Courier, monospace;

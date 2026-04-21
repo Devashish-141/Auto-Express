@@ -20,25 +20,25 @@ export default function Home() {
           <SummaryCards />
           
           {/* Main Grid: 3 Columns */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 h-auto lg:h-[600px]">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6">
             
-            {/* Left Column */}
-            <div className="col-span-1 lg:col-span-3 flex flex-col gap-6 h-full">
-              <div className="flex-1">
+            {/* Left Column (Charts) */}
+            <div className="col-span-1 lg:col-span-3 flex flex-col gap-6 order-2 lg:order-1">
+              <div className="h-[300px] lg:h-1/2">
                 <MonthlyTrendChart />
               </div>
-              <div className="flex-1">
+              <div className="h-[300px] lg:h-1/2">
                 <AvailabilityDonut />
               </div>
             </div>
             
-            {/* Middle Column */}
-            <div className="col-span-1 lg:col-span-6 h-full">
+            {/* Middle Column (Main Inventory) */}
+            <div className="col-span-1 md:col-span-2 lg:col-span-6 order-1 lg:order-2 h-[500px] lg:h-[624px]">
               <InventoryList />
             </div>
             
-            {/* Right Column */}
-            <div className="col-span-1 lg:col-span-3 flex flex-col gap-6 h-full">
+            {/* Right Column (Secondary Info) */}
+            <div className="col-span-1 lg:col-span-3 flex flex-col gap-6 order-3">
               <UpcomingAcquisitions />
               <StockPerformance />
             </div>

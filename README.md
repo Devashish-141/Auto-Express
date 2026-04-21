@@ -4,13 +4,25 @@
 Auto Express Ireland is a sophisticated, unified platform for managing vehicle stock, garage service operations, and financial tracking. Built with a **"Lux-Industrial"** aesthetic, it targets operational efficiency through a strict attribution system.
 
 ## 🛠 Tech Stack
-- **Frontend**: React 18+ (Vite)
-- **Styling**: Vanilla CSS with custom design tokens and class-based glassmorphism.
-- **State**: Centralized React Context (`AppContext`).
+- **Frontend**: Next.js 14 (App Router)
+- **Styling**: Tailwind CSS with custom design tokens and class-based glassmorphism.
+- **Database**: Supabase (PostgreSQL + Realtime).
 - **Icons & Motion**: Lucide React & Framer Motion.
 
+## 🚀 Deployment (Vercel)
+The project is optimized for deployment on Vercel. 
+
+### Environment Variables
+Ensure the following variables are set in the Vercel Dashboard:
+- `NEXT_PUBLIC_SUPABASE_URL`: Your Supabase Project URL.
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY`: Your Supabase Anonymous Key.
+
+### Commands
+- **Build Command**: `npm run build`
+- **Output Directory**: `.next`
+- **Install Command**: `npm install`
+
 ## 🔑 Core Features & Security
-### 1. The Representative Gate (`RepGate`) [KI-002]
 - **Purpose**: Solves the "Amanda Problem" by requiring a `rep_code` before any transaction or status change.
 - **Session Contract**: No "Write" action (Insert/Update) without a valid `rep_code` in metadata.
 - **UI Gate**: A full-screen `RepGate` blocks access on launch until a rep is authorized.
@@ -48,7 +60,7 @@ The app follows the **"Lux-Industrial Dark Mode"** aesthetic with high-precision
 - **Typography**: Strictly **Monospaced** for VINs, Registration plates, and Currency values.
 - **Motion**: `300ms ease-out` transitions for waterfall unlocks and number-roll animations.
 
-## 🚀 Getting Started
+## 🏁 Getting Started
 1. `npm install`
 2. `npm run dev`
-3. Enter a `rep_code` (e.g., `REP001`) to access the dashboard.
+3. Enter a `rep_code` (e.g., `DEVA`) to access the dashboard.
