@@ -1,7 +1,10 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Menu, Search, Settings, Bell, User } from 'lucide-react';
+import { Menu, Search, Settings, Bell, User, LayoutGrid, Car, CreditCard } from 'lucide-react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { useRep } from '@/context/RepContext';
 
 const TopNav = () => {
   const [searchValue, setSearchValue] = useState('');
@@ -11,64 +14,67 @@ const TopNav = () => {
     alert(`Searching for: ${searchValue}`);
   };
 
+  const pathname = usePathname();
+  const { rep } = useRep();
+  const isGarage = pathname.startsWith('/garage');
+
   return (
-    <div className="flex items-center justify-between px-6 py-4 border-b border-navy-border bg-navy-card">
-      {/* Left Section */}
-      <div className="flex items-center gap-6">
-        <button 
-          onClick={() => alert('Menu toggled')}
-          className="text-gray-400 hover:text-navy-accent transition-colors"
+    <div className="flex items-center justify-between px-6 py-4 border-b border-white/5 bg-navy-card/80 backdrop-blur-md sticky top-0 z-[100]">
+      {/* Left Section - Navigation Switcher */}
+      <div className="flex items-center gap-2 bg-black/40 p-1 rounded-xl border border-white/5">
+        <Link 
+          href="/"
+          className={`flex items-center gap-2 px-4 py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-widest transition-all ${
+            !isGarage ? 'bg-white/10 text-white shadow-lg' : 'text-gray-500 hover:text-gray-300'
+          }`}
         >
-          <Menu size={24} />
-        </button>
-        <form onSubmit={handleSearch} className="relative hidden md:block">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" size={16} />
-          <input 
-            type="text" 
-            placeholder="Search" 
-            value={searchValue}
-            onChange={(e) => setSearchValue(e.target.value)}
-            className="bg-[#1e293b] border border-navy-border rounded-full py-1.5 pl-10 pr-4 text-sm text-gray-300 focus:outline-none focus:border-white/50 w-64"
-          />
-        </form>
+          <Car size={14} />
+          Stock
+        </Link>
+        <Link 
+          href="/garage"
+          className={`flex items-center gap-2 px-4 py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-widest transition-all ${
+            isGarage ? 'bg-white/10 text-white shadow-lg' : 'text-gray-500 hover:text-gray-300'
+          }`}
+        >
+          <CreditCard size={14} />
+          Garage
+        </Link>
       </div>
 
-      {/* Center Logo */}
-      <div className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center">
-        <h1 className="text-xl tracking-[0.2em] font-semibold bg-navy-gradient text-transparent bg-clip-text uppercase">
-          Luxe Auto
+      <div className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center pointer-events-none">
+        <h1 className="text-xl tracking-[0.3em] font-black bg-navy-gradient text-transparent bg-clip-text uppercase italic">
+          Auto Express
         </h1>
-        <p className="text-[9px] tracking-[0.3em] text-gray-400 uppercase mt-0.5">
-          Stock Management
+        <p className="text-[8px] tracking-[0.4em] text-amber-500/80 font-bold uppercase mt-0.5">
+          {isGarage ? 'Financial Waterfall' : 'Global Asset Ledger'}
         </p>
       </div>
 
-      {/* Right Section */}
-      <div className="flex items-center gap-5 text-gray-400">
-        <button 
-          onClick={() => alert('Global search clicked')}
-          className="hover:text-navy-accent transition-colors"
-        >
-          <Search size={20} />
-        </button>
-        <button 
-          onClick={() => alert('Settings clicked')}
-          className="hover:text-navy-accent transition-colors"
-        >
-          <Settings size={20} />
-        </button>
+      <div className="flex items-center gap-5">
+        <div className="hidden lg:flex items-center gap-2 px-3 py-1 bg-white/5 border border-white/10 rounded-full">
+          <div className="w-1.5 h-1.5 rounded-full bg-teal-500 animate-pulse" />
+          <span className="text-[9px] font-mono text-gray-400 uppercase tracking-widest">
+            Rep: <span className="text-white">{rep || 'NONE'}</span>
+          </span>
+        </div>
+        
+        <div className="h-6 w-[1px] bg-white/10 mx-2 hidden md:block" />
+
         <button 
           onClick={() => alert('Notifications clicked')}
-          className="relative hover:text-navy-accent transition-colors"
+          className="relative text-gray-500 hover:text-white transition-colors"
         >
           <Bell size={20} />
-          <span className="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+          <span className="absolute -top-1 -right-1 w-2 h-2 bg-amber-500 rounded-full border-2 border-navy-card"></span>
         </button>
         <button 
           onClick={() => alert('Profile clicked')}
-          className="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center border border-gray-600 hover:border-white transition-colors"
+          className="flex items-center gap-2 group"
         >
-          <User size={16} className="text-gray-300" />
+          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center border border-white/10 group-hover:border-white/30 transition-colors">
+            <User size={16} className="text-gray-400 group-hover:text-white transition-colors" />
+          </div>
         </button>
       </div>
     </div>

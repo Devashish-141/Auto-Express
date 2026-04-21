@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { RepProvider } from "../context/RepContext";
+import { ToastProvider } from "../context/ToastContext";
 import ClientLayout from "../components/ClientLayout";
 
 export const metadata: Metadata = {
@@ -17,9 +18,11 @@ export default function RootLayout({
     <html lang="en">
       <body className="antialiased">
         <RepProvider>
-          <ClientLayout>
-            {children}
-          </ClientLayout>
+          <ToastProvider>
+            <ClientLayout>
+              {children}
+            </ClientLayout>
+          </ToastProvider>
         </RepProvider>
       </body>
     </html>

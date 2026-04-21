@@ -1,0 +1,445 @@
+'use client';
+
+import React, { useState, useEffect, useCallback } from 'react';
+import { useParams, useRouter } from 'next/navigation';
+import { supabase } from '@/lib/supabase';
+import TopNav from '@/components/dashboard/TopNav';
+import PaymentLogger from '@/components/dashboard/PaymentLogger';
+import { motion, AnimatePresence } from 'framer-motion';
+import { 
+  ChevronLeft, 
+  Lock,
+  CheckCircle2,
+  XCircle,
+  AlertCircle,
+  Activity,
+  Euro,
+  User,
+  Hash
+} from 'lucide-react';
+import Link from 'next/link';
+
+interface Deal {
+  id: string;
+  customer_name: string;
+  status: string;
+  created_at: string;
+  vehicles: {
+    make: string;
+    model: string;
+    price: number;
+    vin: string;
+    image_url?: string;
+  };
+}
+
+interface Payment {
+  id: string;
+  amount: number;
+  is_voided: boolean;
+}
+
+interface FinanceApp {
+  id: string;
+  lender_name: string;
+  status: 'active' | 'approved' | 'declined';
+  approved_amount: number;
+}
+
+const LENDERS = ['Finance Ireland', 'Close Brothers', 'Finance4U'];
+
+export default function GarageDealPage() {
+  const params = useParams();
+  const router = useRouter();
+  const dealId = params.id as string;
+  const [deal, setDeal] = useState<Deal | null>(null);
+  const [payments, setPayments] = useState<Payment[]>([]);
+  const [financeApps, setFinanceApps] = useState<FinanceApp[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  const fetchData = useCallback(async () => {
+    if (dealId.startsWith('demo')) {
+      const isDemo1 = dealId === 'demo-1';
+      setDeal({
+        id: dealId,
+        customer_name: isDemo1 ? 'James Henderson' : 'Global Tech Solutions',
+        status: 'pending',
+        created_at: new Date().toISOString(),
+        vehicles: {
+          make: isDemo1 ? 'Aston Martin' : 'BMW',
+          model: isDemo1 ? 'DB12 Volante' : 'XM Label Red',
+          price: isDemo1 ? 285000 : 210000,
+          vin: isDemo1 ? 'AMVDB12V8SK9012' : 'WBA53CM040N1234'
+        }
+      });
+      setPayments([{ id: 'p1', amount: isDemo1 ? 50000 : 25000, is_voided: false }]);
+      setFinanceApps([
+        { id: 'f1', lender_name: 'Finance Ireland', status: isDemo1 ? 'approved' : 'declined', approved_amount: isDemo1 ? 200000 : 0 }
+      ]);
+      setLoading(false);
+      return;
+    }
+
+    // 1. Fetch Deal with Vehicle details
+    const { data: dealData, error: dealError } = await supabase
+      .from('deals')
+      .select(`
+        id, 
+        customer_name, 
+        status,
+        vehicles (make, model, price, vin, image_url)
+      `)
+      .eq('id', dealId)
+      .single();
+
+    if (dealError) {
+      console.error('Error fetching deal:', dealError);
+      return;
+    }
+    if (dealData) setDeal(dealData as any);
+
+    // 2. Fetch Payments
+    const { data: paymentsData } = await supabase
+      .from('payments')
+      .select('id, amount, is_voided')
+      .eq('deal_id', dealId);
+
+    if (paymentsData) setPayments(paymentsData);
+
+    // 3. Fetch Finance Apps
+    const { data: financeData } = await supabase
+      .from('finance_apps')
+      .select('id, lender_name, status, approved_amount')
+      .eq('deal_id', dealId);
+
+    if (financeData) setFinanceApps(financeData);
+
+    setLoading(false);
+  }, [dealId]);
+
+  useEffect(() => {
+    fetchData();
+
+    // Realtime Subscriptions for Financial Updates
+    const paymentsSub = supabase
+      .channel('payments-live')
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'payments', filter: `deal_id=eq.${dealId}` }, () => fetchData())
+      .subscribe();
+
+    const financeSub = supabase
+      .channel('finance-live')
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'finance_apps', filter: `deal_id=eq.${dealId}` }, () => fetchData())
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(paymentsSub);
+      supabase.removeChannel(financeSub);
+    };
+  }, [dealId, fetchData]);
+
+  const totalSalePrice = deal?.vehicles?.price || 0;
+  const totalPayments = payments.reduce((acc, p) => p.is_voided ? acc : acc + Number(p.amount), 0);
+  const totalFinanceApproved = financeApps.reduce((acc, a) => a.status === 'approved' ? acc + (Number(a.approved_amount) || 0) : acc, 0);
+  const balanceDue = totalSalePrice - totalPayments - totalFinanceApproved;
+
+  const getBalanceColor = () => {
+    if (balanceDue > 0) return 'text-amber-500';
+    if (balanceDue === 0) return 'text-[var(--success-teal)]';
+    return 'text-rose-500';
+  };
+
+  const getLenderStatus = (name: string) => {
+    const app = financeApps.find(a => a.lender_name === name);
+    if (app) return app.status === 'active' ? 'pending' : app.status;
+    
+    // Waterfall logic for UI locking
+    const index = LENDERS.indexOf(name);
+    if (index === 0) return 'pending'; 
+    
+    const prevLender = LENDERS[index - 1];
+    const prevApp = financeApps.find(a => a.lender_name === prevLender);
+    
+    if (prevApp?.status === 'declined') return 'pending';
+    return 'locked';
+  };
+
+  const handleUpdateFinance = async (lender: string, status: string) => {
+    const existing = financeApps.find(a => a.lender_name === lender);
+    if (existing) {
+      await supabase
+        .from('finance_apps')
+        .update({ status, updated_at: new Date().toISOString() })
+        .eq('id', existing.id);
+    } else {
+      await supabase
+        .from('finance_apps')
+        .insert({
+          deal_id: dealId,
+          lender_name: lender,
+          status
+        });
+    }
+  };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-[#020617] flex flex-col items-center justify-center gap-4">
+        <div className="w-12 h-12 border-4 border-amber-500/20 border-t-amber-500 rounded-full animate-spin" />
+        <p className="text-[10px] uppercase tracking-[0.5em] text-gray-500 font-bold">Syncing Deal Logic...</p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-navy-bg flex flex-col font-sans text-white">
+      <TopNav />
+      
+      <main className="flex-1 p-6 overflow-y-auto">
+        <div className="max-w-[1200px] mx-auto space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-1000">
+          
+          <div className="flex items-center justify-between">
+            <Link 
+              href="/garage"
+              className="group flex items-center gap-3 text-gray-500 hover:text-white transition-all text-[10px] uppercase tracking-widest font-bold bg-white/5 px-4 py-2 rounded-full border border-white/5 hover:border-white/20"
+            >
+              <ChevronLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
+              Back to Deal Ledger
+            </Link>
+
+            <div className="flex items-center gap-4">
+              <div className="text-right">
+                <p className="text-[9px] text-gray-500 uppercase tracking-widest">Asset Category</p>
+                <p className="text-xs font-bold text-white uppercase italic">Hypercar // High-Value</p>
+              </div>
+              <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">
+                <Activity size={18} className="text-amber-500 animate-pulse" />
+              </div>
+            </div>
+          </div>
+
+          {/* Financial Transparency Centerpiece */}
+          <div className="relative group">
+            <div className="absolute -inset-1 bg-gradient-to-r from-amber-500/20 to-sky-500/20 rounded-3xl blur opacity-25 group-hover:opacity-40 transition-opacity duration-1000" />
+            <div className="relative glass-card p-10 bg-[#020617]/40 border-white/10 overflow-hidden rounded-3xl">
+              <div className="absolute top-0 right-0 p-8 opacity-[0.03] rotate-12 pointer-events-none">
+                <Euro size={240} />
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-12 relative z-10">
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2 text-gray-500">
+                    <Hash size={12} />
+                    <p className="text-[10px] uppercase tracking-[0.3em]">Total Sale Price</p>
+                  </div>
+                  <h2 className="text-3xl font-mono font-black text-white tracking-tighter">€{totalSalePrice.toLocaleString()}</h2>
+                </div>
+                
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2 text-gray-500">
+                    <User size={12} />
+                    <p className="text-[10px] uppercase tracking-[0.3em]">Total Payments</p>
+                  </div>
+                  <h2 className="text-3xl font-mono font-black text-[var(--success-teal)] tracking-tighter">€{totalPayments.toLocaleString()}</h2>
+                </div>
+
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2 text-gray-500">
+                    <Activity size={12} />
+                    <p className="text-[10px] uppercase tracking-[0.3em]">Finance Approved</p>
+                  </div>
+                  <h2 className="text-3xl font-mono font-black text-sky-400 tracking-tighter">€{totalFinanceApproved.toLocaleString()}</h2>
+                </div>
+                
+                <div className="space-y-2 p-4 bg-white/5 rounded-2xl border border-white/10 backdrop-blur-xl relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-amber-500/10 blur-3xl -mr-12 -mt-12" />
+                  <p className="text-[10px] uppercase tracking-[0.3em] text-gray-400 mb-1">Balance Due</p>
+                  <h2 className={`text-4xl font-mono font-black ${getBalanceColor()} tracking-tighter ${balanceDue > 0 ? 'animate-pulse' : ''}`}>
+                    €{balanceDue.toLocaleString()}
+                  </h2>
+                  {balanceDue > 0 && (
+                    <div className="absolute top-2 right-2 flex gap-1">
+                      <div className="w-1.5 h-1.5 bg-amber-500 rounded-full animate-ping" />
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              <div className="mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row md:items-end justify-between gap-6">
+                <div>
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="text-[9px] px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-500 font-bold tracking-[0.2em] uppercase">Audit Ready</span>
+                    <span className="text-[9px] text-gray-600 font-mono tracking-widest uppercase">VIN: {deal?.vehicles?.vin}</span>
+                  </div>
+                  <h3 className="text-3xl font-black uppercase tracking-tight leading-none">
+                    {deal?.vehicles?.make} <span className="text-gray-500 italic font-medium">{deal?.vehicles?.model}</span>
+                  </h3>
+                  <p className="text-[11px] text-gray-400 font-bold tracking-widest uppercase mt-2 flex items-center gap-2">
+                    <User size={14} className="text-amber-500" />
+                    Customer: <span className="text-white">{deal?.customer_name}</span>
+                  </p>
+                </div>
+                
+                <div className="flex items-center gap-6">
+                  <div className="text-right">
+                    <p className="text-[9px] text-gray-600 uppercase tracking-widest mb-1">Last Sync</p>
+                    <p className="text-[10px] font-mono text-gray-400">{new Date().toLocaleTimeString()}</p>
+                  </div>
+                  <div className="h-10 w-[1px] bg-white/10" />
+                  <div className="flex items-center gap-3 px-6 py-3 bg-white/5 border border-white/10 rounded-2xl">
+                    <div className="flex flex-col">
+                      <span className="text-[8px] text-gray-500 uppercase tracking-widest leading-none mb-1">Encryption Status</span>
+                      <span className="text-[10px] font-bold text-teal-500 uppercase tracking-widest leading-none">End-to-End Secure</span>
+                    </div>
+                    <div className="w-2 h-2 bg-teal-500 rounded-full shadow-[0_0_10px_#14b8a6]" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div className="lg:col-span-2 space-y-8">
+              {/* Payment Logger Component */}
+              <PaymentLogger dealId={dealId} onPaymentLogged={fetchData} />
+
+              {/* Finance Waterfall Section */}
+              <div className="space-y-6">
+                <div className="flex items-center justify-between px-2">
+                  <div>
+                    <h2 className="text-2xl font-black tracking-tight uppercase">Finance Waterfall</h2>
+                    <p className="text-gray-500 uppercase tracking-widest text-[9px] mt-1 font-bold">[KI-001] Sequential Application Gate</p>
+                  </div>
+                  <div className="px-4 py-2 bg-amber-500/10 border border-amber-500/20 rounded-xl text-[10px] font-black text-amber-500 tracking-tighter uppercase italic">
+                    Sequential Locking Active
+                  </div>
+                </div>
+
+                <div className="grid gap-4">
+                  {LENDERS.map((name, index) => {
+                    const status = getLenderStatus(name);
+                    const isLocked = status === 'locked';
+                    
+                    return (
+                      <motion.div 
+                        key={name}
+                        initial={false}
+                        animate={{ 
+                          filter: isLocked ? 'blur(4px)' : 'blur(0px)',
+                          opacity: isLocked ? 0.3 : 1,
+                          scale: isLocked ? 0.98 : 1
+                        }}
+                        transition={{ duration: 0.4, ease: 'easeOut' }}
+                        className={`relative group ${isLocked ? 'pointer-events-none' : ''}`}
+                      >
+                        <div className="glass-card p-6 flex flex-col md:flex-row md:items-center justify-between gap-6 overflow-hidden bg-black/20 hover:bg-black/40 transition-all border-white/5 group-hover:border-white/20">
+                          {isLocked && (
+                            <div className="absolute inset-0 z-20 flex items-center justify-center bg-black/40 backdrop-blur-[2px]">
+                              <div className="flex flex-col items-center gap-2">
+                                <Lock className="text-gray-600" size={20} />
+                                <span className="text-[8px] uppercase tracking-[0.3em] text-gray-600 font-bold font-mono">Sequential Lock</span>
+                              </div>
+                            </div>
+                          )}
+                          
+                          <div className="flex items-center gap-6">
+                            <div className={`w-14 h-14 rounded-2xl flex items-center justify-center border transition-all ${
+                              status === 'approved' ? 'bg-teal-500/10 text-teal-500 border-teal-500/30' :
+                              status === 'declined' ? 'bg-rose-500/10 text-rose-500 border-rose-500/30' :
+                              'bg-amber-500/10 text-amber-500 border-amber-500/30'
+                            }`}>
+                              {status === 'approved' ? <CheckCircle2 size={28} /> :
+                               status === 'declined' ? <XCircle size={28} /> :
+                               <AlertCircle size={28} />}
+                            </div>
+                            <div>
+                              <h4 className="text-xl font-black uppercase tracking-tight">{name}</h4>
+                              <div className="flex items-center gap-2 mt-1">
+                                <span className="text-[9px] text-gray-500 uppercase tracking-widest font-mono">Status:</span>
+                                <span className={`text-[9px] font-black uppercase tracking-widest ${
+                                  status === 'approved' ? 'text-teal-500' :
+                                  status === 'declined' ? 'text-rose-500' :
+                                  'text-amber-500'
+                                }`}>{status}</span>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div className="flex items-center gap-4">
+                            {status === 'pending' && (
+                              <div className="flex items-center gap-2">
+                                <button 
+                                  onClick={() => handleUpdateFinance(name, 'declined')}
+                                  className="px-6 py-3 rounded-xl border border-rose-500/30 text-rose-500 text-[10px] font-black uppercase tracking-[0.2em] hover:bg-rose-500/10 transition-all"
+                                >
+                                  Decline
+                                </button>
+                                <button 
+                                  onClick={() => handleUpdateFinance(name, 'approved')}
+                                  className="btn-primary py-3 px-8 text-[10px] font-black uppercase tracking-[0.2em] shadow-[0_10px_20px_rgba(245,158,11,0.2)]"
+                                >
+                                  Approve
+                                </button>
+                              </div>
+                            )}
+                            {status === 'approved' && (
+                              <div className="text-right p-4 bg-teal-500/5 rounded-2xl border border-teal-500/10">
+                                <p className="text-[8px] text-gray-500 uppercase tracking-widest mb-1">Allocated Funding</p>
+                                <p className="text-2xl font-mono text-teal-500 font-black tracking-tighter">€{(Number(financeApps.find(a => a.lender_name === name)?.approved_amount) || 25000).toLocaleString()}</p>
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      </motion.div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+
+            {/* Sidebar / Info */}
+            <div className="space-y-6">
+               <div className="glass-card p-6 bg-gradient-to-br from-white/5 to-transparent border-white/10">
+                 <h4 className="text-xs font-black uppercase tracking-[0.2em] text-gray-400 mb-6 flex items-center gap-2">
+                   <Activity size={14} className="text-amber-500" />
+                   Deal Vitals
+                 </h4>
+                 <div className="space-y-6">
+                    <div className="flex justify-between items-end border-b border-white/5 pb-4">
+                      <div>
+                        <p className="text-[8px] text-gray-600 uppercase tracking-widest mb-1">Reservation Date</p>
+                        <p className="text-xs font-bold text-gray-300 font-mono uppercase">{new Date(deal?.created_at || '').toLocaleDateString()}</p>
+                      </div>
+                      <div className="text-right">
+                        <p className="text-[8px] text-gray-600 uppercase tracking-widest mb-1">Time Elapsed</p>
+                        <p className="text-xs font-bold text-amber-500 font-mono uppercase">2 Days</p>
+                      </div>
+                    </div>
+                    <div className="flex justify-between items-end border-b border-white/5 pb-4">
+                      <div>
+                        <p className="text-[8px] text-gray-600 uppercase tracking-widest mb-1">Security Stamp</p>
+                        <p className="text-xs font-bold text-gray-300 font-mono uppercase italic">0x4F...E12A</p>
+                      </div>
+                      <div className="text-right">
+                        <p className="text-[8px] text-gray-600 uppercase tracking-widest mb-1">Compliance</p>
+                        <p className="text-xs font-bold text-teal-500 uppercase tracking-widest">Verified</p>
+                      </div>
+                    </div>
+                 </div>
+                 
+                 <div className="mt-8 p-4 rounded-xl bg-amber-500/10 border border-amber-500/20">
+                   <div className="flex gap-3">
+                     <AlertCircle className="text-amber-500 flex-shrink-0" size={16} />
+                     <p className="text-[9px] text-amber-500/90 leading-relaxed font-bold uppercase tracking-widest">
+                       Mandatory Audit: Ensure all physical documentation matches the digital VIN signature before finalizing payment.
+                     </p>
+                   </div>
+                 </div>
+               </div>
+            </div>
+          </div>
+
+        </div>
+      </main>
+    </div>
+  );
+}
