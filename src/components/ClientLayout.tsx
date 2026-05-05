@@ -2,16 +2,26 @@
 
 import React from 'react';
 import { useRep } from '../context/RepContext';
-import RepGate from './RepGate';
+import LoginPage from './LoginPage';
+import ProfileModal from './ProfileModal';
 
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
-  const { rep } = useRep();
+  const { rep, isProfileOpen, setIsProfileOpen } = useRep();
+
+  if (!rep) {
+    return <LoginPage />;
+  }
 
   return (
     <>
-      <main>
+      <main className="min-h-screen bg-[#020617] text-white">
         {children}
       </main>
+      
+      <ProfileModal 
+        isOpen={isProfileOpen} 
+        onClose={() => setIsProfileOpen(false)} 
+      />
     </>
   );
 }

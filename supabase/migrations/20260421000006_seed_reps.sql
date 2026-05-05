@@ -3,5 +3,6 @@ INSERT INTO public.reps (rep_code, name)
 VALUES 
     ('NICK-01', 'Nickson'),
     ('AMANDA-01', 'Amanda'),
+    ('DEVA', 'Devashish'),
     ('DEMO-REP', 'Demo Representative')
 ON CONFLICT (rep_code) DO NOTHING;

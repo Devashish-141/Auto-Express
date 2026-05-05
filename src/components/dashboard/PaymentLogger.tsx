@@ -4,17 +4,16 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   PlusCircle, 
+  RotateCcw,
   Banknote, 
   CreditCard, 
   ArrowRightLeft, 
-  AlertTriangle, 
   CheckCircle2, 
   Loader2,
   Trash2,
   ShieldAlert,
-  Calendar,
-  User,
-  History
+  History,
+  User
 } from 'lucide-react';
 import { useRep } from '@/context/RepContext';
 import { useToast } from '@/context/ToastContext';
@@ -42,20 +41,20 @@ const METHOD_CONFIG: Record<string, { icon: React.ReactNode; label: string; colo
   Cash: {
     icon: <Banknote size={16} />,
     label: 'Cash',
-    color: 'text-emerald-600',
-    border: 'border-emerald-200 bg-emerald-50',
+    color: 'text-teal-400',
+    border: 'border-teal-500/20 bg-teal-500/5',
   },
   Card: {
     icon: <CreditCard size={16} />,
     label: 'Card',
-    color: 'text-sky-600',
-    border: 'border-sky-200 bg-sky-50',
+    color: 'text-blue-400',
+    border: 'border-blue-500/20 bg-blue-500/5',
   },
   Transfer: {
     icon: <ArrowRightLeft size={16} />,
     label: 'Bank Transfer',
-    color: 'text-violet-600',
-    border: 'border-violet-200 bg-violet-50',
+    color: 'text-indigo-400',
+    border: 'border-indigo-500/20 bg-indigo-500/5',
   },
 };
 
@@ -67,27 +66,14 @@ export default function PaymentLogger({ dealId, payments, onPaymentLogged }: Pay
   const [date, setDate] = useState(new Date().toISOString().split('T')[0]);
   const [method, setMethod] = useState<PaymentMethod>('Cash');
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [amountError, setAmountError] = useState('');
   
-  // Void state
   const [voidingId, setVoidingId] = useState<string | null>(null);
   const [voidReason, setVoidReason] = useState('');
   const [isVoiding, setIsVoiding] = useState(false);
 
-  const validateAmount = (val: string) => {
-    const num = parseFloat(val);
-    if (!val || isNaN(num) || num <= 0) {
-      setAmountError('Enter a valid amount greater than €0');
-      return false;
-    }
-    setAmountError('');
-    return true;
-  };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!rep) return;
-    if (!validateAmount(amount)) return;
+    if (!rep || !amount) return;
 
     setIsSubmitting(true);
     try {
@@ -99,20 +85,11 @@ export default function PaymentLogger({ dealId, payments, onPaymentLogged }: Pay
         repCode: rep,
       });
 
-      showToast({
-        message: `€${parseFloat(amount).toLocaleString()} logged by ${rep}`,
-        type: 'success',
-      });
-
+      showToast({ message: `€${parseFloat(amount).toLocaleString()} Logged`, type: 'success' });
       setAmount('');
-      setDate(new Date().toISOString().split('T')[0]);
-      setMethod('Cash');
       onPaymentLogged?.();
     } catch (err: any) {
-      showToast({
-        message: err?.message ?? 'Failed to log payment.',
-        type: 'error',
-      });
+      showToast({ message: err?.message ?? 'Failed to log payment.', type: 'error' });
     } finally {
       setIsSubmitting(false);
     }
@@ -120,22 +97,15 @@ export default function PaymentLogger({ dealId, payments, onPaymentLogged }: Pay
 
   const handleVoid = async () => {
     if (!voidingId || !voidReason) return;
-    
     setIsVoiding(true);
     try {
       await voidPayment(voidingId, voidReason);
-      showToast({
-        message: 'Payment voided successfully',
-        type: 'success',
-      });
+      showToast({ message: 'Payment Voided', type: 'success' });
       setVoidingId(null);
       setVoidReason('');
       onPaymentLogged?.();
     } catch (err: any) {
-      showToast({
-        message: 'Failed to void payment',
-        type: 'error',
-      });
+      showToast({ message: 'Failed to void payment', type: 'error' });
     } finally {
       setIsVoiding(false);
     }
@@ -144,140 +114,141 @@ export default function PaymentLogger({ dealId, payments, onPaymentLogged }: Pay
   const totalReceived = payments.reduce((acc, p) => p.is_voided ? acc : acc + Number(p.amount), 0);
 
   return (
-    <div className="space-y-8">
-      {/* Entry Form */}
-      <div className="glass-card p-8 relative overflow-hidden bg-white border-navy-border shadow-lg">
-        <div className="flex items-center justify-between mb-8">
+    <div className="space-y-8 animate-in fade-in duration-700">
+      <div className="bg-[#0f172a] p-8 md:p-10 rounded-[2.5rem] border border-gray-800 shadow-2xl relative overflow-hidden">
+        <div className="flex items-center justify-between mb-10">
           <div>
-            <h3 className="text-xl font-black uppercase tracking-tight text-navy-accent">Log New Payment</h3>
-            <p className="text-[10px] text-slate-400 uppercase tracking-[0.2em] mt-1 font-bold">
-              Mandatory Attribution: <span className="text-amber-600">{rep ?? 'UNAUTHENTICATED'}</span>
+            <h3 className="text-2xl font-black uppercase tracking-tight text-white italic">Log Payment Protocol</h3>
+            <p className="text-[10px] text-gray-500 uppercase tracking-[0.4em] mt-2 font-black">
+              Attribution: <span className="text-blue-500">{rep ?? 'PENDING'}</span>
             </p>
           </div>
-          <div className="w-12 h-12 rounded-2xl bg-amber-50 border border-amber-200 flex items-center justify-center text-amber-600 shadow-sm">
-            <PlusCircle size={24} />
-          </div>
+          <button 
+            type="button"
+            onClick={() => { setAmount(''); setMethod('Cash'); }}
+            className="w-12 h-12 rounded-2xl bg-black/40 border border-gray-800 flex items-center justify-center text-gray-500 hover:text-white transition-all hover:scale-110 active:scale-95"
+          >
+            <RotateCcw size={20} />
+          </button>
         </div>
 
-        <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-3 gap-6 items-end">
-          <div className="space-y-2">
-            <label className="text-[9px] uppercase tracking-[0.3em] text-slate-400 font-bold ml-1">Amount (€)</label>
-            <div className="relative group">
-              <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                <span className="text-amber-600 font-mono text-sm">€</span>
-              </div>
+        <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-3 gap-8 items-end">
+          <div className="space-y-3">
+            <label className="text-[9px] uppercase tracking-[0.4em] text-gray-600 font-black ml-1">Cash Value (€)</label>
+            <div className="relative">
+              <span className="absolute left-5 top-1/2 -translate-y-1/2 text-gray-600 font-mono font-black">€</span>
               <input
+                required
                 type="number"
                 step="0.01"
                 value={amount}
                 onChange={(e) => setAmount(e.target.value)}
                 placeholder="0.00"
-                className="w-full bg-slate-50 border border-navy-border rounded-2xl py-3 pl-10 pr-4 text-sm font-mono font-bold text-navy-accent focus:border-amber-500/50 focus:ring-1 focus:ring-amber-500/20 transition-all outline-none"
+                className="w-full bg-black/40 border border-gray-800 rounded-2xl py-4 pl-10 pr-6 text-sm font-mono font-black text-white focus:border-blue-500/50 outline-none transition-all"
               />
             </div>
           </div>
 
-          <div className="space-y-2">
-            <label className="text-[9px] uppercase tracking-[0.3em] text-slate-400 font-bold ml-1">Transaction Date</label>
+          <div className="space-y-3">
+            <label className="text-[9px] uppercase tracking-[0.4em] text-gray-600 font-black ml-1">Execution Date</label>
             <input
+              required
               type="date"
               value={date}
               onChange={(e) => setDate(e.target.value)}
-              className="w-full bg-slate-50 border border-navy-border rounded-2xl py-3 px-4 text-sm font-mono font-bold text-navy-accent focus:border-amber-500/50 outline-none [color-scheme:light]"
+              className="w-full bg-black/40 border border-gray-800 rounded-2xl py-4 px-6 text-sm font-mono font-black text-white focus:border-blue-500/50 outline-none [color-scheme:dark]"
             />
           </div>
 
-          <div className="space-y-2">
-            <label className="text-[9px] uppercase tracking-[0.3em] text-slate-400 font-bold ml-1">Payment Method</label>
+          <div className="space-y-3">
+            <label className="text-[9px] uppercase tracking-[0.4em] text-gray-600 font-black ml-1">Transfer Method</label>
             <select
               value={method}
               onChange={(e) => setMethod(e.target.value as PaymentMethod)}
-              className="w-full bg-slate-50 border border-navy-border rounded-2xl py-3 px-4 text-sm font-bold text-navy-accent focus:border-amber-500/50 outline-none appearance-none"
+              className="w-full bg-black/40 border border-gray-800 rounded-2xl py-4 px-6 text-sm font-black text-white focus:border-blue-500/50 outline-none appearance-none"
             >
-              <option value="Cash">Cash Currency</option>
-              <option value="Card">Credit/Debit Card</option>
-              <option value="Transfer">Bank Transfer</option>
+              <option value="Cash" className="bg-[#0f172a]">Physical Cash</option>
+              <option value="Card" className="bg-[#0f172a]">Terminal Card</option>
+              <option value="Transfer" className="bg-[#0f172a]">Direct Wire</option>
             </select>
           </div>
 
-          <div className="md:col-span-3 mt-4">
+          <div className="md:col-span-3 mt-6">
             <button
               type="submit"
               disabled={!rep || isSubmitting}
-              className="w-full bg-amber-600 text-white py-4 text-[10px] font-black uppercase tracking-[0.3em] rounded-2xl flex items-center justify-center gap-3 shadow-lg hover:bg-amber-500 transition-all"
+              className="w-full bg-blue-600 text-white py-5 text-[10px] font-black uppercase tracking-[0.4em] rounded-2xl flex items-center justify-center gap-4 shadow-2xl hover:bg-blue-700 transition-all active:scale-[0.98] disabled:opacity-50"
             >
-              {isSubmitting ? <Loader2 size={18} className="animate-spin" /> : <CheckCircle2 size={18} />}
-              Commit Payment to Ledger
+              {isSubmitting ? <Loader2 size={20} className="animate-spin" /> : <PlusCircle size={20} />}
+              Commit to Financial Ledger
             </button>
           </div>
         </form>
       </div>
 
-      {/* Audit List */}
-      <div className="glass-card p-8 bg-slate-50 border border-navy-border rounded-3xl overflow-hidden shadow-sm">
-        <div className="flex items-center justify-between mb-8">
-          <div className="flex items-center gap-4">
-            <div className="p-3 bg-white rounded-xl border border-navy-border">
-              <History size={20} className="text-slate-400" />
+      <div className="bg-[#0f172a] p-8 md:p-10 rounded-[2.5rem] border border-gray-800 shadow-2xl overflow-hidden">
+        <div className="flex items-center justify-between mb-10">
+          <div className="flex items-center gap-5">
+            <div className="w-12 h-12 rounded-2xl bg-black/40 border border-gray-800 flex items-center justify-center text-gray-500">
+              <History size={24} />
             </div>
             <div>
-              <h3 className="text-xl font-black uppercase tracking-tight text-navy-accent">Audit Trail</h3>
-              <p className="text-[9px] text-slate-400 uppercase tracking-[0.2em] font-bold mt-1">Immutable Ledger Tracking</p>
+              <h3 className="text-2xl font-black uppercase tracking-tight text-white italic">Audit Signature</h3>
+              <p className="text-[9px] text-gray-600 uppercase tracking-[0.4em] font-black mt-2">Immutable Transaction Sequence</p>
             </div>
           </div>
           <div className="text-right">
-            <p className="text-[9px] text-slate-400 uppercase tracking-widest mb-1">Total Received</p>
-            <p className="text-2xl font-mono font-black text-amber-600 tracking-tighter">€{totalReceived.toLocaleString()}</p>
+            <p className="text-[9px] text-gray-600 uppercase tracking-[0.4em] font-black mb-2">Total Accumulated</p>
+            <p className="text-3xl font-black font-mono text-teal-400 tracking-tighter italic">€{totalReceived.toLocaleString()}</p>
           </div>
         </div>
 
-        <div className="overflow-x-auto">
-          {/* Desktop Table */}
-          <table className="w-full text-left hidden md:table">
+        <div className="overflow-x-auto custom-scrollbar">
+          <table className="w-full text-left">
             <thead>
-              <tr className="border-b border-navy-border">
-                <th className="pb-4 text-[9px] uppercase tracking-[0.2em] text-slate-400 font-black">Date</th>
-                <th className="pb-4 text-[9px] uppercase tracking-[0.2em] text-slate-400 font-black">Method</th>
-                <th className="pb-4 text-[9px] uppercase tracking-[0.2em] text-slate-400 font-black">Rep Code</th>
-                <th className="pb-4 text-[9px] uppercase tracking-[0.2em] text-slate-400 font-black text-right">Amount</th>
-                <th className="pb-4 text-[9px] uppercase tracking-[0.2em] text-slate-400 font-black text-right">Action</th>
+              <tr className="border-b border-gray-800/50">
+                <th className="pb-6 text-[9px] uppercase tracking-[0.4em] text-gray-600 font-black">Timestamp</th>
+                <th className="pb-6 text-[9px] uppercase tracking-[0.4em] text-gray-600 font-black">Methodology</th>
+                <th className="pb-6 text-[9px] uppercase tracking-[0.4em] text-gray-600 font-black">Attribution</th>
+                <th className="pb-6 text-[9px] uppercase tracking-[0.4em] text-gray-600 font-black text-right">Value</th>
+                <th className="pb-6 text-[9px] uppercase tracking-[0.4em] text-gray-600 font-black text-right">Action</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-100">
+            <tbody className="divide-y divide-gray-800/30">
               {payments.map((p) => (
-                <tr key={p.id} className={`group ${p.is_voided ? 'opacity-40 grayscale' : ''}`}>
-                  <td className="py-4 text-xs font-mono font-bold text-slate-400">
-                    {new Date(p.payment_date).toLocaleDateString()}
+                <tr key={p.id} className={`group ${p.is_voided ? 'opacity-30 grayscale' : ''}`}>
+                  <td className="py-6 text-[10px] font-mono font-black text-gray-500 uppercase tracking-widest">
+                    {new Date(p.payment_date).toLocaleDateString('en-IE')}
                   </td>
-                  <td className="py-4">
-                    <div className="flex items-center gap-2">
-                      <span className={`p-1.5 rounded-lg border ${METHOD_CONFIG[p.method]?.border || 'border-navy-border'} ${METHOD_CONFIG[p.method]?.color || 'text-navy-accent'}`}>
-                        {METHOD_CONFIG[p.method]?.icon || <Banknote size={12} />}
+                  <td className="py-6">
+                    <div className="flex items-center gap-3">
+                      <span className={`p-2 rounded-xl border ${METHOD_CONFIG[p.method]?.border} ${METHOD_CONFIG[p.method]?.color}`}>
+                        {METHOD_CONFIG[p.method]?.icon}
                       </span>
-                      <span className="text-[10px] font-black uppercase tracking-widest text-navy-accent">{p.method}</span>
+                      <span className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-300">{p.method}</span>
                     </div>
                   </td>
-                  <td className="py-4">
-                    <div className="flex items-center gap-2 text-xs font-mono text-slate-400">
-                      <User size={12} className="text-slate-300" />
+                  <td className="py-6">
+                    <div className="flex items-center gap-3 text-[10px] font-black text-gray-500 uppercase tracking-widest">
+                      <User size={14} className="text-gray-700" />
                       {p.rep_code}
                     </div>
                   </td>
-                  <td className="py-4 text-right">
-                    <p className={`text-sm font-mono font-black ${p.is_voided ? 'line-through text-slate-400' : 'text-navy-accent'}`}>
+                  <td className="py-6 text-right">
+                    <p className={`text-sm font-mono font-black ${p.is_voided ? 'line-through text-gray-600' : 'text-white'}`}>
                       €{Number(p.amount).toLocaleString()}
                     </p>
                   </td>
-                  <td className="py-4 text-right">
+                  <td className="py-6 text-right">
                     {!p.is_voided ? (
                       <button
                         onClick={() => setVoidingId(p.id)}
-                        className="p-2 rounded-lg bg-rose-50 text-rose-600 opacity-0 group-hover:opacity-100 transition-all border border-rose-200 hover:bg-rose-600 hover:text-white"
+                        className="p-3 rounded-xl bg-red-500/10 text-red-500 opacity-0 group-hover:opacity-100 transition-all border border-red-500/20 hover:bg-red-500 hover:text-white"
                       >
-                        <Trash2 size={14} />
+                        <Trash2 size={16} />
                       </button>
                     ) : (
-                      <span className="text-[8px] font-black uppercase tracking-widest text-rose-600 italic bg-rose-50 px-2 py-1 rounded-full border border-rose-100">
+                      <span className="text-[8px] font-black uppercase tracking-widest text-red-500 italic bg-red-500/5 px-3 py-1 rounded-full border border-red-500/10">
                         VOID: {p.void_reason}
                       </span>
                     )}
@@ -287,100 +258,58 @@ export default function PaymentLogger({ dealId, payments, onPaymentLogged }: Pay
             </tbody>
           </table>
 
-          {/* Mobile Cards */}
-          <div className="md:hidden space-y-4">
-            {payments.map((p) => (
-              <div key={p.id} className={`p-4 rounded-2xl border border-navy-border bg-white ${p.is_voided ? 'opacity-40 grayscale' : ''} shadow-sm`}>
-                <div className="flex justify-between items-start mb-3">
-                  <div className="flex items-center gap-2">
-                    <span className={`p-1.5 rounded-lg border ${METHOD_CONFIG[p.method]?.border || 'border-navy-border'} ${METHOD_CONFIG[p.method]?.color || 'text-navy-accent'}`}>
-                      {METHOD_CONFIG[p.method]?.icon || <Banknote size={12} />}
-                    </span>
-                    <div>
-                      <p className="text-[10px] font-black uppercase tracking-widest text-navy-accent">{p.method}</p>
-                      <p className="text-[8px] font-mono text-slate-400">{new Date(p.payment_date).toLocaleDateString()}</p>
-                    </div>
-                  </div>
-                  <div className="text-right">
-                    <p className={`text-sm font-mono font-black ${p.is_voided ? 'line-through text-slate-400' : 'text-navy-accent'}`}>
-                      €{Number(p.amount).toLocaleString()}
-                    </p>
-                  </div>
-                </div>
-                <div className="flex justify-between items-center pt-2 border-t border-slate-100">
-                  <div className="flex items-center gap-2 text-[9px] font-mono text-slate-400 uppercase tracking-widest">
-                    <User size={10} />
-                    Rep: {p.rep_code}
-                  </div>
-                  {!p.is_voided ? (
-                    <button
-                      onClick={() => setVoidingId(p.id)}
-                      className="px-3 py-1.5 rounded-lg bg-rose-50 text-rose-600 text-[8px] font-black uppercase tracking-widest border border-rose-200"
-                    >
-                      Void
-                    </button>
-                  ) : (
-                    <span className="text-[7px] font-black uppercase tracking-widest text-rose-600 italic bg-rose-50 px-2 py-1 rounded-full border border-rose-100">
-                      VOIDED
-                    </span>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-
           {payments.length === 0 && (
-            <div className="py-12 text-center text-gray-600 uppercase tracking-[0.3em] text-[10px] font-bold">
-              No transactions recorded
+            <div className="py-16 text-center text-gray-700 uppercase tracking-[0.4em] text-[10px] font-black">
+              Zero Signal: No Transactions Found
             </div>
           )}
         </div>
       </div>
 
-      {/* Void Modal */}
       <AnimatePresence>
         {voidingId && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-navy-accent/40 backdrop-blur-md">
+          <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/90 backdrop-blur-xl">
             <motion.div 
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
-              className="glass-card p-8 max-w-md w-full border border-rose-200 bg-white shadow-2xl rounded-3xl"
+              className="bg-[#0f172a] p-10 max-w-lg w-full border border-red-500/20 shadow-2xl rounded-[2.5rem]"
             >
-              <div className="flex flex-col items-center text-center gap-4">
-                <div className="w-16 h-16 rounded-full bg-rose-50 flex items-center justify-center text-rose-600 border border-rose-100">
-                  <ShieldAlert size={32} />
+              <div className="flex flex-col items-center text-center gap-6">
+                <div className="w-20 h-20 rounded-full bg-red-500/10 flex items-center justify-center text-red-500 border border-red-500/20">
+                  <ShieldAlert size={40} />
                 </div>
                 <div>
-                  <h4 className="text-2xl font-black uppercase tracking-tight text-navy-accent">Void Transaction</h4>
-                  <p className="text-[10px] text-slate-400 uppercase tracking-widest mt-2">
-                    This action is permanent and will be logged in the audit trail.
+                  <h4 className="text-3xl font-black uppercase tracking-tight text-white italic">Invalidate Sequence</h4>
+                  <p className="text-[10px] text-gray-500 uppercase tracking-[0.3em] mt-3 font-black leading-relaxed">
+                    Critical Operation: This will strike the transaction from active balance and log the intent in the audit chain.
                   </p>
                 </div>
                 
-                <div className="w-full text-left space-y-2 mt-4">
-                  <label className="text-[9px] uppercase tracking-[0.3em] text-slate-400 font-bold ml-1">Reason for Voiding</label>
+                <div className="w-full text-left space-y-3 mt-6">
+                  <label className="text-[9px] uppercase tracking-[0.4em] text-gray-600 font-black ml-1">Void Intent Signature</label>
                   <textarea
+                    required
                     value={voidReason}
                     onChange={(e) => setVoidReason(e.target.value)}
-                    placeholder="Describe why this payment is being voided..."
-                    className="w-full bg-slate-50 border border-navy-border rounded-2xl p-4 text-sm text-navy-accent focus:border-rose-500/50 outline-none h-24 resize-none"
+                    placeholder="Provide rationale for ledger invalidation..."
+                    className="w-full bg-black/40 border border-gray-800 rounded-3xl p-6 text-sm text-white focus:border-red-500/50 outline-none h-32 resize-none transition-all placeholder:text-gray-800"
                   />
                 </div>
 
-                <div className="grid grid-cols-2 gap-4 w-full mt-4">
+                <div className="grid grid-cols-2 gap-6 w-full mt-6">
                   <button
                     onClick={() => setVoidingId(null)}
-                    className="py-3 px-6 rounded-2xl bg-slate-100 text-slate-500 text-[10px] font-black uppercase tracking-widest hover:bg-slate-200 transition-all"
+                    className="py-5 bg-white/5 text-gray-500 text-[10px] font-black uppercase tracking-[0.3em] rounded-2xl hover:bg-white/10 transition-all"
                   >
-                    Cancel
+                    Abort
                   </button>
                   <button
                     onClick={handleVoid}
                     disabled={!voidReason || isVoiding}
-                    className="py-3 px-6 rounded-2xl bg-rose-600 text-white text-[10px] font-black uppercase tracking-widest hover:bg-rose-700 transition-all shadow-lg disabled:opacity-50"
+                    className="py-5 bg-red-600 text-white text-[10px] font-black uppercase tracking-[0.3em] rounded-2xl hover:bg-red-700 transition-all shadow-2xl disabled:opacity-50"
                   >
-                    {isVoiding ? 'Processing...' : 'Void Payment'}
+                    {isVoiding ? 'Voiding...' : 'Finalize Void'}
                   </button>
                 </div>
               </div>

@@ -10,6 +10,21 @@ export async function getVehicles() {
   return data;
 }
 
+export async function createVehicle(vehicleData: any) {
+  const { data, error } = await supabase
+    .from('vehicles')
+    .insert({
+      ...vehicleData,
+      status: vehicleData.status || 'available',
+      created_at: new Date().toISOString()
+    })
+    .select()
+    .single();
+
+  if (error) throw error;
+  return data;
+}
+
 export async function updateVehicleStatus(id: string, status: string) {
   const { data, error } = await supabase
     .from('vehicles')
@@ -123,6 +138,10 @@ export async function getFinancialStatusByVehicle(vehicleId: string) {
       id,
       customer_name,
       status,
+      stage,
+      vrt_amount,
+      reg_number,
+      finance_company_code,
       payments (amount, is_voided),
       finance_apps (approved_amount, status)
     `)
@@ -142,5 +161,117 @@ export async function getFinancialStatusByVehicle(vehicleId: string) {
     customerName: deal.customer_name,
     totalPayments,
     totalFinance,
+    stage: deal.stage || 'pending',
   };
+}
+
+export async function getDeal(id: string) {
+  const { data, error } = await supabase
+    .from('deals')
+    .select(`
+      *,
+      vehicle:vehicle_id (*),
+      payments (*),
+      finance_apps (*)
+    `)
+    .eq('id', id)
+    .single();
+
+  if (error) throw error;
+  return data;
+}
+
+export async function updateDeal(id: string, updates: any) {
+  const { data, error } = await supabase
+    .from('deals')
+    .update({ ...updates, updated_at: new Date().toISOString() })
+    .eq('id', id)
+    .select()
+    .single();
+
+  if (error) throw error;
+  return data;
+}
+
+export async function finalizeRegistration(dealId: string, vehicleId: string, vrtAmount: number, regNumber: string) {
+  // Update deal with VRT info and transition stage
+  const { error: dealError } = await supabase
+    .from('deals')
+    .update({
+      vrt_amount: vrtAmount,
+      reg_number: regNumber,
+      stage: 'registered',
+      updated_at: new Date().toISOString()
+    })
+    .eq('id', dealId);
+
+  if (dealError) throw dealError;
+
+  // Update vehicle with the new Irish registration number
+  const { error: vehicleError } = await supabase
+    .from('vehicles')
+    .update({
+      registration_number: regNumber,
+      updated_at: new Date().toISOString()
+    })
+    .eq('id', vehicleId);
+
+  if (vehicleError) throw vehicleError;
+  
+  return true;
+}
+
+export async function closeDeal(dealId: string, vehicleId: string) {
+  // Close the deal
+  const { error: dealError } = await supabase
+    .from('deals')
+    .update({
+      stage: 'closed',
+      status: 'finalized',
+      updated_at: new Date().toISOString()
+    })
+    .eq('id', dealId);
+
+  if (dealError) throw dealError;
+
+  // Mark vehicle as sold
+  const { error: vehicleError } = await supabase
+    .from('vehicles')
+    .update({
+      status: 'sold',
+      updated_at: new Date().toISOString()
+    })
+    .eq('id', vehicleId);
+
+  if (vehicleError) throw vehicleError;
+  
+  return true;
+}
+
+export async function getReps() {
+  const { data, error } = await supabase
+    .from('reps')
+    .select('*')
+    .eq('active', true)
+    .order('name', { ascending: true });
+
+  if (error) throw error;
+  return data;
+}
+
+export async function getSalesReportData() {
+  const { data, error } = await supabase
+    .from('deals')
+    .select(`
+      *,
+      vehicle:vehicle_id (*),
+      payments (*),
+      finance_apps (*),
+      rep:rep_code (name, rep_code)
+    `)
+    .in('stage', ['invoiced', 'registered', 'closed'])
+    .order('created_at', { ascending: false });
+
+  if (error) throw error;
+  return data;
 }

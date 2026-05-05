@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Car, Hash, Euro, User, Calendar, ArrowRight } from 'lucide-react';
+import { Car, Hash, Euro, User, Calendar, ArrowRight, Gauge, Fuel, Settings } from 'lucide-react';
 
 interface Vehicle {
   id: string;
@@ -12,6 +12,10 @@ interface Vehicle {
   vin: string;
   status: 'available' | 'sold' | 'garage' | 'unfinanceable';
   rep_code: string;
+  mileage?: number;
+  image_url?: string;
+  transmission?: string;
+  fuel_type?: string;
 }
 
 interface VehicleCardProps {
@@ -21,10 +25,10 @@ interface VehicleCardProps {
 
 const VehicleCard = ({ vehicle, onStatusChange }: VehicleCardProps) => {
   const statusColors = {
-    available: 'var(--chrome-gold)',
-    sold: 'var(--success-teal)',
-    garage: 'var(--chrome-gold)',
-    unfinanceable: 'var(--danger-rose)',
+    available: '#d4af37', // Gold
+    sold: '#14b8a6', // Teal
+    garage: '#f59e0b', // Amber
+    unfinanceable: '#ef4444', // Red
   };
 
   const statusLabel = {
@@ -35,18 +39,18 @@ const VehicleCard = ({ vehicle, onStatusChange }: VehicleCardProps) => {
   };
 
   return (
-    <div className="glass-card p-6 group">
-      <div className="flex justify-between items-start mb-6">
+    <div className="glass-card p-6 group hover:border-gray-700 transition-all">
+      <div className="flex justify-between items-start mb-4">
         <div>
-          <h3 className="text-xl font-bold tracking-tight uppercase">
+          <h3 className="text-xl font-bold tracking-tight uppercase text-white">
             {vehicle.make} <span className="text-gray-500">{vehicle.model}</span>
           </h3>
-          <p className="text-[10px] text-gray-500 font-mono tracking-widest uppercase mt-1">
-            Manufacturing Year: {vehicle.year}
+          <p className="text-[9px] text-gray-500 font-mono tracking-widest uppercase mt-1">
+            VIN: {vehicle.vin?.slice(-8)}
           </p>
         </div>
         <div 
-          className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-tighter"
+          className="px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-tighter"
           style={{ 
             backgroundColor: `${statusColors[vehicle.status]}20`, 
             color: statusColors[vehicle.status],
@@ -57,31 +61,51 @@ const VehicleCard = ({ vehicle, onStatusChange }: VehicleCardProps) => {
         </div>
       </div>
 
-      <div className="space-y-4 mb-8">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2 text-gray-400">
-            <Hash size={14} />
-            <span className="text-[10px] uppercase tracking-widest">VIN Sequence</span>
-          </div>
-          <span className="mono text-xs font-bold text-[#f8fafc]">{vehicle.vin}</span>
+      {vehicle.image_url && (
+        <div className="w-full h-32 rounded-xl overflow-hidden mb-6 bg-black/40 border border-gray-800">
+          <img src={vehicle.image_url} alt={vehicle.model} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" />
         </div>
+      )}
 
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2 text-gray-400">
-            <Euro size={14} />
-            <span className="text-[10px] uppercase tracking-widest">Market Price</span>
+      <div className="grid grid-cols-2 gap-4 mb-8">
+        <div className="space-y-1">
+          <div className="flex items-center gap-2 text-gray-500">
+            <Gauge size={12} />
+            <span className="text-[8px] uppercase tracking-widest font-bold">Mileage</span>
           </div>
-          <span className="mono text-lg font-bold text-[var(--chrome-gold)]">
-            €{vehicle.price.toLocaleString()}
+          <span className="text-xs font-mono font-bold text-gray-300">
+            {vehicle.mileage?.toLocaleString() || '---'} KM
           </span>
         </div>
 
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2 text-gray-400">
-            <User size={14} />
-            <span className="text-[10px] uppercase tracking-widest">Rep ID</span>
+        <div className="space-y-1">
+          <div className="flex items-center gap-2 text-gray-500">
+            <Calendar size={12} />
+            <span className="text-[8px] uppercase tracking-widest font-bold">Year</span>
           </div>
-          <span className="text-xs font-bold text-gray-300">{vehicle.rep_code}</span>
+          <span className="text-xs font-mono font-bold text-gray-300">
+            {vehicle.year}
+          </span>
+        </div>
+
+        <div className="space-y-1">
+          <div className="flex items-center gap-2 text-gray-500">
+            <Fuel size={12} />
+            <span className="text-[8px] uppercase tracking-widest font-bold">Fuel</span>
+          </div>
+          <span className="text-xs font-bold text-gray-300 uppercase">
+            {vehicle.fuel_type || '---'}
+          </span>
+        </div>
+
+        <div className="space-y-1">
+          <div className="flex items-center gap-2 text-gray-500">
+            <Euro size={12} />
+            <span className="text-[8px] uppercase tracking-widest font-bold">Market Price</span>
+          </div>
+          <span className="text-md font-mono font-bold text-amber-500">
+            €{vehicle.price.toLocaleString()}
+          </span>
         </div>
       </div>
 
@@ -89,7 +113,7 @@ const VehicleCard = ({ vehicle, onStatusChange }: VehicleCardProps) => {
         {vehicle.status === 'available' && (
           <button 
             onClick={() => onStatusChange?.(vehicle.id, 'garage')}
-            className="flex-1 py-2 rounded border border-gray-800 text-gray-400 font-bold uppercase text-[10px] tracking-widest hover:bg-gray-800 transition-all flex items-center justify-center gap-2"
+            className="flex-1 py-3 rounded-xl border border-gray-800 text-gray-400 font-black uppercase text-[9px] tracking-[0.2em] hover:bg-gray-800 transition-all flex items-center justify-center gap-2"
           >
             Send to Garage
           </button>
@@ -98,7 +122,7 @@ const VehicleCard = ({ vehicle, onStatusChange }: VehicleCardProps) => {
         {vehicle.status === 'garage' && (
           <button 
             onClick={() => onStatusChange?.(vehicle.id, 'available')}
-            className="flex-1 py-2 rounded bg-amber-500/10 text-amber-500 border border-amber-500/20 font-bold uppercase text-[10px] tracking-widest hover:bg-amber-500/20 transition-all flex items-center justify-center gap-2"
+            className="flex-1 py-3 rounded-xl bg-amber-500/10 text-amber-500 border border-amber-500/20 font-black uppercase text-[9px] tracking-[0.2em] hover:bg-amber-500/20 transition-all flex items-center justify-center gap-2"
           >
             Complete Service
           </button>
@@ -106,8 +130,8 @@ const VehicleCard = ({ vehicle, onStatusChange }: VehicleCardProps) => {
 
         {vehicle.status !== 'sold' && (
           <button 
-            className="p-2 aspect-square rounded border border-gray-800 text-gray-400 hover:text-white hover:border-gray-600 transition-all"
-            title="Finance Details"
+            className="p-3 aspect-square rounded-xl border border-gray-800 text-gray-500 hover:text-white hover:border-gray-600 transition-all flex items-center justify-center"
+            title="View Details"
           >
             <ArrowRight size={16} />
           </button>

@@ -12,20 +12,23 @@ const config: Config = {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
         navy: {
-          bg: '#ffffff',
-          card: '#f8fafc',
-          accent: '#020617',
-          'accent-dim': '#475569',
-          border: '#e2e8f0',
+          bg: '#020617',
+          card: '#0f172a',
+          accent: '#3b82f6', // Bright Blue
+          'accent-dim': '#1e3a8a',
+          border: '#1e293b',
+        },
+        brand: {
+          green: '#10b981',
+          blue: '#3b82f6',
         }
       },
       backgroundImage: {
-        'navy-gradient': 'linear-gradient(to right, #020617, #475569, #020617)',
-        'navy-card-gradient': 'linear-gradient(145deg, #f8fafc 0%, #ffffff 100%)',
+        'navy-gradient': 'linear-gradient(to right, #020617, #0f172a, #020617)',
+        'navy-card-gradient': 'linear-gradient(145deg, #0f172a 0%, #020617 100%)',
       }
     },
   },
   plugins: [],
 };
 export default config;
-

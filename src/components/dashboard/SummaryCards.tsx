@@ -1,7 +1,8 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { LineChart, Line, ResponsiveContainer } from 'recharts';
+import { useRep } from '@/context/RepContext';
 
 const mockSparklineData = [
   { value: 400 }, { value: 300 }, { value: 550 }, 
@@ -9,41 +10,55 @@ const mockSparklineData = [
   { value: 800 }
 ];
 
-const Card = ({ title, value }: { title: string, value: string }) => (
-  <div className="relative overflow-hidden rounded-xl bg-white border border-navy-border p-5 flex flex-col justify-between h-[120px] shadow-sm group">
+const Card = ({ title, value }: { title: string, value: string | number }) => (
+  <div className="relative overflow-hidden rounded-2xl bg-[#0f172a] border border-gray-800/50 p-6 flex flex-col justify-between h-[130px] shadow-2xl group hover:border-amber-500/30 transition-all">
     <div className="relative z-10 flex flex-col items-center text-center">
-      <h3 className="text-[10px] text-slate-500 uppercase tracking-widest mb-1 font-bold">{title}</h3>
-      <p className="text-3xl md:text-4xl font-black text-navy-accent tracking-wider">{value}</p>
+      <h3 className="text-[9px] text-gray-500 uppercase tracking-[0.3em] mb-2 font-black">{title}</h3>
+      <p className="text-4xl font-black text-white tracking-tighter leading-none">{value}</p>
     </div>
 
     {/* Sparkline */}
-    <div className="absolute bottom-0 left-0 right-0 h-10 opacity-100 transition-opacity">
+    <div className="absolute bottom-0 left-0 right-0 h-12 opacity-40 transition-opacity">
       <ResponsiveContainer width="100%" height="100%">
         <LineChart data={mockSparklineData}>
           <Line 
             type="monotone" 
             dataKey="value" 
-            stroke="#020617" 
-            strokeWidth={3} 
+            stroke="#ffffff" 
+            strokeWidth={2} 
             dot={false} 
-            isAnimationActive={false}
+            isAnimationActive={true}
           />
         </LineChart>
       </ResponsiveContainer>
     </div>
     
-    {/* Top navy border highlight */}
-    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-[2px] bg-navy-accent opacity-10" />
+    <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/5 to-transparent" />
   </div>
 );
 
-const SummaryCards = () => {
+const SummaryCards = ({ data }: { data: any[] }) => {
+  const { location } = useRep();
+  const [stats, setStats] = useState({ total: 0, available: 0, intransit: 0, sold: 0 });
+
+  useEffect(() => {
+    const filteredData = data.filter(v => 
+      v.location?.toLowerCase().includes(location.toLowerCase())
+    );
+
+    const total = filteredData.length;
+    const available = filteredData.filter(v => v.status === 'available').length;
+    const sold = filteredData.filter(v => v.status === 'sold').length;
+    
+    setStats({ total, available, intransit: 0, sold });
+  }, [data, location]);
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-      <Card title="Total Inventory" value="724" />
-      <Card title="Units in Stock" value="491" />
-      <Card title="Intransit" value="233" />
-      <Card title="Sold YTD" value="3,150" />
+      <Card title="Total Inventory" value={stats.total} />
+      <Card title="Units in Stock" value={stats.available} />
+      <Card title="Intransit" value={stats.intransit} />
+      <Card title="Sold YTD" value={stats.sold} />
     </div>
   );
 };

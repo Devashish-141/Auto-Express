@@ -24,31 +24,20 @@ const LenderCard = ({
   isLocked = false 
 }: LenderCardProps) => {
   
-  const getBorderColor = () => {
-    if (isLocked) return 'border-slate-100';
-    switch (status) {
-      case 'approved': return 'border-teal-500 shadow-sm';
-      case 'declined': return 'border-rose-500 shadow-sm';
-      case 'pending': return 'border-amber-500 shadow-sm';
-      default: return 'border-navy-border';
-    }
-  };
-
   const getStatusColor = () => {
     switch (status) {
-      case 'approved': return 'text-teal-600';
-      case 'declined': return 'text-rose-600';
-      case 'pending': return 'text-amber-600';
-      default: return 'text-slate-400';
+      case 'approved': return 'text-teal-400';
+      case 'declined': return 'text-rose-400';
+      case 'pending': return 'text-amber-400';
+      default: return 'text-gray-600';
     }
   };
 
-  const getBgColor = () => {
+  const getIcon = () => {
     switch (status) {
-      case 'approved': return 'bg-teal-50';
-      case 'declined': return 'bg-rose-50';
-      case 'pending': return 'bg-amber-50';
-      default: return 'bg-slate-100';
+      case 'approved': return <CheckCircle2 size={24} className="text-teal-400" />;
+      case 'declined': return <XCircle size={24} className="text-rose-400" />;
+      default: return <AlertCircle size={24} className="text-amber-400" />;
     }
   };
 
@@ -56,55 +45,51 @@ const LenderCard = ({
     <motion.div 
       initial={false}
       animate={{ 
-        filter: isLocked ? 'blur(4px)' : 'blur(0px)',
-        opacity: isLocked ? 0.6 : 1,
+        filter: isLocked ? 'grayscale(1) opacity(0.5)' : 'none',
         scale: isLocked ? 0.98 : 1
       }}
-      transition={{ duration: 0.4 }}
       className={`relative group ${isLocked ? 'pointer-events-none' : ''}`}
     >
-      <div className={`glass-card p-6 flex flex-col md:flex-row md:items-center justify-between gap-6 transition-all duration-500 border ${getBorderColor()} ${isLocked ? 'bg-slate-50' : 'bg-white shadow-sm'}`}>
+      <div className={`bg-[#0f172a] p-6 md:p-8 rounded-3xl border border-gray-800 flex flex-col md:flex-row md:items-center justify-between gap-8 transition-all duration-500 shadow-xl overflow-hidden`}>
         
         {isLocked && (
-          <div className="absolute inset-0 z-20 flex flex-col items-center justify-center">
-            <Lock className="text-slate-300 mb-2" size={24} />
-            <span className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-300 font-mono">Sequential Lock</span>
+          <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-black/40 backdrop-blur-[2px]">
+            <Lock className="text-gray-600 mb-2" size={20} />
+            <span className="text-[9px] font-black uppercase tracking-[0.3em] text-gray-600 font-mono">Sequence Locked</span>
           </div>
         )}
 
-        <div className="flex items-center gap-6">
-          <div className={`w-14 h-14 rounded-2xl flex items-center justify-center border transition-all duration-500 ${getBgColor()} ${status === 'approved' ? 'border-teal-200' : status === 'declined' ? 'border-rose-200' : 'border-amber-200'}`}>
-            {status === 'approved' ? <CheckCircle2 size={28} className="text-teal-600" /> :
-             status === 'declined' ? <XCircle size={28} className="text-rose-600" /> :
-             <AlertCircle size={28} className="text-amber-600" />}
+        <div className="flex items-center gap-6 relative z-10">
+          <div className={`w-14 h-14 rounded-2xl flex items-center justify-center bg-black/40 border border-gray-800 shadow-inner`}>
+            {getIcon()}
           </div>
           <div>
-            <h4 className="text-xl font-black uppercase tracking-tight text-navy-accent group-hover:tracking-wider transition-all duration-300">{name}</h4>
-            <div className="flex items-center gap-2 mt-1">
-              <span className="text-[9px] text-slate-400 uppercase tracking-widest font-mono">Lender Status:</span>
-              <span className={`text-[9px] font-black uppercase tracking-widest ${getStatusColor()}`}>
+            <h4 className="text-xl font-black uppercase tracking-tight text-white group-hover:text-blue-400 transition-colors italic">{name}</h4>
+            <div className="flex items-center gap-3 mt-1.5">
+              <span className="text-[8px] text-gray-600 uppercase tracking-widest font-black">Lender Signal:</span>
+              <span className={`text-[8px] font-black uppercase tracking-[0.2em] ${getStatusColor()}`}>
                 {status}
               </span>
             </div>
           </div>
         </div>
 
-        <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 w-full md:w-auto pt-4 md:pt-0 border-t md:border-t-0 border-slate-100">
-          <div className="flex items-center gap-2 bg-slate-50 p-1.5 rounded-xl border border-navy-border w-full sm:w-auto overflow-x-auto px-2">
+        <div className="flex flex-col sm:flex-row items-center gap-6 w-full md:w-auto pt-6 md:pt-0 border-t md:border-t-0 border-gray-800/50 relative z-10">
+          <div className="flex items-center gap-3 bg-black/40 p-2 rounded-2xl border border-gray-800 w-full sm:w-auto">
             {[
-              { id: 'pending', label: 'Pending', color: 'hover:bg-amber-100 hover:text-amber-600' },
-              { id: 'approved', label: 'Approved', color: 'hover:bg-teal-100 hover:text-teal-600' },
-              { id: 'declined', label: 'Declined', color: 'hover:bg-rose-100 hover:text-rose-600' }
+              { id: 'pending', label: 'Wait', color: 'hover:text-amber-400' },
+              { id: 'approved', label: 'Pass', color: 'hover:text-teal-400' },
+              { id: 'declined', label: 'Fail', color: 'hover:text-rose-400' }
             ].map((btn) => (
               <button
                 key={btn.id}
                 onClick={() => onStatusChange(btn.id as any)}
-                className={`flex-1 sm:flex-none px-3 py-2 md:px-4 rounded-lg text-[8px] md:text-[9px] font-black uppercase tracking-widest transition-all duration-300 ${
+                className={`flex-1 sm:flex-none px-5 py-2.5 rounded-xl text-[9px] font-black uppercase tracking-[0.2em] transition-all duration-300 ${
                   status === btn.id 
-                    ? btn.id === 'pending' ? 'bg-amber-500 text-white' 
-                      : btn.id === 'approved' ? 'bg-teal-500 text-white' 
-                      : 'bg-rose-500 text-white'
-                    : `text-slate-400 ${btn.color}`
+                    ? btn.id === 'pending' ? 'bg-amber-500 text-white shadow-[0_0_15px_rgba(245,158,11,0.3)]' 
+                      : btn.id === 'approved' ? 'bg-teal-500 text-white shadow-[0_0_15px_rgba(20,184,166,0.3)]' 
+                      : 'bg-rose-500 text-white shadow-[0_0_15px_rgba(244,63,94,0.3)]'
+                    : `text-gray-600 ${btn.color}`
                 }`}
               >
                 {btn.label}
@@ -118,19 +103,19 @@ const LenderCard = ({
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: 20 }}
-                className="flex flex-col w-full sm:w-40"
+                className="flex flex-col w-full sm:w-48"
               >
-                <span className="text-[7px] md:text-[8px] text-slate-400 uppercase tracking-widest mb-1 font-bold">Manual funding input</span>
-                <div className="relative group/input">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <Euro size={12} className="text-teal-600" />
+                <span className="text-[8px] text-gray-600 uppercase tracking-widest mb-2 font-black ml-1">Manual Credit Input</span>
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-teal-400 font-mono font-black">
+                    <Euro size={12} />
                   </div>
                   <input
                     type="number"
                     value={approvedAmount || ''}
                     onChange={(e) => onAmountChange(Number(e.target.value))}
                     placeholder="0.00"
-                    className="w-full bg-teal-50 border border-teal-200 rounded-xl py-2 pl-8 pr-4 text-xs md:text-sm font-mono font-bold text-teal-600 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500/30 transition-all placeholder:text-teal-200"
+                    className="w-full bg-black/40 border border-gray-800 rounded-2xl py-3 pl-10 pr-4 text-sm font-mono font-black text-teal-400 focus:border-teal-500/50 outline-none transition-all placeholder:text-gray-800"
                   />
                 </div>
               </motion.div>
