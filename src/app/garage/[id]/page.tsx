@@ -116,9 +116,9 @@ export default function GarageDealPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#020617] flex flex-col items-center justify-center gap-4">
-        <div className="w-12 h-12 border-4 border-white/10 border-t-blue-500 rounded-full animate-spin" />
-        <p className="text-[10px] uppercase tracking-[0.5em] text-gray-600 font-black">Syncing Ledger...</p>
+      <div className="min-h-screen bg-background flex flex-col items-center justify-center gap-4">
+        <div className="w-12 h-12 border-4 border-slate-200 border-t-blue-600 rounded-full animate-spin" />
+        <p className="text-[10px] uppercase tracking-[0.5em] text-slate-400 font-black">Syncing Ledger...</p>
       </div>
     );
   }
@@ -135,7 +135,7 @@ export default function GarageDealPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#020617] flex flex-col font-sans text-white">
+    <div className="min-h-screen bg-background flex flex-col font-sans text-foreground">
       <TopNav />
       
       <main className="flex-1 p-6 overflow-y-auto">
@@ -144,7 +144,7 @@ export default function GarageDealPage() {
           <div className="flex items-center justify-between">
             <Link 
               href="/garage"
-              className="group flex items-center gap-3 text-gray-500 hover:text-white transition-all text-[10px] font-black uppercase tracking-[0.2em] bg-white/5 px-6 py-3 rounded-2xl border border-gray-800 hover:border-blue-500 shadow-xl"
+              className="group flex items-center gap-3 text-slate-400 hover:text-blue-600 transition-all text-[10px] font-black uppercase tracking-[0.2em] bg-white px-6 py-3 rounded-2xl border border-slate-200 hover:border-blue-500 shadow-sm"
             >
               <ChevronLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
               Return to Ledger
@@ -152,78 +152,78 @@ export default function GarageDealPage() {
 
             <div className="flex items-center gap-4">
               <div className="text-right">
-                <p className="text-[9px] text-gray-600 uppercase tracking-[0.3em] font-black">Asset Status</p>
-                <p className="text-xs font-black text-teal-400 uppercase italic tracking-tighter">Verified // Financial Hold</p>
+                <p className="text-[9px] text-slate-400 uppercase tracking-[0.3em] font-black">Asset Status</p>
+                <p className="text-xs font-black text-teal-600 uppercase italic tracking-tighter">Verified // Financial Hold</p>
               </div>
-              <div className="w-12 h-12 rounded-2xl bg-black/40 border border-gray-800 flex items-center justify-center">
+              <div className="w-12 h-12 rounded-2xl bg-white border border-slate-200 flex items-center justify-center">
                 <Activity size={20} className="text-amber-500 animate-pulse" />
               </div>
             </div>
           </div>
 
-          <div className="bg-[#0f172a] p-8 md:p-12 rounded-[2.5rem] border border-gray-800 shadow-2xl relative overflow-hidden group">
-            <div className="absolute top-0 right-0 p-12 opacity-5 rotate-12 pointer-events-none hidden md:block text-white">
+          <div className="bg-white p-8 md:p-12 rounded-[2.5rem] border border-slate-200 shadow-sm relative overflow-hidden group">
+            <div className="absolute top-0 right-0 p-12 opacity-5 rotate-12 pointer-events-none hidden md:block text-foreground">
               <Euro size={240} />
             </div>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-16 relative z-10">
               <div className="space-y-3">
-                <div className="flex items-center gap-2 text-gray-600">
+                <div className="flex items-center gap-2 text-slate-400">
                   <Hash size={14} />
                   <p className="text-[9px] uppercase tracking-[0.4em] font-black">Market Value</p>
                 </div>
-                <h2 className="text-2xl md:text-4xl font-black font-mono text-white tracking-tighter italic">€{totalSalePrice.toLocaleString()}</h2>
+                <h2 className="text-2xl md:text-4xl font-black font-mono text-foreground tracking-tighter italic">€{totalSalePrice.toLocaleString()}</h2>
               </div>
               
               <div className="space-y-3">
-                <div className="flex items-center gap-2 text-gray-600">
+                <div className="flex items-center gap-2 text-slate-400">
                   <User size={14} />
                   <p className="text-[9px] uppercase tracking-[0.4em] font-black">Realized Cash</p>
                 </div>
-                <h2 className="text-2xl md:text-4xl font-black font-mono text-teal-400 tracking-tighter italic">€{totalPayments.toLocaleString()}</h2>
+                <h2 className="text-2xl md:text-4xl font-black font-mono text-teal-600 tracking-tighter italic">€{totalPayments.toLocaleString()}</h2>
               </div>
 
               <div className="space-y-3">
-                <div className="flex items-center gap-2 text-gray-600">
+                <div className="flex items-center gap-2 text-slate-400">
                   <Activity size={14} />
                   <p className="text-[9px] uppercase tracking-[0.4em] font-black">Finance Credit</p>
                 </div>
-                <h2 className="text-2xl md:text-4xl font-black font-mono text-blue-400 tracking-tighter italic">€{totalFinanceApproved.toLocaleString()}</h2>
+                <h2 className="text-2xl md:text-4xl font-black font-mono text-blue-600 tracking-tighter italic">€{totalFinanceApproved.toLocaleString()}</h2>
               </div>
               
-              <div className="bg-black/40 p-6 rounded-3xl border border-gray-800 shadow-inner relative overflow-hidden">
-                <p className="text-[9px] uppercase tracking-[0.4em] text-gray-600 font-black mb-2">Remaining Balance</p>
-                <h2 className={`text-3xl md:text-5xl font-black font-mono tracking-tighter ${balanceDue > 0 ? 'text-amber-500 animate-pulse' : 'text-teal-400'}`}>
+              <div className="bg-slate-50 p-6 rounded-3xl border border-slate-200 relative overflow-hidden">
+                <p className="text-[9px] uppercase tracking-[0.4em] text-slate-400 font-black mb-2">Remaining Balance</p>
+                <h2 className={`text-3xl md:text-5xl font-black font-mono tracking-tighter ${balanceDue > 0 ? 'text-amber-600 animate-pulse' : 'text-teal-600'}`}>
                   €{balanceDue.toLocaleString()}
                 </h2>
               </div>
             </div>
 
-            <div className="mt-12 pt-10 border-t border-gray-800 flex flex-col md:flex-row md:items-end justify-between gap-8">
+            <div className="mt-12 pt-10 border-t border-slate-100 flex flex-col md:flex-row md:items-end justify-between gap-8">
               <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-center">
-                <div className="w-full md:w-80 h-40 md:h-48 rounded-3xl overflow-hidden border border-gray-800 bg-black/40 relative shadow-2xl group-hover:border-blue-500/30 transition-all duration-500">
+                <div className="w-full md:w-80 h-40 md:h-48 rounded-3xl overflow-hidden border border-slate-200 bg-slate-50 relative shadow-xl group-hover:border-blue-500/30 transition-all duration-500">
                   <img 
                     src={getActualVehicleImage(deal?.vehicles?.make || '', deal?.vehicles?.model || '', deal?.vehicles?.image_url)} 
                     alt={deal?.vehicles?.model}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                 </div>
                 
                 <div className="space-y-3">
                   <div className="flex items-center gap-3 mb-2">
-                    <span className="text-[9px] px-3 py-1 rounded-full bg-amber-500/10 text-amber-500 font-black tracking-[0.3em] uppercase border border-amber-500/20">Audit Secured</span>
-                    <span className="text-[9px] text-gray-600 font-mono tracking-widest uppercase">VIN: {deal?.vehicles?.vin}</span>
+                    <span className="text-[9px] px-3 py-1 rounded-full bg-amber-50 text-amber-600 font-black tracking-[0.3em] uppercase border border-amber-100">Audit Secured</span>
+                    <span className="text-[9px] text-slate-400 font-mono tracking-widest uppercase">VIN: {deal?.vehicles?.vin}</span>
                   </div>
-                  <h3 className="text-3xl md:text-5xl font-black uppercase tracking-tighter leading-none text-white italic">
-                    {deal?.vehicles?.make} <span className="text-gray-500 font-normal not-italic">{deal?.vehicles?.model}</span>
+                  <h3 className="text-3xl md:text-5xl font-black uppercase tracking-tighter leading-none text-foreground italic">
+                    {deal?.vehicles?.make} <span className="text-slate-400 font-normal not-italic">{deal?.vehicles?.model}</span>
                   </h3>
                   <div className="flex items-center gap-3 mt-4">
-                    <div className="w-8 h-8 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-500">
+                    <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 border border-blue-100">
                       <User size={16} />
                     </div>
-                    <p className="text-[10px] md:text-xs text-gray-400 font-bold tracking-[0.2em] uppercase">
-                      Client Protocol: <span className="text-white">{deal?.customer_name}</span>
+                    <p className="text-[10px] md:text-xs text-slate-400 font-bold tracking-[0.2em] uppercase">
+                      Client Protocol: <span className="text-foreground">{deal?.customer_name}</span>
                     </p>
                   </div>
                 </div>
@@ -231,15 +231,15 @@ export default function GarageDealPage() {
               
               <div className="flex items-center gap-6">
                 <div className="text-right">
-                  <p className="text-[9px] text-gray-600 uppercase tracking-[0.3em] font-black mb-1">Telemetry Sync</p>
-                  <p className="text-[10px] font-mono text-gray-400 font-black">{new Date().toLocaleTimeString()}</p>
+                  <p className="text-[9px] text-slate-400 uppercase tracking-[0.3em] font-black mb-1">Telemetry Sync</p>
+                  <p className="text-[10px] font-mono text-slate-300 font-black">{new Date().toLocaleTimeString()}</p>
                 </div>
-                <div className="bg-teal-500/5 border border-teal-500/20 px-6 py-4 rounded-3xl flex items-center gap-4 shadow-xl">
+                <div className="bg-teal-50 border border-teal-100 px-6 py-4 rounded-3xl flex items-center gap-4 shadow-sm">
                   <div className="flex flex-col">
-                    <span className="text-[8px] text-gray-600 uppercase tracking-widest mb-1 font-black">Protocol Status</span>
-                    <span className="text-[10px] font-black text-teal-400 uppercase tracking-[0.2em]">Verified</span>
+                    <span className="text-[8px] text-slate-400 uppercase tracking-widest mb-1 font-black">Protocol Status</span>
+                    <span className="text-[10px] font-black text-teal-600 uppercase tracking-[0.2em]">Verified</span>
                   </div>
-                  <div className="w-2 h-2 bg-teal-400 rounded-full shadow-[0_0_15px_rgba(20,184,166,0.5)] animate-pulse" />
+                  <div className="w-2 h-2 bg-teal-500 rounded-full shadow-[0_0_15px_rgba(20,184,166,0.3)] animate-pulse" />
                 </div>
               </div>
             </div>
@@ -252,38 +252,38 @@ export default function GarageDealPage() {
             </div>
 
             <div className="space-y-8">
-               <div className="bg-[#0f172a] p-8 rounded-3xl border border-gray-800 shadow-2xl">
-                 <h4 className="text-[10px] font-black uppercase tracking-[0.4em] text-gray-600 mb-8 flex items-center gap-3">
+               <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
+                 <h4 className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-400 mb-8 flex items-center gap-3">
                    <Activity size={16} className="text-amber-500" />
                    Deal Vitals
                  </h4>
                  <div className="space-y-8">
-                    <div className="flex justify-between items-end border-b border-gray-800/50 pb-6">
+                    <div className="flex justify-between items-end border-b border-slate-100 pb-6">
                       <div>
-                        <p className="text-[9px] text-gray-600 uppercase tracking-widest mb-1 font-black">Acquisition Date</p>
-                        <p className="text-xs font-black text-white font-mono uppercase italic">{new Date(deal?.created_at || '').toLocaleDateString('en-IE')}</p>
+                        <p className="text-[9px] text-slate-400 uppercase tracking-widest mb-1 font-black">Acquisition Date</p>
+                        <p className="text-xs font-black text-foreground font-mono uppercase italic">{new Date(deal?.created_at || '').toLocaleDateString('en-IE')}</p>
                       </div>
                       <div className="text-right">
-                        <p className="text-[9px] text-gray-600 uppercase tracking-widest mb-1 font-black">Protocol Age</p>
-                        <p className="text-xs font-black text-amber-500 font-mono uppercase">2 Days</p>
+                        <p className="text-[9px] text-slate-400 uppercase tracking-widest mb-1 font-black">Protocol Age</p>
+                        <p className="text-xs font-black text-amber-600 font-mono uppercase">Active</p>
                       </div>
                     </div>
-                    <div className="flex justify-between items-end border-b border-gray-800/50 pb-6">
+                    <div className="flex justify-between items-end border-b border-slate-100 pb-6">
                       <div>
-                        <p className="text-[9px] text-gray-600 uppercase tracking-widest mb-1 font-black">Digital Signature</p>
-                        <p className="text-xs font-black text-blue-400 font-mono uppercase italic">0x4F...E12A</p>
+                        <p className="text-[9px] text-slate-400 uppercase tracking-widest mb-1 font-black">Digital Signature</p>
+                        <p className="text-xs font-black text-blue-600 font-mono uppercase italic">SECURED-SHA256</p>
                       </div>
                       <div className="text-right">
-                        <p className="text-[9px] text-gray-600 uppercase tracking-widest mb-1 font-black">Compliance</p>
-                        <p className="text-[10px] font-black text-teal-400 uppercase tracking-[0.2em] italic">SECURE</p>
+                        <p className="text-[9px] text-slate-400 uppercase tracking-widest mb-1 font-black">Compliance</p>
+                        <p className="text-[10px] font-black text-teal-600 uppercase tracking-[0.2em] italic">SECURE</p>
                       </div>
                     </div>
                  </div>
                  
-                 <div className="mt-10 p-5 rounded-2xl bg-amber-500/5 border border-amber-500/20">
+                 <div className="mt-10 p-5 rounded-2xl bg-amber-50 border border-amber-100">
                    <div className="flex gap-4">
                      <AlertCircle className="text-amber-500 flex-shrink-0" size={20} />
-                     <p className="text-[9px] text-amber-500 leading-relaxed font-black uppercase tracking-widest">
+                     <p className="text-[9px] text-amber-600 leading-relaxed font-black uppercase tracking-widest">
                        Mandatory Audit: Ensure all physical documentation matches the digital VIN signature before finalizing payment.
                      </p>
                    </div>

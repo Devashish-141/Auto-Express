@@ -42,10 +42,10 @@ const VehicleCard = ({ vehicle, onStatusChange }: VehicleCardProps) => {
     <div className="glass-card p-6 group hover:border-gray-700 transition-all">
       <div className="flex justify-between items-start mb-4">
         <div>
-          <h3 className="text-xl font-bold tracking-tight uppercase text-white">
-            {vehicle.make} <span className="text-gray-500">{vehicle.model}</span>
+          <h3 className="text-xl font-bold tracking-tight uppercase text-foreground">
+            {vehicle.make} <span className="text-slate-500">{vehicle.model}</span>
           </h3>
-          <p className="text-[9px] text-gray-500 font-mono tracking-widest uppercase mt-1">
+          <p className="text-[9px] text-slate-500 font-mono tracking-widest uppercase mt-1">
             VIN: {vehicle.vin?.slice(-8)}
           </p>
         </div>
@@ -62,14 +62,14 @@ const VehicleCard = ({ vehicle, onStatusChange }: VehicleCardProps) => {
       </div>
 
       {vehicle.image_url && (
-        <div className="w-full h-32 rounded-xl overflow-hidden mb-6 bg-black/40 border border-gray-800">
+        <div className="w-full h-32 rounded-xl overflow-hidden mb-6 bg-slate-50 border border-slate-200">
           <img src={vehicle.image_url} alt={vehicle.model} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" />
         </div>
       )}
 
       <div className="grid grid-cols-2 gap-4 mb-8">
         <div className="space-y-1">
-          <div className="flex items-center gap-2 text-gray-500">
+          <div className="flex items-center gap-2 text-slate-500">
             <Gauge size={12} />
             <span className="text-[8px] uppercase tracking-widest font-bold">Mileage</span>
           </div>
@@ -79,7 +79,7 @@ const VehicleCard = ({ vehicle, onStatusChange }: VehicleCardProps) => {
         </div>
 
         <div className="space-y-1">
-          <div className="flex items-center gap-2 text-gray-500">
+          <div className="flex items-center gap-2 text-slate-500">
             <Calendar size={12} />
             <span className="text-[8px] uppercase tracking-widest font-bold">Year</span>
           </div>
@@ -89,7 +89,7 @@ const VehicleCard = ({ vehicle, onStatusChange }: VehicleCardProps) => {
         </div>
 
         <div className="space-y-1">
-          <div className="flex items-center gap-2 text-gray-500">
+          <div className="flex items-center gap-2 text-slate-500">
             <Fuel size={12} />
             <span className="text-[8px] uppercase tracking-widest font-bold">Fuel</span>
           </div>
@@ -99,7 +99,7 @@ const VehicleCard = ({ vehicle, onStatusChange }: VehicleCardProps) => {
         </div>
 
         <div className="space-y-1">
-          <div className="flex items-center gap-2 text-gray-500">
+          <div className="flex items-center gap-2 text-slate-500">
             <Euro size={12} />
             <span className="text-[8px] uppercase tracking-widest font-bold">Market Price</span>
           </div>
@@ -113,7 +113,7 @@ const VehicleCard = ({ vehicle, onStatusChange }: VehicleCardProps) => {
         {vehicle.status === 'available' && (
           <button 
             onClick={() => onStatusChange?.(vehicle.id, 'garage')}
-            className="flex-1 py-3 rounded-xl border border-gray-800 text-gray-400 font-black uppercase text-[9px] tracking-[0.2em] hover:bg-gray-800 transition-all flex items-center justify-center gap-2"
+            className="flex-1 py-3 rounded-xl border border-slate-200 text-slate-400 font-black uppercase text-[9px] tracking-[0.2em] hover:bg-gray-800 transition-all flex items-center justify-center gap-2"
           >
             Send to Garage
           </button>
@@ -130,7 +130,7 @@ const VehicleCard = ({ vehicle, onStatusChange }: VehicleCardProps) => {
 
         {vehicle.status !== 'sold' && (
           <button 
-            className="p-3 aspect-square rounded-xl border border-gray-800 text-gray-500 hover:text-white hover:border-gray-600 transition-all flex items-center justify-center"
+            className="p-3 aspect-square rounded-xl border border-slate-200 text-slate-500 hover:text-blue-600 hover:border-gray-600 transition-all flex items-center justify-center"
             title="View Details"
           >
             <ArrowRight size={16} />

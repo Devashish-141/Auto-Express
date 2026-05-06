@@ -42,15 +42,15 @@ export default function Home() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-navy-bg flex flex-col items-center justify-center gap-4">
-        <div className="w-12 h-12 border-4 border-slate-100/10 border-t-navy-accent rounded-full animate-spin" />
-        <p className="text-[10px] uppercase tracking-[0.5em] text-slate-400 font-bold">Syncing Asset Ledger...</p>
+      <div className="min-h-screen bg-background flex flex-col items-center justify-center gap-4">
+        <div className="w-12 h-12 border-4 border-slate-200 border-t-navy-accent rounded-full animate-spin" />
+        <p className="text-[10px] uppercase tracking-[0.5em] text-slate-500 font-bold">Syncing Asset Ledger...</p>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-navy-bg flex flex-col font-sans text-white">
+    <div className="min-h-screen bg-background flex flex-col font-sans text-foreground">
       <TopNav />
       
       <main className="flex-1 p-6 overflow-y-auto">

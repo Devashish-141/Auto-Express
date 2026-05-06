@@ -14,7 +14,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
 
   return (
     <>
-      <main className="min-h-screen bg-[#020617] text-white">
+      <main className="min-h-screen bg-background text-foreground">
         {children}
       </main>
       

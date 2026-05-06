@@ -28,12 +28,12 @@ const MonthlyTrendChart = ({ data: rawData }: { data: any[] }) => {
   }, [rawData]);
 
   return (
-    <div className="bg-white border border-navy-border rounded-xl p-5 h-full flex flex-col relative shadow-sm">
+    <div className="bg-white border border-slate-200 rounded-xl p-5 h-full flex flex-col relative shadow-sm">
       <div className="relative z-10 flex items-center justify-between mb-6">
-        <h3 className="text-xs font-black tracking-widest text-navy-accent uppercase">Stock by Manufacture Year</h3>
+        <h3 className="text-xs font-black tracking-widest text-blue-600 uppercase">Stock by Manufacture Year</h3>
         <button 
-          onClick={() => alert('Trend options clicked')}
-          className="text-slate-400 hover:text-navy-accent"
+          onClick={() => {}}
+          className="text-slate-400 hover:text-blue-600"
         >
           <MoreVertical size={16} />
         </button>
@@ -45,31 +45,31 @@ const MonthlyTrendChart = ({ data: rawData }: { data: any[] }) => {
             <AreaChart data={data} margin={{ top: 10, right: 0, left: -25, bottom: 0 }}>
               <defs>
                 <linearGradient id="colorValue" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#020617" stopOpacity={0.1}/>
-                  <stop offset="95%" stopColor="#020617" stopOpacity={0}/>
+                  <stop offset="5%" stopColor="#1e3a8a" stopOpacity={0.1}/>
+                  <stop offset="95%" stopColor="#1e3a8a" stopOpacity={0}/>
                 </linearGradient>
               </defs>
-              <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" vertical={false} />
+              <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" vertical={false} />
               <XAxis 
                 dataKey="name" 
                 axisLine={false} 
                 tickLine={false} 
-                tick={{ fill: '#020617', fontSize: 10, fontWeight: 700 }} 
+                tick={{ fill: '#1e3a8a', fontSize: 10, fontWeight: 700 }} 
                 dy={10}
               />
               <YAxis 
                 axisLine={false} 
                 tickLine={false} 
-                tick={{ fill: '#64748b', fontSize: 10 }}
+                tick={{ fill: '#94a3b8', fontSize: 10 }}
               />
               <Tooltip 
                 contentStyle={{ backgroundColor: '#ffffff', borderColor: '#e2e8f0', fontSize: '12px', borderRadius: '8px', boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)' }}
-                itemStyle={{ color: '#020617' }}
+                itemStyle={{ color: '#1e3a8a' }}
               />
               <Area 
                 type="monotone" 
                 dataKey="value" 
-                stroke="#020617" 
+                stroke="#1e3a8a" 
                 strokeWidth={3}
                 fillOpacity={1} 
                 fill="url(#colorValue)" 
@@ -81,7 +81,7 @@ const MonthlyTrendChart = ({ data: rawData }: { data: any[] }) => {
         )}
       </div>
       
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-[2px] bg-navy-accent opacity-10" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-[2px] bg-blue-600 opacity-10" />
     </div>
   );
 };

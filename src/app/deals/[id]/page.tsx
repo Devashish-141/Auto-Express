@@ -52,7 +52,7 @@ export default function DealDetailPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-navy-bg flex items-center justify-center">
+      <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="w-8 h-8 border-4 border-navy-accent/20 border-t-navy-accent rounded-full animate-spin" />
       </div>
     );
@@ -60,8 +60,8 @@ export default function DealDetailPage() {
 
   if (!deal) {
     return (
-      <div className="min-h-screen bg-navy-bg flex flex-col items-center justify-center gap-4">
-        <p className="text-gray-500 uppercase tracking-widest font-bold">Deal not found</p>
+      <div className="min-h-screen bg-background flex flex-col items-center justify-center gap-4">
+        <p className="text-slate-500 uppercase tracking-widest font-bold">Deal not found</p>
         <Link href="/" className="text-navy-accent hover:underline uppercase tracking-widest text-xs font-bold">Back to Dashboard</Link>
       </div>
     );
@@ -73,11 +73,11 @@ export default function DealDetailPage() {
     pending: 'border-amber-500/30 text-amber-500 bg-amber-500/10',
     invoiced: 'border-blue-500/30 text-blue-500 bg-blue-500/10',
     registered: 'border-teal-500/30 text-teal-500 bg-teal-500/10',
-    closed: 'border-gray-500/30 text-gray-400 bg-gray-500/10',
+    closed: 'border-gray-500/30 text-slate-400 bg-gray-500/10',
   };
 
   return (
-    <div className="min-h-screen bg-navy-bg flex flex-col font-sans text-white">
+    <div className="min-h-screen bg-background flex flex-col font-sans text-foreground">
       <TopNav />
       
       <main className="flex-1 p-6 overflow-y-auto">
@@ -86,14 +86,14 @@ export default function DealDetailPage() {
           <div className="flex items-center justify-between">
             <Link 
               href="/"
-              className="flex items-center gap-2 text-gray-500 hover:text-white transition-colors text-xs uppercase tracking-widest font-bold"
+              className="flex items-center gap-2 text-slate-500 hover:text-blue-600 transition-colors text-xs uppercase tracking-widest font-bold"
             >
               <ChevronLeft size={16} />
               Back to Dashboard
             </Link>
             
             <div className="flex items-center gap-3">
-              <span className="text-[10px] uppercase tracking-[0.2em] text-gray-500">Deal Stage:</span>
+              <span className="text-[10px] uppercase tracking-[0.2em] text-slate-500">Deal Stage:</span>
               <span className={`px-3 py-1 rounded-full border ${stageColors[deal.stage || 'pending']} text-[10px] font-bold uppercase`}>
                 {deal.stage || 'Pending'}
               </span>
@@ -117,35 +117,35 @@ export default function DealDetailPage() {
                 <div className="flex items-start justify-between mb-8">
                   <div>
                     <h1 className="text-4xl font-bold tracking-tight mb-2 uppercase">Deal Detail</h1>
-                    <p className="font-mono text-gray-500 text-sm tracking-widest">{dealId}</p>
+                    <p className="font-mono text-slate-500 text-sm tracking-widest">{dealId}</p>
                   </div>
-                  <div className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center">
-                    <Car size={32} className="text-gray-400" />
+                  <div className="w-16 h-16 rounded-2xl bg-slate-100 border border-white/10 flex items-center justify-center">
+                    <Car size={32} className="text-slate-400" />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-2 gap-8 py-8 border-y border-white/5">
                   <div>
-                    <p className="text-[10px] uppercase tracking-widest text-gray-500 mb-4">Customer Details</p>
+                    <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-4">Customer Details</p>
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center">
-                        <User size={18} className="text-gray-400" />
+                      <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center">
+                        <User size={18} className="text-slate-400" />
                       </div>
                       <div>
                         <p className="text-sm font-bold">{deal.customer_name || 'Walk-in Customer'}</p>
-                        <p className="text-xs text-gray-500">Rep: {deal.rep_code}</p>
+                        <p className="text-xs text-slate-500">Rep: {deal.rep_code}</p>
                       </div>
                     </div>
                   </div>
                   <div>
-                    <p className="text-[10px] uppercase tracking-widest text-gray-500 mb-4">Vehicle Identity</p>
+                    <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-4">Vehicle Identity</p>
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center">
-                        <ShieldCheck size={18} className="text-gray-400" />
+                      <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center">
+                        <ShieldCheck size={18} className="text-slate-400" />
                       </div>
                       <div>
                         <p className="text-sm font-bold uppercase">{deal.vehicle?.make} {deal.vehicle?.model}</p>
-                        <p className="text-xs text-gray-500 font-mono">{deal.vehicle?.vin}</p>
+                        <p className="text-xs text-slate-500 font-mono">{deal.vehicle?.vin}</p>
                       </div>
                     </div>
                   </div>
@@ -156,7 +156,7 @@ export default function DealDetailPage() {
                   {/* Stage 1: Finance Summary */}
                   <div className="space-y-6">
                     <div className="flex items-center justify-between">
-                      <h3 className="text-xs uppercase tracking-widest text-gray-500">Finance Application Pipeline</h3>
+                      <h3 className="text-xs uppercase tracking-widest text-slate-500">Finance Application Pipeline</h3>
                       {deal.finance_apps?.some((f: any) => f.status === 'approved') && (
                         <span className="text-[10px] text-teal-500 font-bold uppercase tracking-widest flex items-center gap-1">
                           <CheckCircle2 size={12} /> Approved
@@ -171,10 +171,10 @@ export default function DealDetailPage() {
                           approved: 'text-teal-500',
                           declined: 'text-rose-500',
                           active: 'text-amber-500',
-                          Locked: 'text-gray-600'
+                          Locked: 'text-slate-600'
                         };
                         return (
-                          <div key={lender} className="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/10">
+                          <div key={lender} className="flex items-center justify-between p-4 rounded-xl bg-slate-100 border border-white/10">
                             <div className="flex items-center gap-3">
                               <div className={`w-2 h-2 rounded-full ${statusColors[status].replace('text', 'bg')}`} />
                               <span className="text-sm font-medium">{lender}</span>
@@ -219,7 +219,7 @@ export default function DealDetailPage() {
               {/* Close Deal Section - Teal Accent */}
               <div className={`glass-card p-6 border border-teal-500/20 bg-teal-500/5 shadow-[0_0_40px_rgba(20,184,166,0.05)]`}>
                 <h4 className="text-xs uppercase tracking-widest text-teal-500 mb-4 font-bold">Deal Finalization</h4>
-                <p className="text-[10px] text-gray-500 mb-6 leading-relaxed uppercase tracking-wider">
+                <p className="text-[10px] text-slate-500 mb-6 leading-relaxed uppercase tracking-wider">
                   Closing this deal will permanently update the asset registry and lock all financial records.
                 </p>
                 
@@ -249,7 +249,7 @@ export default function DealDetailPage() {
                 </button>
 
                 {!isRegistered && !isClosed && (
-                  <p className="mt-4 text-[8px] text-gray-600 text-center uppercase tracking-widest">
+                  <p className="mt-4 text-[8px] text-slate-600 text-center uppercase tracking-widest">
                     Locked until VRT & Registration are finalized
                   </p>
                 )}
@@ -257,20 +257,20 @@ export default function DealDetailPage() {
 
               {/* Financial Summary Sidebar */}
               <div className="glass-card p-6">
-                <h4 className="text-xs uppercase tracking-widest text-gray-500 mb-6 font-bold">Financial Summary</h4>
+                <h4 className="text-xs uppercase tracking-widest text-slate-500 mb-6 font-bold">Financial Summary</h4>
                 <div className="space-y-4">
                   <div className="flex justify-between">
-                    <span className="text-[10px] uppercase tracking-widest text-gray-400">Vehicle Price</span>
+                    <span className="text-[10px] uppercase tracking-widest text-slate-400">Vehicle Price</span>
                     <span className="text-xs font-mono font-bold">€{deal.vehicle?.price?.toLocaleString()}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-[10px] uppercase tracking-widest text-gray-400">Payments Received</span>
+                    <span className="text-[10px] uppercase tracking-widest text-slate-400">Payments Received</span>
                     <span className="text-xs font-mono font-bold text-teal-500">
                       €{deal.payments?.reduce((acc: number, p: any) => p.is_voided ? acc : acc + Number(p.amount), 0).toLocaleString()}
                     </span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-[10px] uppercase tracking-widest text-gray-400">Finance Approved</span>
+                    <span className="text-[10px] uppercase tracking-widest text-slate-400">Finance Approved</span>
                     <span className="text-xs font-mono font-bold text-blue-400">
                       €{deal.finance_apps?.reduce((acc: number, f: any) => f.status === 'approved' ? acc + (Number(f.approved_amount) || 0) : acc, 0).toLocaleString()}
                     </span>

@@ -99,8 +99,8 @@ const WaterfallSequence = ({ dealId, onUpdate }: WaterfallSequenceProps) => {
     <div className="space-y-8 animate-in slide-in-from-right duration-1000">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
         <div>
-          <h2 className="text-3xl font-black tracking-tighter uppercase text-white italic">Finance Waterfall</h2>
-          <p className="text-gray-600 uppercase tracking-[0.4em] text-[10px] font-black mt-2">Sequential Application & Liquidity Protocol</p>
+          <h2 className="text-3xl font-black tracking-tighter uppercase text-foreground italic">Finance Waterfall</h2>
+          <p className="text-slate-600 uppercase tracking-[0.4em] text-[10px] font-black mt-2">Sequential Application & Liquidity Protocol</p>
         </div>
         <div className="px-6 py-3 bg-blue-600/10 border border-blue-500/20 rounded-2xl text-[10px] font-black text-blue-400 uppercase tracking-[0.3em] italic">
           Logic Sequence Active
@@ -134,10 +134,10 @@ const WaterfallSequence = ({ dealId, onUpdate }: WaterfallSequenceProps) => {
             className="mt-12 relative group"
           >
             <div className="absolute -inset-2 bg-red-600/10 rounded-[2.5rem] blur-xl opacity-50" />
-            <div className="relative bg-[#0f172a] p-10 border-2 border-red-500/30 rounded-[2rem] text-center shadow-2xl">
+            <div className="relative bg-white p-10 border-2 border-red-500/30 rounded-[2rem] text-center shadow-2xl">
               <ShieldAlert size={56} className="text-red-500 mx-auto mb-6 animate-bounce" />
               <h3 className="text-3xl font-black text-white mb-3 uppercase tracking-tight italic">Protocol Failure: Unfinanceable</h3>
-              <p className="text-gray-500 text-[10px] uppercase tracking-[0.4em] font-black max-w-lg mx-auto leading-relaxed">
+              <p className="text-slate-500 text-[10px] uppercase tracking-[0.4em] font-black max-w-lg mx-auto leading-relaxed">
                 Sequential hard-declines detected. Customer lacks sufficient liquidity for asset acquisition via standard channels.
               </p>
             </div>

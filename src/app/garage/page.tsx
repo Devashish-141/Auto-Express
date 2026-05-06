@@ -6,7 +6,7 @@ import GarageDashboard from '@/components/GarageDashboard';
 
 export default function GaragePage() {
   return (
-    <div className="min-h-screen bg-navy-bg flex flex-col font-sans text-white">
+    <div className="min-h-screen bg-background flex flex-col font-sans text-foreground">
       <TopNav />
       
       <main className="flex-1 p-6 overflow-y-auto">

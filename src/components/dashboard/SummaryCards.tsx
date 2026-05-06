@@ -10,22 +10,22 @@ const mockSparklineData = [
   { value: 800 }
 ];
 
-const Card = ({ title, value }: { title: string, value: string | number }) => (
-  <div className="relative overflow-hidden rounded-2xl bg-[#0f172a] border border-gray-800/50 p-6 flex flex-col justify-between h-[130px] shadow-2xl group hover:border-amber-500/30 transition-all">
-    <div className="relative z-10 flex flex-col items-center text-center">
-      <h3 className="text-[9px] text-gray-500 uppercase tracking-[0.3em] mb-2 font-black">{title}</h3>
-      <p className="text-4xl font-black text-white tracking-tighter leading-none">{value}</p>
+const Card = ({ title, value, color = "#2563eb" }: { title: string, value: string | number, color?: string }) => (
+  <div className="relative overflow-hidden rounded-[2rem] bg-white border border-slate-200 p-8 flex flex-col justify-between h-[160px] shadow-sm group hover:border-blue-500/30 transition-all">
+    <div className="relative z-10">
+      <h3 className="text-[10px] text-slate-500 uppercase tracking-[0.4em] mb-3 font-black">{title}</h3>
+      <p className="text-5xl font-black text-slate-900 tracking-tighter leading-none italic">{value}</p>
     </div>
 
     {/* Sparkline */}
-    <div className="absolute bottom-0 left-0 right-0 h-12 opacity-40 transition-opacity">
+    <div className="absolute bottom-0 left-0 right-0 h-16 opacity-30 transition-opacity">
       <ResponsiveContainer width="100%" height="100%">
         <LineChart data={mockSparklineData}>
           <Line 
             type="monotone" 
             dataKey="value" 
-            stroke="#ffffff" 
-            strokeWidth={2} 
+            stroke={color} 
+            strokeWidth={3} 
             dot={false} 
             isAnimationActive={true}
           />
@@ -33,7 +33,7 @@ const Card = ({ title, value }: { title: string, value: string | number }) => (
       </ResponsiveContainer>
     </div>
     
-    <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/5 to-transparent" />
+    <div className={`absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-${color}/5 to-transparent rounded-full -mr-8 -mt-8`} />
   </div>
 );
 
@@ -54,11 +54,11 @@ const SummaryCards = ({ data }: { data: any[] }) => {
   }, [data, location]);
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-      <Card title="Total Inventory" value={stats.total} />
-      <Card title="Units in Stock" value={stats.available} />
-      <Card title="Intransit" value={stats.intransit} />
-      <Card title="Sold YTD" value={stats.sold} />
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <Card title="Total Inventory" value={stats.total} color="#2563eb" />
+      <Card title="Units in Stock" value={stats.available} color="#0d9488" />
+      <Card title="Intransit" value={stats.intransit} color="#6366f1" />
+      <Card title="Sold YTD" value={stats.sold} color="#d97706" />
     </div>
   );
 };

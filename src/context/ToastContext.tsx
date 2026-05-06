@@ -44,7 +44,7 @@ export const ToastProvider = ({ children }: { children: React.ReactNode }) => {
               </div>
               
               <div className="flex-1">
-                <p className="text-sm font-medium text-white">{toast.message}</p>
+                <p className="text-sm font-medium text-foreground">{toast.message}</p>
                 {toast.link && (
                   <Link 
                     href={toast.link.href}
@@ -57,7 +57,7 @@ export const ToastProvider = ({ children }: { children: React.ReactNode }) => {
 
               <button 
                 onClick={() => setToast(null)}
-                className="text-gray-500 hover:text-white transition-colors"
+                className="text-slate-500 hover:text-blue-600 transition-colors"
               >
                 <X size={16} />
               </button>

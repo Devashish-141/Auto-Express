@@ -20,14 +20,14 @@ const TopNav = () => {
   const reps = ['DEVA', 'NICK-01', 'AMANDA-01'];
 
   return (
-    <div className="flex items-center justify-between px-6 py-4 border-b border-gray-800 bg-[#020617]/90 backdrop-blur-xl sticky top-0 z-[100] shadow-2xl">
+    <div className="flex items-center justify-between px-8 py-5 border-b border-slate-200 bg-white/95 backdrop-blur-xl sticky top-0 z-[100] shadow-sm">
       {/* Left Section - Nav Switcher */}
       <div className="flex items-center gap-4">
-        <div className="flex items-center gap-1.5 bg-black/40 p-1.5 rounded-[1.2rem] border border-gray-800">
+        <div className="flex items-center gap-2 bg-slate-50 p-2 rounded-2xl border border-slate-200 shadow-inner">
           <Link 
             href="/"
-            className={`flex items-center gap-2.5 px-5 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-[0.2em] transition-all ${
-              pathname === '/' ? 'bg-blue-600 text-white shadow-xl shadow-blue-900/30 italic' : 'text-gray-500 hover:text-white hover:bg-white/5'
+            className={`flex items-center gap-3 px-6 py-3 rounded-xl text-[10px] font-black uppercase tracking-[0.2em] transition-all ${
+              pathname === '/' ? 'bg-slate-900 text-white shadow-xl italic' : 'text-slate-400 hover:text-slate-900 hover:bg-white'
             }`}
           >
             <Car size={16} />
@@ -35,8 +35,8 @@ const TopNav = () => {
           </Link>
           <Link 
             href="/garage"
-            className={`flex items-center gap-2.5 px-5 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-[0.2em] transition-all ${
-              isGarage ? 'bg-blue-600 text-white shadow-xl shadow-blue-900/30 italic' : 'text-gray-500 hover:text-white hover:bg-white/5'
+            className={`flex items-center gap-3 px-6 py-3 rounded-xl text-[10px] font-black uppercase tracking-[0.2em] transition-all ${
+              isGarage ? 'bg-slate-900 text-white shadow-xl italic' : 'text-slate-400 hover:text-slate-900 hover:bg-white'
             }`}
           >
             <CreditCard size={16} />
@@ -44,8 +44,8 @@ const TopNav = () => {
           </Link>
           <Link 
             href="/admin/reports"
-            className={`flex items-center gap-2.5 px-5 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-[0.2em] transition-all ${
-              isReports ? 'bg-blue-600 text-white shadow-xl shadow-blue-900/30 italic' : 'text-gray-500 hover:text-white hover:bg-white/5'
+            className={`flex items-center gap-3 px-6 py-3 rounded-xl text-[10px] font-black uppercase tracking-[0.2em] transition-all ${
+              isReports ? 'bg-slate-900 text-white shadow-xl italic' : 'text-slate-400 hover:text-slate-900 hover:bg-white'
             }`}
           >
             <BarChart3 size={16} />
@@ -57,11 +57,11 @@ const TopNav = () => {
       {/* Center Section - Logo */}
       <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 flex-col items-center">
         <Link href="/" className="group">
-          <img src="/logo.png" alt="Auto Express" className="h-10 object-contain group-hover:scale-105 transition-transform" />
+          <h2 className="text-2xl font-black italic tracking-tighter text-slate-900 group-hover:scale-105 transition-transform">AUTO EXPRESS</h2>
         </Link>
-        <div className="flex items-center gap-2 mt-2">
-          <div className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
-          <p className="text-[9px] tracking-[0.5em] text-gray-500 font-black uppercase">
+        <div className="flex items-center gap-2 mt-1">
+          <div className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse" />
+          <p className="text-[9px] tracking-[0.5em] text-slate-400 font-black uppercase">
             {isReports ? 'ADMIN // ANALYTICS' : isGarage ? 'FINANCE // PROTOCOL' : 'GLOBAL // INVENTORY'}
           </p>
         </div>
@@ -73,13 +73,13 @@ const TopNav = () => {
         <div className="relative">
           <button 
             onClick={() => setIsLocDropdownOpen(!isLocDropdownOpen)}
-            className="flex items-center gap-3 px-5 py-2.5 bg-black/40 border border-gray-800 rounded-2xl hover:border-blue-500 transition-all group"
+            className="flex items-center gap-3 px-6 py-3 bg-slate-50 border border-slate-200 rounded-2xl hover:border-slate-900 transition-all group shadow-sm"
           >
-            <MapPin size={14} className="text-blue-500" />
-            <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest group-hover:text-white">
+            <MapPin size={14} className="text-blue-600" />
+            <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest group-hover:text-slate-900">
               {location}
             </span>
-            <ChevronDown size={14} className={`text-gray-700 transition-transform ${isLocDropdownOpen ? 'rotate-180' : ''}`} />
+            <ChevronDown size={14} className={`text-slate-400 transition-transform ${isLocDropdownOpen ? 'rotate-180' : ''}`} />
           </button>
 
           <AnimatePresence>
@@ -88,7 +88,7 @@ const TopNav = () => {
                 initial={{ opacity: 0, y: 15, scale: 0.95 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: 15, scale: 0.95 }}
-                className="absolute top-full right-0 mt-3 w-44 bg-[#0f172a] border border-gray-800 rounded-2xl shadow-2xl overflow-hidden z-[110] p-1.5"
+                className="absolute top-full right-0 mt-3 w-48 bg-white border border-slate-200 rounded-2xl shadow-2xl overflow-hidden z-[110] p-2"
               >
                 {locations.map((loc) => (
                   <button
@@ -97,8 +97,8 @@ const TopNav = () => {
                       setLocation(loc);
                       setIsLocDropdownOpen(false);
                     }}
-                    className={`w-full text-left px-4 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all ${
-                      location === loc ? 'bg-blue-600 text-white' : 'text-gray-500 hover:bg-white/5 hover:text-white'
+                    className={`w-full text-left px-5 py-3.5 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all ${
+                      location === loc ? 'bg-slate-900 text-white shadow-lg' : 'text-slate-400 hover:bg-slate-50 hover:text-slate-900'
                     }`}
                   >
                     {loc} DEPOT
@@ -113,13 +113,13 @@ const TopNav = () => {
         <div className="relative">
           <button 
             onClick={() => setIsRepDropdownOpen(!isRepDropdownOpen)}
-            className="flex items-center gap-3 px-5 py-2.5 bg-black/40 border border-gray-800 rounded-2xl hover:border-blue-500 transition-all group"
+            className="flex items-center gap-3 px-6 py-3 bg-slate-50 border border-slate-200 rounded-2xl hover:border-slate-900 transition-all group shadow-sm"
           >
-            <div className="w-1.5 h-1.5 rounded-full bg-teal-400 shadow-[0_0_10px_rgba(45,212,191,0.5)] animate-pulse" />
-            <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest group-hover:text-white">
+            <div className="w-1.5 h-1.5 rounded-full bg-teal-500 shadow-[0_0_10px_rgba(20,184,166,0.2)] animate-pulse" />
+            <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest group-hover:text-slate-900">
               {rep || 'GUEST'}
             </span>
-            <ChevronDown size={14} className={`text-gray-700 transition-transform ${isRepDropdownOpen ? 'rotate-180' : ''}`} />
+            <ChevronDown size={14} className={`text-slate-400 transition-transform ${isRepDropdownOpen ? 'rotate-180' : ''}`} />
           </button>
 
           <AnimatePresence>
@@ -128,7 +128,7 @@ const TopNav = () => {
                 initial={{ opacity: 0, y: 15, scale: 0.95 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: 15, scale: 0.95 }}
-                className="absolute top-full right-0 mt-3 w-52 bg-[#0f172a] border border-gray-800 rounded-2xl shadow-2xl overflow-hidden z-[110] p-1.5"
+                className="absolute top-full right-0 mt-3 w-56 bg-white border border-slate-200 rounded-2xl shadow-2xl overflow-hidden z-[110] p-2"
               >
                 {reps.map((r) => (
                   <button
@@ -137,8 +137,8 @@ const TopNav = () => {
                       login(r);
                       setIsRepDropdownOpen(false);
                     }}
-                    className={`w-full text-left px-4 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all ${
-                      rep === r ? 'bg-blue-600 text-white' : 'text-gray-500 hover:bg-white/5 hover:text-white'
+                    className={`w-full text-left px-5 py-3.5 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all ${
+                      rep === r ? 'bg-slate-900 text-white shadow-lg' : 'text-slate-400 hover:bg-slate-50 hover:text-slate-900'
                     }`}
                   >
                     ID: {r}
@@ -149,16 +149,16 @@ const TopNav = () => {
           </AnimatePresence>
         </div>
         
-        <div className="h-8 w-[1px] bg-gray-800 mx-2 hidden lg:block" />
+        <div className="h-10 w-[1px] bg-slate-200 mx-2 hidden lg:block" />
 
         <button 
           onClick={() => setIsProfileOpen(true)}
           className="relative group"
         >
-          <div className="w-10 h-10 rounded-2xl bg-black/40 border border-gray-800 flex items-center justify-center group-hover:border-blue-500 transition-all shadow-xl group-hover:scale-110 active:scale-95">
-            <User size={18} className="text-gray-500 group-hover:text-white transition-colors" />
+          <div className="w-12 h-12 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-center group-hover:border-slate-900 transition-all shadow-sm group-hover:scale-110 active:scale-95">
+            <User size={20} className="text-slate-400 group-hover:text-slate-900 transition-colors" />
           </div>
-          <div className="absolute -top-1 -right-1 w-3 h-3 bg-blue-500 rounded-full border-2 border-[#020617] animate-pulse" />
+          <div className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-blue-600 rounded-full border-2 border-white animate-pulse shadow-sm" />
         </button>
       </div>
     </div>

@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts';
 import { MoreVertical } from 'lucide-react';
 
-const COLORS = ['#ffffff', '#f59e0b', '#3b82f6', '#10b981', '#6366f1', '#f43f5e', '#8b5cf6'];
+const COLORS = ['#1e3a8a', '#f59e0b', '#3b82f6', '#10b981', '#6366f1', '#f43f5e', '#8b5cf6'];
 
 const AvailabilityDonut = ({ data: rawData }: { data: any[] }) => {
   const [data, setData] = useState<{ name: string; value: number; percentage?: number }[]>([]);
@@ -36,10 +36,10 @@ const AvailabilityDonut = ({ data: rawData }: { data: any[] }) => {
   }, [rawData]);
 
   return (
-    <div className="bg-[#0f172a] border border-gray-800 rounded-2xl p-6 h-full flex flex-col relative overflow-hidden shadow-2xl">
+    <div className="bg-white border border-slate-200 rounded-2xl p-6 h-full flex flex-col relative overflow-hidden shadow-sm">
       <div className="relative z-10 flex items-center justify-between mb-4">
-        <h3 className="text-[10px] font-black tracking-[0.4em] text-gray-500 uppercase">Vehicle Availability</h3>
-        <button className="text-gray-600 hover:text-white transition-colors">
+        <h3 className="text-[10px] font-black tracking-[0.4em] text-slate-400 uppercase">Vehicle Availability</h3>
+        <button className="text-slate-400 hover:text-blue-600 transition-colors">
           <MoreVertical size={16} />
         </button>
       </div>
@@ -64,8 +64,8 @@ const AvailabilityDonut = ({ data: rawData }: { data: any[] }) => {
                   ))}
                 </Pie>
                 <Tooltip 
-                  contentStyle={{ backgroundColor: '#0f172a', border: '1px solid #1e293b', borderRadius: '12px', fontSize: '10px' }}
-                  itemStyle={{ color: '#fff' }}
+                  contentStyle={{ backgroundColor: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '12px', fontSize: '10px' }}
+                  itemStyle={{ color: '#1e3a8a' }}
                   formatter={(value: any, name: any, props: any) => [`${props.payload.percentage}% (${value})`, 'Share']}
                 />
               </PieChart>
@@ -77,8 +77,8 @@ const AvailabilityDonut = ({ data: rawData }: { data: any[] }) => {
               <div key={item.name} className="flex items-center gap-3">
                 <div className="w-2 h-2 rounded-full" style={{ backgroundColor: COLORS[i % COLORS.length] }} />
                 <div>
-                  <p className="text-[9px] text-gray-500 font-black uppercase tracking-widest leading-none mb-1">{item.name}</p>
-                  <p className="text-sm font-black text-white font-mono leading-none italic">{item.percentage}%</p>
+                  <p className="text-[9px] text-slate-400 font-black uppercase tracking-widest leading-none mb-1">{item.name}</p>
+                  <p className="text-sm font-black text-foreground font-mono leading-none italic">{item.percentage}%</p>
                 </div>
               </div>
             ))}
@@ -86,7 +86,7 @@ const AvailabilityDonut = ({ data: rawData }: { data: any[] }) => {
         </div>
       </div>
       
-      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-gray-800 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-slate-100 to-transparent" />
     </div>
   );
 };

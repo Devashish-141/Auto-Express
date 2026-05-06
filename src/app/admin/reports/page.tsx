@@ -113,14 +113,14 @@ export default function AdminReportsPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#020617] flex items-center justify-center">
-        <div className="w-8 h-8 border-4 border-white/10 border-t-blue-500 rounded-full animate-spin" />
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="w-8 h-8 border-4 border-slate-200 border-t-blue-600 rounded-full animate-spin" />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-[#020617] flex flex-col font-sans text-white">
+    <div className="min-h-screen bg-background flex flex-col font-sans text-foreground">
       <TopNav />
       
       <main className="flex-1 p-6 overflow-y-auto">
@@ -129,11 +129,11 @@ export default function AdminReportsPage() {
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
               <h1 className="text-4xl font-black uppercase tracking-tighter mb-1 italic">Sales & Commissions</h1>
-              <p className="text-[10px] uppercase tracking-[0.4em] text-gray-500 font-black">Administrative Oversight & Reporting</p>
+              <p className="text-[10px] uppercase tracking-[0.4em] text-slate-400 font-black">Administrative Oversight & Reporting</p>
             </div>
             <button 
               onClick={handleExportCSV}
-              className="flex items-center gap-2 px-8 py-4 bg-blue-600 text-white rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] hover:bg-blue-700 transition-all shadow-2xl active:scale-95"
+              className="flex items-center gap-2 px-8 py-4 bg-blue-600 text-white rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] hover:bg-blue-700 transition-all shadow-xl shadow-blue-100 active:scale-95"
             >
               <Download size={18} />
               Export Protocol Data
@@ -141,136 +141,136 @@ export default function AdminReportsPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-[#0f172a] p-8 border border-gray-800 rounded-[2rem] relative overflow-hidden group shadow-2xl">
+            <div className="bg-white p-8 border border-slate-200 rounded-[2rem] relative overflow-hidden group shadow-sm">
               <div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity">
-                <TrendingUp size={64} />
+                <TrendingUp size={64} className="text-blue-600" />
               </div>
-              <p className="text-[9px] uppercase tracking-[0.4em] text-gray-600 font-black mb-6">Total Sales for Period</p>
+              <p className="text-[9px] uppercase tracking-[0.4em] text-slate-400 font-black mb-6">Total Sales for Period</p>
               <div className="flex items-end gap-4">
-                <h2 className="text-4xl font-black font-mono tracking-tighter text-white">€{summary.totalRevenue.toLocaleString()}</h2>
-                <span className="text-[10px] text-teal-400 font-black mb-1.5 uppercase tracking-[0.2em]">{summary.totalSalesCount} Units</span>
+                <h2 className="text-4xl font-black font-mono tracking-tighter text-foreground">€{summary.totalRevenue.toLocaleString()}</h2>
+                <span className="text-[10px] text-teal-600 font-black mb-1.5 uppercase tracking-[0.2em]">{summary.totalSalesCount} Units</span>
               </div>
             </div>
 
-            <div className="bg-[#0f172a] p-8 border border-gray-800 rounded-[2rem] relative overflow-hidden group shadow-2xl">
+            <div className="bg-white p-8 border border-slate-200 rounded-[2rem] relative overflow-hidden group shadow-sm">
               <div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity">
-                <DollarSign size={64} />
+                <DollarSign size={64} className="text-teal-600" />
               </div>
-              <p className="text-[9px] uppercase tracking-[0.4em] text-gray-600 font-black mb-6">Total Commission Pool</p>
+              <p className="text-[9px] uppercase tracking-[0.4em] text-slate-400 font-black mb-6">Total Commission Pool</p>
               <div className="flex items-end gap-4">
-                <h2 className="text-4xl font-black font-mono tracking-tighter text-teal-400">€{summary.totalCommissionPool.toLocaleString()}</h2>
-                <span className="text-[10px] text-gray-600 font-black mb-1.5 uppercase tracking-[0.2em]">3% Baseline</span>
+                <h2 className="text-4xl font-black font-mono tracking-tighter text-teal-600">€{summary.totalCommissionPool.toLocaleString()}</h2>
+                <span className="text-[10px] text-slate-400 font-black mb-1.5 uppercase tracking-[0.2em]">3% Baseline</span>
               </div>
             </div>
 
-            <div className="bg-[#0f172a] p-8 border border-gray-800 rounded-[2rem] relative overflow-hidden group shadow-2xl">
+            <div className="bg-white p-8 border border-slate-200 rounded-[2rem] relative overflow-hidden group shadow-sm">
               <div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity">
-                <Award size={64} />
+                <Award size={64} className="text-blue-600" />
               </div>
-              <p className="text-[9px] uppercase tracking-[0.4em] text-gray-600 font-black mb-6">Top Performing Rep</p>
+              <p className="text-[9px] uppercase tracking-[0.4em] text-slate-400 font-black mb-6">Top Performing Rep</p>
               <div className="flex items-end gap-4">
-                <h2 className="text-4xl font-black uppercase tracking-tighter text-blue-400 italic">{summary.topRepName}</h2>
-                <span className="text-[10px] text-gray-600 font-black mb-1.5 uppercase tracking-[0.2em]">Lead Velocity</span>
+                <h2 className="text-4xl font-black uppercase tracking-tighter text-blue-600 italic">{summary.topRepName}</h2>
+                <span className="text-[10px] text-slate-400 font-black mb-1.5 uppercase tracking-[0.2em]">Lead Velocity</span>
               </div>
             </div>
           </div>
 
-          <div className="bg-[#0f172a] p-6 border border-gray-800 flex flex-wrap items-center gap-8 rounded-[1.5rem] shadow-xl">
+          <div className="bg-white p-6 border border-slate-200 flex flex-wrap items-center gap-8 rounded-[1.5rem] shadow-sm">
             <div className="flex items-center gap-3">
-              <Calendar size={14} className="text-gray-600" />
+              <Calendar size={14} className="text-slate-400" />
               <input 
                 type="date" 
                 value={dateRange.start}
                 onChange={(e) => setDateRange(prev => ({ ...prev, start: e.target.value }))}
-                className="bg-transparent border-none text-[10px] font-black uppercase tracking-[0.2em] focus:ring-0 cursor-pointer text-white" 
+                className="bg-transparent border-none text-[10px] font-black uppercase tracking-[0.2em] focus:ring-0 cursor-pointer text-foreground" 
               />
-              <span className="text-gray-800 font-black">/</span>
+              <span className="text-slate-200 font-black">/</span>
               <input 
                 type="date" 
                 value={dateRange.end}
                 onChange={(e) => setDateRange(prev => ({ ...prev, end: e.target.value }))}
-                className="bg-transparent border-none text-[10px] font-black uppercase tracking-[0.2em] focus:ring-0 cursor-pointer text-white" 
+                className="bg-transparent border-none text-[10px] font-black uppercase tracking-[0.2em] focus:ring-0 cursor-pointer text-foreground" 
               />
             </div>
 
-            <div className="h-8 w-[1px] bg-gray-800 hidden md:block" />
+            <div className="h-8 w-[1px] bg-slate-100 hidden md:block" />
 
             <div className="flex items-center gap-3">
-              <UserIcon size={14} className="text-gray-600" />
+              <UserIcon size={14} className="text-slate-400" />
               <select 
                 value={selectedRep}
                 onChange={(e) => setSelectedRep(e.target.value)}
-                className="bg-transparent border-none text-[10px] font-black uppercase tracking-[0.2em] focus:ring-0 cursor-pointer text-white appearance-none pr-6"
+                className="bg-transparent border-none text-[10px] font-black uppercase tracking-[0.2em] focus:ring-0 cursor-pointer text-foreground appearance-none pr-6"
               >
-                <option value="All Reps" className="bg-[#0f172a]">All Reps</option>
+                <option value="All Reps" className="bg-white">All Reps</option>
                 {reps.map(r => (
-                  <option key={r.rep_code} value={r.rep_code} className="bg-[#0f172a]">{r.name}</option>
+                  <option key={r.rep_code} value={r.rep_code} className="bg-white">{r.name}</option>
                 ))}
               </select>
             </div>
 
-            <div className="h-8 w-[1px] bg-gray-800 hidden md:block" />
+            <div className="h-8 w-[1px] bg-slate-100 hidden md:block" />
 
             <div className="flex items-center gap-3">
-              <Filter size={14} className="text-gray-600" />
+              <Filter size={14} className="text-slate-400" />
               <select 
                 value={selectedStatus}
                 onChange={(e) => setSelectedStatus(e.target.value)}
-                className="bg-transparent border-none text-[10px] font-black uppercase tracking-[0.2em] focus:ring-0 cursor-pointer text-white appearance-none pr-6"
+                className="bg-transparent border-none text-[10px] font-black uppercase tracking-[0.2em] focus:ring-0 cursor-pointer text-foreground appearance-none pr-6"
               >
-                <option value="All Status" className="bg-[#0f172a]">All Status</option>
-                <option value="Invoiced" className="bg-[#0f172a]">Invoiced</option>
-                <option value="Registered" className="bg-[#0f172a]">Registered</option>
-                <option value="Closed" className="bg-[#0f172a]">Closed</option>
+                <option value="All Status" className="bg-white">All Status</option>
+                <option value="Invoiced" className="bg-white">Invoiced</option>
+                <option value="Registered" className="bg-white">Registered</option>
+                <option value="Closed" className="bg-white">Closed</option>
               </select>
             </div>
           </div>
 
-          <div className="bg-[#0f172a] border border-gray-800 overflow-hidden rounded-[2rem] shadow-2xl">
+          <div className="bg-white border border-slate-200 overflow-hidden rounded-[2rem] shadow-sm">
             <div className="overflow-x-auto custom-scrollbar">
               <table className="w-full text-left border-collapse">
                 <thead>
-                  <tr className="border-b border-gray-800 text-[9px] text-gray-600 uppercase tracking-[0.3em] font-black bg-black/20">
+                  <tr className="border-b border-slate-200 text-[9px] text-slate-400 uppercase tracking-[0.3em] font-black bg-slate-50">
                     <th className="px-8 py-5">Date</th>
                     <th className="px-8 py-5">Asset Identification</th>
                     <th className="px-8 py-5 text-right">Market Value</th>
                     <th className="px-8 py-5 text-right">VRT Offset</th>
                     <th className="px-8 py-5 text-right">Total Realized</th>
                     <th className="px-8 py-5">Protocol</th>
-                    <th className="px-8 py-5 text-right text-blue-500">Commissionable</th>
+                    <th className="px-8 py-5 text-right text-blue-600">Commissionable</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-gray-800/50">
+                <tbody className="divide-y divide-slate-100">
                   {filteredData.map((item) => {
                     const totalPaid = (item.payments || []).reduce((acc: number, p: any) => p.is_voided ? acc : acc + Number(p.amount), 0);
                     const commissionable = (Number(item.vehicle?.price) || 0) - (Number(item.vrt_amount) || 0);
                     
                     return (
-                      <tr key={item.id} className="group hover:bg-white/[0.02] transition-colors">
-                        <td className="px-8 py-5 text-[10px] font-mono text-gray-500">
+                      <tr key={item.id} className="group hover:bg-slate-50 transition-colors">
+                        <td className="px-8 py-5 text-[10px] font-mono text-slate-400">
                           {new Date(item.created_at).toLocaleDateString('en-IE')}
                         </td>
                         <td className="px-8 py-5">
-                          <p className="text-[11px] font-black uppercase tracking-tight text-white italic">{item.vehicle?.make} {item.vehicle?.model}</p>
-                          <p className="text-[9px] font-mono text-gray-600 uppercase tracking-widest">{item.vehicle?.vin}</p>
+                          <p className="text-[11px] font-black uppercase tracking-tight text-foreground italic">{item.vehicle?.make} {item.vehicle?.model}</p>
+                          <p className="text-[9px] font-mono text-slate-400 uppercase tracking-widest">{item.vehicle?.vin}</p>
                         </td>
-                        <td className="px-8 py-5 text-right text-xs font-mono font-black text-white">
+                        <td className="px-8 py-5 text-right text-xs font-mono font-black text-foreground">
                           €{Number(item.vehicle?.price || 0).toLocaleString()}
                         </td>
-                        <td className="px-8 py-5 text-right text-xs font-mono text-gray-600">
+                        <td className="px-8 py-5 text-right text-xs font-mono text-slate-400">
                           €{Number(item.vrt_amount || 0).toLocaleString()}
                         </td>
-                        <td className="px-8 py-5 text-right text-xs font-mono font-black text-teal-400">
+                        <td className="px-8 py-5 text-right text-xs font-mono font-black text-teal-600">
                           €{totalPaid.toLocaleString()}
                         </td>
                         <td className="px-8 py-5">
                           <div className="flex items-center gap-3">
                             <div className="w-1.5 h-1.5 rounded-full bg-blue-500" />
-                            <span className="text-[10px] font-black uppercase tracking-widest text-gray-300">{item.rep_code}</span>
+                            <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">{item.rep_code}</span>
                           </div>
                         </td>
                         <td className="px-8 py-5 text-right">
-                          <span className="text-sm font-mono font-black text-blue-500">
+                          <span className="text-sm font-mono font-black text-blue-600">
                             €{commissionable.toLocaleString()}
                           </span>
                         </td>
@@ -283,8 +283,8 @@ export default function AdminReportsPage() {
             
             {filteredData.length === 0 && (
               <div className="py-24 text-center flex flex-col items-center gap-6">
-                <Search size={48} className="text-gray-800" />
-                <p className="text-[10px] uppercase tracking-[0.4em] text-gray-600 font-black">No matching telemetry found</p>
+                <Search size={48} className="text-slate-200" />
+                <p className="text-[10px] uppercase tracking-[0.4em] text-slate-400 font-black">No matching telemetry found</p>
               </div>
             )}
           </div>

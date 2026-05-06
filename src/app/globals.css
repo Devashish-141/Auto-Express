@@ -2,20 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
 
 :root {
-  --background: #020617; /* Midnight Navy */
-  --foreground: #f8fafc;
+  --background: #ffffff;
+  --foreground: #0f172a; /* Slate 900 - much darker for clarity */
+  --secondary: #475569; /* Slate 600 - for subtext */
+  --accent: #2563eb; /* Royal Blue */
   
-  --brand-amber: #f59e0b;
-  --brand-teal: #14b8a6;
-  --brand-rose: #f43f5e;
+  --brand-amber: #d97706;
+  --brand-teal: #0d9488;
+  --brand-rose: #e11d48;
   
   --glass-blur: 16px;
-  --glass-bg: rgba(15, 23, 42, 0.7); /* Slate-900 with opacity */
-  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-bg: rgba(255, 255, 255, 0.95);
+  --glass-border: rgba(148, 163, 184, 0.2);
   
   --transition-standard: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
   --font-mono: 'JetBrains Mono', 'Courier New', Courier, monospace;
@@ -24,12 +26,12 @@
 body {
   background-color: var(--background);
   color: var(--foreground);
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: 'Outfit', system-ui, -apple-system, sans-serif;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   background-image: 
-    radial-gradient(circle at 0% 0%, rgba(20, 184, 166, 0.05) 0%, transparent 40%),
-    radial-gradient(circle at 100% 100%, rgba(245, 158, 11, 0.05) 0%, transparent 40%);
+    radial-gradient(circle at 0% 0%, rgba(37, 99, 235, 0.03) 0%, transparent 40%),
+    radial-gradient(circle at 100% 100%, rgba(13, 148, 136, 0.03) 0%, transparent 40%);
 }
 
 .mono {
@@ -44,6 +46,7 @@ body {
   transition: var(--transition-standard);
   position: relative;
   overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
 }
 
 .glass-card::before {
@@ -52,13 +55,15 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.1), transparent);
 }
 
 .glass-card:hover {
-  background: rgba(30, 41, 59, 0.8);
-  border-color: rgba(255, 255, 255, 0.2);
+  background: #ffffff;
+  border-color: rgba(37, 99, 235, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
 .custom-scrollbar::-webkit-scrollbar {
@@ -70,12 +75,25 @@ body {
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(148, 163, 184, 0.2);
   border-radius: 10px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(148, 163, 184, 0.4);
+}
+
+/* Typography Helpers */
+.text-label {
+  @apply text-[10px] font-black uppercase tracking-[0.2em] text-slate-400;
+}
+
+.text-value {
+  @apply text-sm font-bold text-slate-900;
+}
+
+.text-heading {
+  @apply text-2xl font-black uppercase tracking-tight italic text-slate-900;
 }
 
 /* Animations */
@@ -99,7 +117,7 @@ body {
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(255, 255, 255, 0.03),
+    rgba(37, 99, 235, 0.05),
     transparent
   );
   animation: shimmer 2s infinite;
