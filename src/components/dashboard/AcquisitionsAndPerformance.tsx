@@ -25,7 +25,7 @@ export const UpcomingAcquisitions = ({ data: vehicles }: { data: any[] }) => {
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50/10 to-transparent pointer-events-none" />
       
       <div className="relative z-10 flex items-center justify-between mb-6">
-        <h3 className="text-[10px] font-black tracking-[0.4em] text-slate-400 uppercase">Acquisitions Overview</h3>
+        <h3 className="text-[10px] font-bold tracking-[0.4em] text-slate-500 uppercase font-header">Acquisitions Overview</h3>
       </div>
 
       <div className="relative z-10 flex-1 flex flex-col justify-between">
@@ -73,7 +73,7 @@ export const StockPerformance = ({ data: vehicles }: { data: any[] }) => {
       <div className="absolute inset-0 bg-gradient-to-br from-slate-50/10 to-transparent pointer-events-none" />
       
       <div className="relative z-10 flex items-center justify-between mb-6">
-        <h3 className="text-[10px] font-black tracking-[0.4em] text-slate-400 uppercase">Stock Performance</h3>
+        <h3 className="text-[10px] font-bold tracking-[0.4em] text-slate-500 uppercase font-header">Stock Performance</h3>
         <button className="text-slate-300 hover:text-blue-600 transition-colors">
           <MoreVertical size={16} />
         </button>
@@ -111,7 +111,7 @@ export const StockPerformance = ({ data: vehicles }: { data: any[] }) => {
       <div className="relative z-10 flex items-center justify-between mt-8 pt-6 border-t border-slate-100">
         <div className="text-center w-full">
           <p className="text-[9px] text-slate-400 font-black uppercase tracking-widest mb-1">Total Value</p>
-          <p className="text-sm text-blue-600 font-black font-mono">€{(totals.rev / 1000000).toFixed(1)}M</p>
+          <p className="text-sm text-blue-600 font-bold font-mono">€{(totals.rev / 1000000).toFixed(1)}M</p>
         </div>
         <div className="text-center w-full border-l border-slate-100">
           <p className="text-[9px] text-slate-400 font-black uppercase tracking-widest mb-1">Inventory Turn</p>

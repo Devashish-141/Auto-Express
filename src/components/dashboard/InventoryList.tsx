@@ -123,8 +123,8 @@ const InventoryList = ({ data, onRefresh }: { data: any[], onRefresh?: () => voi
       
       <div className="relative z-20 flex items-center justify-between mb-10">
         <div>
-          <h3 className="text-[11px] tracking-[0.4em] text-slate-500 uppercase font-black mb-1">Stock Telemetry</h3>
-          <p className="text-2xl font-black italic uppercase tracking-tighter text-slate-900">Real-Time Inventory</p>
+          <h3 className="text-[11px] tracking-[0.4em] text-slate-600 uppercase font-bold mb-1">Stock Telemetry</h3>
+          <p className="text-2xl font-black italic uppercase tracking-tighter text-slate-900 font-header">Real-Time Inventory</p>
         </div>
         
         <div className="flex items-center gap-4">
@@ -133,7 +133,7 @@ const InventoryList = ({ data, onRefresh }: { data: any[], onRefresh?: () => voi
             className="flex items-center gap-3 border border-slate-200 rounded-2xl px-5 py-3 bg-slate-50 hover:border-slate-900 transition-all group shadow-sm"
           >
             {sortOrder === 'desc' ? <ArrowDown size={14} className="text-blue-600" /> : <ArrowUp size={14} className="text-blue-600" />}
-            <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest group-hover:text-slate-900">
+            <span className="text-[10px] font-black text-slate-600 uppercase tracking-widest group-hover:text-slate-900">
               {sortOrder === 'desc' ? 'Newest' : 'Oldest'}
             </span>
           </button>
@@ -182,10 +182,10 @@ const InventoryList = ({ data, onRefresh }: { data: any[], onRefresh?: () => voi
         </div>
       </div>
 
-      <div className="relative z-10 flex-1 overflow-auto custom-scrollbar">
+      <div className="relative z-10 flex-1 overflow-x-auto custom-scrollbar">
         <table className="w-full text-left border-collapse">
           <thead>
-            <tr className="border-b border-slate-200 text-[10px] text-slate-400 uppercase tracking-[0.3em] font-black">
+            <tr className="border-b border-slate-200 text-[10px] text-slate-500 uppercase tracking-[0.3em] font-header font-black">
               <th className="pb-6 px-4">Asset Matrix</th>
               <th className="pb-6 px-4">Status</th>
               <th className="pb-6 px-4">Identification</th>
@@ -213,7 +213,7 @@ const InventoryList = ({ data, onRefresh }: { data: any[], onRefresh?: () => voi
                       </div>
                       <div>
                         <p className="text-sm text-slate-900 font-black italic uppercase tracking-tight">{item.make}</p>
-                        <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">{item.model}</p>
+                        <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">{item.model}</p>
                       </div>
                     </div>
                   </td>
@@ -222,9 +222,9 @@ const InventoryList = ({ data, onRefresh }: { data: any[], onRefresh?: () => voi
                       {statusDetails.label}
                     </span>
                   </td>
-                  <td className="py-5 px-4 text-[11px] text-slate-500 font-mono tracking-widest uppercase">{item.vin.slice(-8)}</td>
-                  <td className="py-5 px-4 text-[11px] text-slate-500 font-black uppercase tracking-widest italic">{item.location}</td>
-                  <td className="py-5 px-4 text-sm text-blue-600 text-right font-mono font-black">€{item.price?.toLocaleString()}</td>
+                  <td className="py-5 px-4 text-[11px] text-slate-600 font-mono tracking-widest uppercase">VIN: {item.vin.slice(-8)}</td>
+                  <td className="py-5 px-4 text-[11px] text-slate-600 font-bold uppercase tracking-widest italic">{item.location}</td>
+                  <td className="py-5 px-6 text-sm text-blue-600 text-right font-mono font-bold tracking-tight whitespace-nowrap">€{item.price?.toLocaleString()}</td>
                   <td className="py-5 px-4 text-right">
                     <div className="flex items-center justify-end gap-3">
                       {isAvailable ? (

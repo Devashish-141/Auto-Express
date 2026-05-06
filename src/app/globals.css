@@ -2,61 +2,52 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:wght@700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
 :root {
   --background: #ffffff;
-  --foreground: #0f172a; /* Slate 900 - much darker for clarity */
-  --secondary: #475569; /* Slate 600 - for subtext */
+  --foreground: #0f172a; /* Slate 900 */
+  --secondary: #334155; /* Slate 700 */
+  --text-muted: #64748b; /* Slate 500 */
   --accent: #2563eb; /* Royal Blue */
   
   --brand-amber: #d97706;
   --brand-teal: #0d9488;
   --brand-rose: #e11d48;
   
-  --glass-blur: 16px;
-  --glass-bg: rgba(255, 255, 255, 0.95);
-  --glass-border: rgba(148, 163, 184, 0.2);
-  
   --transition-standard: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
-  --font-mono: 'JetBrains Mono', 'Courier New', Courier, monospace;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-header: 'Montserrat', sans-serif;
 }
 
 body {
   background-color: var(--background);
   color: var(--foreground);
-  font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+  font-family: var(--font-sans);
+  font-feature-settings: "tnum" on, "lnum" on;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
-  background-image: 
-    radial-gradient(circle at 0% 0%, rgba(37, 99, 235, 0.03) 0%, transparent 40%),
-    radial-gradient(circle at 100% 100%, rgba(13, 148, 136, 0.03) 0%, transparent 40%);
 }
 
-.mono {
+.font-data {
   font-family: var(--font-mono);
-  letter-spacing: 0.05em;
+  letter-spacing: -0.02em;
+}
+
+.font-header {
+  font-family: var(--font-header);
+  letter-spacing: -0.04em;
 }
 
 .glass-card {
-  backdrop-filter: blur(var(--glass-blur));
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(148, 163, 184, 0.2);
   transition: var(--transition-standard);
   position: relative;
   overflow: hidden;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-}
-
-.glass-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.1), transparent);
 }
 
 .glass-card:hover {
@@ -85,15 +76,15 @@ body {
 
 /* Typography Helpers */
 .text-label {
-  @apply text-[10px] font-black uppercase tracking-[0.2em] text-slate-400;
+  @apply text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500;
 }
 
 .text-value {
-  @apply text-sm font-bold text-slate-900;
+  @apply text-sm font-semibold text-slate-900;
 }
 
 .text-heading {
-  @apply text-2xl font-black uppercase tracking-tight italic text-slate-900;
+  @apply text-2xl font-bold uppercase tracking-tight text-slate-900 font-header;
 }
 
 /* Animations */

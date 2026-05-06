@@ -20,7 +20,7 @@ const TopNav = () => {
   const reps = ['DEVA', 'NICK-01', 'AMANDA-01'];
 
   return (
-    <div className="flex items-center justify-between px-8 py-5 border-b border-slate-200 bg-white/95 backdrop-blur-xl sticky top-0 z-[100] shadow-sm">
+    <div className="flex items-center justify-between px-12 py-5 border-b border-slate-200 bg-white/95 backdrop-blur-xl sticky top-0 z-[100] shadow-sm">
       {/* Left Section - Nav Switcher */}
       <div className="flex items-center gap-4">
         <div className="flex items-center gap-2 bg-slate-50 p-2 rounded-2xl border border-slate-200 shadow-inner">
@@ -57,11 +57,11 @@ const TopNav = () => {
       {/* Center Section - Logo */}
       <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 flex-col items-center">
         <Link href="/" className="group">
-          <h2 className="text-2xl font-black italic tracking-tighter text-slate-900 group-hover:scale-105 transition-transform">AUTO EXPRESS</h2>
+          <h2 className="text-3xl font-black italic tracking-tighter text-slate-900 group-hover:scale-105 transition-transform font-header uppercase">LUXE AUTO</h2>
         </Link>
         <div className="flex items-center gap-2 mt-1">
           <div className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse" />
-          <p className="text-[9px] tracking-[0.5em] text-slate-400 font-black uppercase">
+          <p className="text-[9px] tracking-[0.5em] text-slate-600 font-black uppercase">
             {isReports ? 'ADMIN // ANALYTICS' : isGarage ? 'FINANCE // PROTOCOL' : 'GLOBAL // INVENTORY'}
           </p>
         </div>

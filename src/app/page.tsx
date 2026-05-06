@@ -53,17 +53,17 @@ export default function Home() {
     <div className="min-h-screen bg-background flex flex-col font-sans text-foreground">
       <TopNav />
       
-      <main className="flex-1 p-6 overflow-y-auto">
-        <div className="max-w-[1600px] mx-auto space-y-6">
+      <main className="flex-1 p-6 lg:p-12 overflow-y-auto">
+        <div className="max-w-[1800px] mx-auto space-y-10">
           
           {/* Top Row: Summary Cards */}
           <SummaryCards data={vehicles} />
           
-          {/* Main Grid: 3 Columns */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6">
+          {/* Main Grid: Multi-Column Layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
             
-            {/* Left Column (Charts) */}
-            <div className="col-span-1 lg:col-span-3 flex flex-col gap-6 order-2 lg:order-1">
+            {/* Left Column (Charts) - Stacks on top on mobile */}
+            <div className="col-span-1 lg:col-span-3 flex flex-col gap-8 order-2 lg:order-1">
               <div className="h-[300px] lg:h-1/2">
                 <MonthlyTrendChart data={vehicles} />
               </div>
