@@ -129,7 +129,7 @@ const GarageDashboard = () => {
       <div className="flex items-center justify-between">
         <div>
           <h2 className="text-4xl font-black tracking-tighter mb-2 uppercase italic text-foreground">Deal Ledger</h2>
-          <p className="text-slate-400 uppercase tracking-[0.4em] text-[10px] font-mono">Active Finance Pipeline & Garage Handshakes</p>
+          <p className="text-black uppercase tracking-[0.4em] text-[10px] font-mono">Active Finance Pipeline & Garage Handshakes</p>
         </div>
         <div className="flex items-center gap-4">
           <button 
@@ -154,7 +154,7 @@ const GarageDashboard = () => {
           <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
             <div className="flex items-center gap-3 mb-4">
               <Clock className="text-amber-500" size={20} />
-              <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400">Active Deals</h4>
+              <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-black">Active Deals</h4>
             </div>
             <p className="text-4xl font-black font-mono text-foreground tracking-tighter">{deals.length}</p>
           </div>
@@ -162,7 +162,7 @@ const GarageDashboard = () => {
           <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
             <div className="flex items-center gap-3 mb-4">
               <CheckCircle className="text-teal-500" size={20} />
-              <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400">Awaiting Prep</h4>
+              <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-black">Awaiting Prep</h4>
             </div>
             <p className="text-4xl font-black font-mono text-foreground tracking-tighter">
               {deals.filter(d => d.status === 'pending').length}
@@ -174,14 +174,14 @@ const GarageDashboard = () => {
           {loading ? (
             <div className="flex flex-col items-center justify-center py-20 gap-4 border border-dashed border-slate-200 rounded-3xl bg-slate-50/50">
               <div className="w-8 h-8 border-4 border-slate-200 border-t-blue-600 rounded-full animate-spin" />
-              <p className="text-[10px] uppercase tracking-[0.3em] text-slate-400 font-mono">Syncing Deal Pipeline...</p>
+              <p className="text-[10px] uppercase tracking-[0.3em] text-black font-mono">Syncing Deal Pipeline...</p>
             </div>
           ) : deals.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-20 gap-4 border border-dashed border-slate-200 rounded-3xl bg-slate-50/50">
-              <Wrench size={40} className="text-slate-200" />
+              <Wrench size={40} className="text-black" />
               <div className="text-center">
-                <p className="text-sm font-black text-slate-400 uppercase tracking-[0.2em]">No Active Deals Found</p>
-                <p className="text-[10px] text-slate-300 mt-1 uppercase tracking-widest font-mono">Create a deal manually or reserve from the Stock page.</p>
+                <p className="text-sm font-black text-black uppercase tracking-[0.2em]">No Active Deals Found</p>
+                <p className="text-[10px] text-black mt-1 uppercase tracking-widest font-mono">Create a deal manually or reserve from the Stock page.</p>
               </div>
             </div>
           ) : (
@@ -201,13 +201,13 @@ const GarageDashboard = () => {
                     
                     <div className="flex items-center gap-4 md:gap-6 w-full md:w-auto relative z-10">
                       <div className="w-12 h-12 rounded-2xl bg-slate-50 flex items-center justify-center border border-slate-200 group-hover:border-blue-500/30 transition-colors">
-                        <User size={20} className="text-slate-400 group-hover:text-blue-600 transition-colors" />
+                        <User size={20} className="text-black group-hover:text-blue-600 transition-colors" />
                       </div>
                       <div className="overflow-hidden">
                         <h4 className="text-lg md:text-xl font-black tracking-tight uppercase text-foreground group-hover:text-blue-600 transition-colors truncate italic">
                           {deal.customer_name}
                         </h4>
-                        <p className="text-[9px] md:text-[10px] text-slate-400 font-mono tracking-[0.2em] uppercase mt-1 truncate">
+                        <p className="text-[9px] md:text-[10px] text-black font-mono tracking-[0.2em] uppercase mt-1 truncate">
                           {deal.vehicles?.make} {deal.vehicles?.model} <span className="opacity-30 mx-2">|</span> {deal.vehicles?.vin?.slice(-6)}
                         </p>
                       </div>
@@ -215,12 +215,12 @@ const GarageDashboard = () => {
 
                     <div className="flex items-center justify-between md:justify-end gap-8 md:gap-16 w-full md:w-auto pt-4 md:pt-0 border-t md:border-t-0 border-slate-100 relative z-10">
                       <div className="text-left md:text-right">
-                        <p className="text-[9px] text-slate-400 uppercase tracking-[0.3em] mb-1 font-black">Balance Due</p>
+                        <p className="text-[9px] text-black uppercase tracking-[0.3em] mb-1 font-black">Balance Due</p>
                         <p className={`text-xl md:text-2xl font-black font-mono tracking-tighter ${balanceDue > 0 ? 'text-amber-600' : 'text-teal-600'}`}>
                           €{balanceDue.toLocaleString()}
                         </p>
                       </div>
-                      <div className="p-3 rounded-2xl bg-slate-50 text-slate-400 group-hover:text-blue-600 group-hover:bg-slate-100 transition-all">
+                      <div className="p-3 rounded-2xl bg-slate-50 text-black group-hover:text-blue-600 group-hover:bg-slate-100 transition-all">
                         <ArrowRight size={20} />
                       </div>
                     </div>
@@ -244,71 +244,71 @@ const GarageDashboard = () => {
               <div className="p-8 border-b border-slate-200 flex items-center justify-between bg-slate-50">
                 <div>
                   <h3 className="text-3xl font-black uppercase tracking-tight text-foreground italic">Create Manual Deal</h3>
-                  <p className="text-[10px] text-slate-400 uppercase tracking-[0.4em] mt-1 font-mono">New Inventory Attribution Pipeline</p>
+                  <p className="text-[10px] text-black uppercase tracking-[0.4em] mt-1 font-mono">New Inventory Attribution Pipeline</p>
                 </div>
                 <button 
                   onClick={() => setIsModalOpen(false)}
                   className="p-2 hover:bg-slate-100 rounded-full transition-colors"
                 >
-                  <X size={24} className="text-slate-400 hover:text-foreground" />
+                  <X size={24} className="text-black hover:text-foreground" />
                 </button>
               </div>
 
               <form onSubmit={handleCreateDeal} className="p-8 space-y-6">
                 <div className="grid grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label className="text-[9px] uppercase tracking-[0.3em] text-slate-400 font-black ml-1">Vehicle Make</label>
+                    <label className="text-[9px] uppercase tracking-[0.3em] text-black font-black ml-1">Vehicle Make</label>
                     <input 
                       required
                       value={formData.make}
                       onChange={e => setFormData({...formData, make: e.target.value})}
                       placeholder="e.g. TOYOTA"
-                      className="w-full bg-slate-50 border border-slate-200 rounded-2xl p-4 text-sm font-bold text-foreground outline-none focus:border-blue-500/50 transition-all placeholder:text-slate-300"
+                      className="w-full bg-slate-50 border border-slate-200 rounded-2xl p-4 text-sm font-bold text-foreground outline-none focus:border-blue-500/50 transition-all placeholder:text-black"
                     />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-[9px] uppercase tracking-[0.3em] text-slate-400 font-black ml-1">Vehicle Model</label>
+                    <label className="text-[9px] uppercase tracking-[0.3em] text-black font-black ml-1">Vehicle Model</label>
                     <input 
                       required
                       value={formData.model}
                       onChange={e => setFormData({...formData, model: e.target.value})}
                       placeholder="e.g. CROWN"
-                      className="w-full bg-slate-50 border border-slate-200 rounded-2xl p-4 text-sm font-bold text-foreground outline-none focus:border-blue-500/50 transition-all placeholder:text-slate-300"
+                      className="w-full bg-slate-50 border border-slate-200 rounded-2xl p-4 text-sm font-bold text-foreground outline-none focus:border-blue-500/50 transition-all placeholder:text-black"
                     />
                   </div>
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-[9px] uppercase tracking-[0.3em] text-slate-400 font-black ml-1">VIN Identification</label>
+                  <label className="text-[9px] uppercase tracking-[0.3em] text-black font-black ml-1">VIN Identification</label>
                   <input 
                     required
                     value={formData.vin}
                     onChange={e => setFormData({...formData, vin: e.target.value})}
                     placeholder="Enter Full Chassis Signature"
-                    className="w-full bg-slate-50 border border-slate-200 rounded-2xl p-4 text-sm font-mono font-bold text-foreground outline-none focus:border-blue-500/50 transition-all placeholder:text-slate-300"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-2xl p-4 text-sm font-mono font-bold text-foreground outline-none focus:border-blue-500/50 transition-all placeholder:text-black"
                   />
                 </div>
 
                 <div className="grid grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label className="text-[9px] uppercase tracking-[0.3em] text-slate-400 font-black ml-1">Market Value (€)</label>
+                    <label className="text-[9px] uppercase tracking-[0.3em] text-black font-black ml-1">Market Value (€)</label>
                     <input 
                       required
                       type="number"
                       value={formData.price}
                       onChange={e => setFormData({...formData, price: e.target.value})}
                       placeholder="0.00"
-                      className="w-full bg-slate-50 border border-slate-200 rounded-2xl p-4 text-sm font-mono font-bold text-blue-600 outline-none focus:border-blue-500/50 transition-all placeholder:text-slate-300"
+                      className="w-full bg-slate-50 border border-slate-200 rounded-2xl p-4 text-sm font-mono font-bold text-blue-600 outline-none focus:border-blue-500/50 transition-all placeholder:text-black"
                     />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-[9px] uppercase tracking-[0.3em] text-slate-400 font-black ml-1">Customer Identity</label>
+                    <label className="text-[9px] uppercase tracking-[0.3em] text-black font-black ml-1">Customer Identity</label>
                     <input 
                       required
                       value={formData.customerName}
                       onChange={e => setFormData({...formData, customerName: e.target.value})}
                       placeholder="Full Legal Name"
-                      className="w-full bg-slate-50 border border-slate-200 rounded-2xl p-4 text-sm font-bold text-foreground outline-none focus:border-blue-500/50 transition-all placeholder:text-slate-300"
+                      className="w-full bg-slate-50 border border-slate-200 rounded-2xl p-4 text-sm font-bold text-foreground outline-none focus:border-blue-500/50 transition-all placeholder:text-black"
                     />
                   </div>
                 </div>
@@ -317,7 +317,7 @@ const GarageDashboard = () => {
                   <button 
                     type="button"
                     onClick={() => setIsModalOpen(false)}
-                    className="flex-1 py-4 text-[10px] font-black uppercase tracking-widest text-slate-400 bg-slate-50 rounded-2xl hover:bg-slate-100 transition-all border border-slate-200"
+                    className="flex-1 py-4 text-[10px] font-black uppercase tracking-widest text-black bg-slate-50 rounded-2xl hover:bg-slate-100 transition-all border border-slate-200"
                   >
                     Cancel
                   </button>

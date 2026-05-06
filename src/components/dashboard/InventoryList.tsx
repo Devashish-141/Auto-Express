@@ -32,7 +32,7 @@ const getStatusDetails = (status: string) => {
     case 'in transit':
       return { label: 'In Transit', color: 'text-blue-700 border-blue-200 bg-blue-50' };
     default:
-      return { label: status, color: 'text-slate-600 border-slate-200 bg-slate-50' };
+      return { label: status, color: 'text-black border-slate-200 bg-slate-50' };
   }
 };
 
@@ -123,8 +123,8 @@ const InventoryList = ({ data, onRefresh }: { data: any[], onRefresh?: () => voi
       
       <div className="relative z-20 flex items-center justify-between mb-10">
         <div>
-          <h3 className="text-[11px] tracking-[0.4em] text-slate-600 uppercase font-bold mb-1">Stock Telemetry</h3>
-          <p className="text-2xl font-extrabold uppercase tracking-tighter text-slate-900 font-sans">Real-Time Inventory</p>
+          <h3 className="text-[11px] tracking-[0.4em] text-black uppercase font-bold mb-1">Stock Telemetry</h3>
+          <p className="text-2xl font-extrabold uppercase tracking-tighter text-black font-sans">Real-Time Inventory</p>
         </div>
         
         <div className="flex items-center gap-4">
@@ -133,7 +133,7 @@ const InventoryList = ({ data, onRefresh }: { data: any[], onRefresh?: () => voi
             className="flex items-center gap-3 border border-slate-200 rounded-2xl px-5 py-3 bg-slate-50 hover:border-slate-900 transition-all group shadow-sm"
           >
             {sortOrder === 'desc' ? <ArrowDown size={14} className="text-blue-600" /> : <ArrowUp size={14} className="text-blue-600" />}
-            <span className="text-[10px] font-black text-slate-600 uppercase tracking-widest group-hover:text-slate-900">
+            <span className="text-[10px] font-black text-black uppercase tracking-widest group-hover:text-black">
               {sortOrder === 'desc' ? 'Newest' : 'Oldest'}
             </span>
           </button>
@@ -151,8 +151,8 @@ const InventoryList = ({ data, onRefresh }: { data: any[], onRefresh?: () => voi
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
               className="flex items-center gap-3 border border-slate-200 rounded-2xl px-5 py-3 bg-slate-50 hover:border-blue-500/50 transition-colors"
             >
-              <span className="text-[10px] font-black text-slate-600 uppercase tracking-widest">{selectedClass}</span>
-              <ChevronDown size={14} className={`text-slate-400 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} />
+              <span className="text-[10px] font-black text-black uppercase tracking-widest">{selectedClass}</span>
+              <ChevronDown size={14} className={`text-black transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} />
             </button>
             
             <AnimatePresence>
@@ -170,7 +170,7 @@ const InventoryList = ({ data, onRefresh }: { data: any[], onRefresh?: () => voi
                         setSelectedClass(cls);
                         setIsDropdownOpen(false);
                       }}
-                      className="w-full text-left px-5 py-3 text-[10px] font-black uppercase tracking-widest text-slate-500 hover:text-blue-600 hover:bg-slate-50 rounded-xl transition-colors"
+                      className="w-full text-left px-5 py-3 text-[10px] font-black uppercase tracking-widest text-black hover:text-blue-600 hover:bg-slate-50 rounded-xl transition-colors"
                     >
                       {cls}
                     </button>
@@ -185,7 +185,7 @@ const InventoryList = ({ data, onRefresh }: { data: any[], onRefresh?: () => voi
       <div className="relative z-10 flex-1 overflow-x-auto custom-scrollbar">
         <table className="w-full text-left border-collapse">
           <thead>
-            <tr className="border-b border-slate-200 text-[10px] text-slate-500 uppercase tracking-[0.3em] font-header font-black">
+            <tr className="border-b border-slate-200 text-[10px] text-black uppercase tracking-[0.3em] font-header font-black">
               <th className="pb-6 px-4">Asset Matrix</th>
               <th className="pb-6 px-4">Status</th>
               <th className="pb-6 px-4">Identification</th>
@@ -212,8 +212,8 @@ const InventoryList = ({ data, onRefresh }: { data: any[], onRefresh?: () => voi
                         />
                       </div>
                       <div>
-                        <p className="text-sm text-slate-900 font-black italic uppercase tracking-tight">{item.make}</p>
-                        <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">{item.model}</p>
+                        <p className="text-sm text-black font-black italic uppercase tracking-tight">{item.make}</p>
+                        <p className="text-[10px] text-black font-bold uppercase tracking-widest">{item.model}</p>
                       </div>
                     </div>
                   </td>
@@ -222,9 +222,9 @@ const InventoryList = ({ data, onRefresh }: { data: any[], onRefresh?: () => voi
                       {statusDetails.label}
                     </span>
                   </td>
-                  <td className="py-5 px-4 text-[11px] text-slate-800 font-mono tracking-widest uppercase">VIN: {item.vin.slice(-8)}</td>
-                  <td className="py-5 px-4 text-[11px] text-slate-600 font-bold uppercase tracking-widest italic">{item.location}</td>
-                  <td className="py-5 px-6 text-sm text-slate-800 text-right font-mono font-bold tracking-tight whitespace-nowrap">€{item.price?.toLocaleString()}</td>
+                  <td className="py-5 px-4 text-[11px] text-black font-mono tracking-widest uppercase">VIN: {item.vin.slice(-8)}</td>
+                  <td className="py-5 px-4 text-[11px] text-black font-bold uppercase tracking-widest italic">{item.location}</td>
+                  <td className="py-5 px-6 text-sm text-black text-right font-mono font-bold tracking-tight whitespace-nowrap">€{item.price?.toLocaleString()}</td>
                   <td className="py-5 px-4 text-right">
                     <div className="flex items-center justify-end gap-3">
                       {isAvailable ? (
@@ -263,7 +263,7 @@ const InventoryList = ({ data, onRefresh }: { data: any[], onRefresh?: () => voi
                       )}
                       <button 
                         onClick={() => handleOpenDetails(item)}
-                        className="p-2 hover:bg-slate-100 rounded-xl transition-all text-slate-300 hover:text-slate-900"
+                        className="p-2 hover:bg-slate-100 rounded-xl transition-all text-black hover:text-black"
                       >
                         <MoreVertical size={18} />
                       </button>
@@ -288,7 +288,7 @@ const InventoryList = ({ data, onRefresh }: { data: any[], onRefresh?: () => voi
               <div className="absolute top-8 right-8 z-50">
                 <button 
                   onClick={() => setSelectedVehicle(null)}
-                  className="p-3 bg-white/90 hover:bg-white rounded-2xl text-slate-400 hover:text-blue-600 transition-all backdrop-blur-md border border-slate-200 shadow-xl"
+                  className="p-3 bg-white/90 hover:bg-white rounded-2xl text-black hover:text-blue-600 transition-all backdrop-blur-md border border-slate-200 shadow-xl"
                 >
                   <X size={24} />
                 </button>
@@ -308,49 +308,49 @@ const InventoryList = ({ data, onRefresh }: { data: any[], onRefresh?: () => voi
                   <span className={`text-[10px] px-4 py-1.5 rounded-full border ${getStatusDetails(selectedVehicle.status).color} font-black tracking-[0.2em] uppercase shadow-sm`}>
                     {getStatusDetails(selectedVehicle.status).label}
                   </span>
-                  <span className="text-[10px] text-slate-800 font-mono tracking-widest uppercase font-bold">VIN: {selectedVehicle.vin}</span>
+                  <span className="text-[10px] text-black font-mono tracking-widest uppercase font-bold">VIN: {selectedVehicle.vin}</span>
                 </div>
 
                 <div className="flex items-end justify-between mb-10">
                   <div>
-                    <h2 className="text-4xl md:text-5xl font-black italic text-slate-900 uppercase tracking-tighter leading-none">
-                      {selectedVehicle.make} <span className="text-slate-400 font-normal not-italic">{selectedVehicle.model}</span>
+                    <h2 className="text-4xl md:text-5xl font-black italic text-black uppercase tracking-tighter leading-none">
+                      {selectedVehicle.make} <span className="text-black font-normal not-italic">{selectedVehicle.model}</span>
                     </h2>
-                    <p className="text-[11px] text-slate-400 uppercase tracking-[0.5em] font-black mt-3">Asset Protocol ID: {selectedVehicle.id.slice(0, 12)}</p>
+                    <p className="text-[11px] text-black uppercase tracking-[0.5em] font-black mt-3">Asset Protocol ID: {selectedVehicle.id.slice(0, 12)}</p>
                   </div>
                   <div className="text-right">
-                    <p className="text-[11px] text-slate-500 uppercase tracking-widest mb-2 font-black">Market Valuation</p>
-                    <p className="text-4xl font-black text-slate-800 font-mono leading-none tracking-tighter italic">€{selectedVehicle.price?.toLocaleString()}</p>
+                    <p className="text-[11px] text-black uppercase tracking-widest mb-2 font-black">Market Valuation</p>
+                    <p className="text-4xl font-black text-black font-mono leading-none tracking-tighter italic">€{selectedVehicle.price?.toLocaleString()}</p>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-10">
                   <div className="space-y-5">
-                    <h4 className="text-[11px] font-black uppercase tracking-[0.4em] text-slate-400 flex items-center gap-3">
+                    <h4 className="text-[11px] font-black uppercase tracking-[0.4em] text-black flex items-center gap-3">
                       <div className="w-1.5 h-1.5 bg-amber-500 rounded-full" />
                       Technical Matrix
                     </h4>
                     <div className="grid grid-cols-2 gap-4">
                       <div className="bg-slate-50 p-4 rounded-[1.5rem] border border-slate-100 shadow-inner">
-                        <p className="text-[9px] text-slate-400 uppercase tracking-widest mb-2 font-black">Mileage Telemetry</p>
-                        <p className="text-lg text-slate-800 font-black font-mono">{selectedVehicle.mileage?.toLocaleString()} <span className="text-[10px] text-slate-400 ml-1">KM</span></p>
+                        <p className="text-[9px] text-black uppercase tracking-widest mb-2 font-black">Mileage Telemetry</p>
+                        <p className="text-lg text-black font-black font-mono">{selectedVehicle.mileage?.toLocaleString()} <span className="text-[10px] text-black ml-1">KM</span></p>
                       </div>
                       <div className="bg-slate-50 p-4 rounded-[1.5rem] border border-slate-100 shadow-inner">
-                        <p className="text-[9px] text-slate-400 uppercase tracking-widest mb-2 font-black">Release Epoch</p>
-                        <p className="text-lg text-slate-900 font-black">{selectedVehicle.year}</p>
+                        <p className="text-[9px] text-black uppercase tracking-widest mb-2 font-black">Release Epoch</p>
+                        <p className="text-lg text-black font-black">{selectedVehicle.year}</p>
                       </div>
                     </div>
                   </div>
 
                   <div className="space-y-5">
-                    <h4 className="text-[11px] font-black uppercase tracking-[0.4em] text-slate-400 flex items-center gap-3">
+                    <h4 className="text-[11px] font-black uppercase tracking-[0.4em] text-black flex items-center gap-3">
                       <div className="w-1.5 h-1.5 bg-blue-600 rounded-full" />
                       Financial Protocol
                     </h4>
                     {selectedVehicle.status.toLowerCase() === 'sold' ? (
                       <div className="bg-slate-50 p-5 rounded-[1.5rem] border border-slate-100 space-y-4">
                         <div className="flex justify-between items-center">
-                          <span className="text-[10px] text-slate-500 uppercase font-black tracking-widest">Active Balance</span>
+                          <span className="text-[10px] text-black uppercase font-black tracking-widest">Active Balance</span>
                           <span className="text-sm font-mono text-amber-600 font-black animate-pulse">SYNCING...</span>
                         </div>
                         <div className="h-2 bg-slate-200 rounded-full overflow-hidden">

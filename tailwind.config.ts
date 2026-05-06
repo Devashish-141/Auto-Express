@@ -9,16 +9,16 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-sans)", "Instrument Sans", "sans-serif"],
+        sans: ["var(--font-open-sans)", "sans-serif"],
         mono: ["var(--font-mono)", "JetBrains Mono", "monospace"],
-        serif: ["var(--font-serif)", "Instrument Serif", "serif"],
-        header: ["var(--font-header)", "Instrument Sans", "sans-serif"],
+        serif: ["var(--font-open-sans)", "serif"],
+        header: ["var(--font-open-sans)", "sans-serif"],
       },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
         secondary: "var(--secondary)",
-        'navy-accent': "#0f172a",
+        'navy-accent': "#000000",
       },
     },
   },

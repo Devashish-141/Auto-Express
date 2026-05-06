@@ -45,7 +45,7 @@ export default function VRTWorkflowCard({ dealId, vehicleId, stage, currentVrt, 
     <div className={`bg-white p-8 rounded-3xl border border-slate-200 relative overflow-hidden transition-all duration-500 shadow-sm`}>
       {isClosed && (
         <div className="absolute inset-0 bg-slate-50/80 backdrop-blur-[2px] z-30 flex items-center justify-center">
-          <div className="flex flex-col items-center gap-3 text-slate-400">
+          <div className="flex flex-col items-center gap-3 text-black">
             <Lock size={20} />
             <span className="text-[9px] font-black uppercase tracking-[0.3em]">Signature Locked</span>
           </div>
@@ -65,10 +65,10 @@ export default function VRTWorkflowCard({ dealId, vehicleId, stage, currentVrt, 
 
       <div className="flex items-center justify-between mb-8">
         <div className="flex items-center gap-4">
-          <div className={`w-10 h-10 rounded-xl ${isUnlocked ? 'bg-teal-50 text-teal-600 border border-teal-200' : 'bg-slate-50 text-slate-400 border border-slate-200'} flex items-center justify-center`}>
+          <div className={`w-10 h-10 rounded-xl ${isUnlocked ? 'bg-teal-50 text-teal-600 border border-teal-200' : 'bg-slate-50 text-black border border-slate-200'} flex items-center justify-center`}>
             <ShieldCheck size={20} />
           </div>
-          <h3 className={`text-sm font-black uppercase tracking-[0.3em] ${isUnlocked ? 'text-teal-600' : 'text-slate-400'}`}>VRT & Registration</h3>
+          <h3 className={`text-sm font-black uppercase tracking-[0.3em] ${isUnlocked ? 'text-teal-600' : 'text-black'}`}>VRT & Registration</h3>
         </div>
         {isRegistered && <CheckCircle2 size={24} className="text-teal-600" />}
       </div>
@@ -76,30 +76,30 @@ export default function VRTWorkflowCard({ dealId, vehicleId, stage, currentVrt, 
       <div className={`space-y-6 ${isClosed ? 'opacity-40 pointer-events-none' : ''}`}>
         <div className="grid grid-cols-2 gap-6">
           <div className="space-y-3">
-            <label className="text-[9px] uppercase tracking-[0.4em] text-slate-500 font-black ml-1">VRT Liability (€)</label>
+            <label className="text-[9px] uppercase tracking-[0.4em] text-black font-black ml-1">VRT Liability (€)</label>
             <div className="relative">
-              <span className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-400 font-mono font-black">€</span>
+              <span className="absolute left-5 top-1/2 -translate-y-1/2 text-black font-mono font-black">€</span>
               <input 
                 type="number"
                 value={vrtAmount}
                 onChange={(e) => setVrtAmount(e.target.value)}
                 disabled={!isUnlocked || isRegistered || loading || isClosed}
                 placeholder="0.00"
-                className="w-full bg-slate-50 border border-slate-200 rounded-2xl py-4 pl-10 pr-6 text-sm font-mono font-black text-foreground focus:border-teal-500/50 outline-none transition-all placeholder:text-slate-300"
+                className="w-full bg-slate-50 border border-slate-200 rounded-2xl py-4 pl-10 pr-6 text-sm font-mono font-black text-foreground focus:border-teal-500/50 outline-none transition-all placeholder:text-black"
               />
             </div>
           </div>
           <div className="space-y-3">
-            <label className="text-[9px] uppercase tracking-[0.4em] text-slate-500 font-black ml-1">Irish Signature</label>
+            <label className="text-[9px] uppercase tracking-[0.4em] text-black font-black ml-1">Irish Signature</label>
             <div className="relative">
-              <MapPin size={16} className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-400" />
+              <MapPin size={16} className="absolute left-5 top-1/2 -translate-y-1/2 text-black" />
               <input 
                 type="text"
                 value={regNumber}
                 onChange={(e) => setRegNumber(e.target.value)}
                 disabled={!isUnlocked || isRegistered || loading || isClosed}
                 placeholder="241-D-XXXX"
-                className="w-full bg-slate-50 border border-slate-200 rounded-2xl py-4 pl-12 pr-6 text-sm font-mono font-black text-foreground focus:border-teal-500/50 outline-none uppercase transition-all placeholder:text-slate-300"
+                className="w-full bg-slate-50 border border-slate-200 rounded-2xl py-4 pl-12 pr-6 text-sm font-mono font-black text-foreground focus:border-teal-500/50 outline-none uppercase transition-all placeholder:text-black"
               />
             </div>
           </div>
@@ -126,7 +126,7 @@ export default function VRTWorkflowCard({ dealId, vehicleId, stage, currentVrt, 
             </div>
             <div>
               <p className="text-[10px] uppercase tracking-[0.3em] text-teal-600 font-black">Registration Protocol Complete</p>
-              <p className="text-[10px] text-slate-500 font-black mt-1 uppercase tracking-widest">Asset Successfully Transitioned</p>
+              <p className="text-[10px] text-black font-black mt-1 uppercase tracking-widest">Asset Successfully Transitioned</p>
             </div>
           </div>
         )}

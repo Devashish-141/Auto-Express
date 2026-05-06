@@ -118,7 +118,7 @@ export default function GarageDealPage() {
     return (
       <div className="min-h-screen bg-background flex flex-col items-center justify-center gap-4">
         <div className="w-12 h-12 border-4 border-slate-200 border-t-blue-600 rounded-full animate-spin" />
-        <p className="text-[10px] uppercase tracking-[0.5em] text-slate-400 font-black">Syncing Ledger...</p>
+        <p className="text-[10px] uppercase tracking-[0.5em] text-black font-black">Syncing Ledger...</p>
       </div>
     );
   }
@@ -144,7 +144,7 @@ export default function GarageDealPage() {
           <div className="flex items-center justify-between">
             <Link 
               href="/garage"
-              className="group flex items-center gap-3 text-slate-400 hover:text-blue-600 transition-all text-[10px] font-black uppercase tracking-[0.2em] bg-white px-6 py-3 rounded-2xl border border-slate-200 hover:border-blue-500 shadow-sm"
+              className="group flex items-center gap-3 text-black hover:text-blue-600 transition-all text-[10px] font-black uppercase tracking-[0.2em] bg-white px-6 py-3 rounded-2xl border border-slate-200 hover:border-blue-500 shadow-sm"
             >
               <ChevronLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
               Return to Ledger
@@ -152,7 +152,7 @@ export default function GarageDealPage() {
 
             <div className="flex items-center gap-4">
               <div className="text-right">
-                <p className="text-[9px] text-slate-400 uppercase tracking-[0.3em] font-black">Asset Status</p>
+                <p className="text-[9px] text-black uppercase tracking-[0.3em] font-black">Asset Status</p>
                 <p className="text-xs font-black text-teal-600 uppercase italic tracking-tighter">Verified // Financial Hold</p>
               </div>
               <div className="w-12 h-12 rounded-2xl bg-white border border-slate-200 flex items-center justify-center">
@@ -168,7 +168,7 @@ export default function GarageDealPage() {
             
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-16 relative z-10">
               <div className="space-y-3">
-                <div className="flex items-center gap-2 text-slate-400">
+                <div className="flex items-center gap-2 text-black">
                   <Hash size={14} />
                   <p className="text-[9px] uppercase tracking-[0.4em] font-black">Market Value</p>
                 </div>
@@ -176,7 +176,7 @@ export default function GarageDealPage() {
               </div>
               
               <div className="space-y-3">
-                <div className="flex items-center gap-2 text-slate-400">
+                <div className="flex items-center gap-2 text-black">
                   <User size={14} />
                   <p className="text-[9px] uppercase tracking-[0.4em] font-black">Realized Cash</p>
                 </div>
@@ -184,7 +184,7 @@ export default function GarageDealPage() {
               </div>
 
               <div className="space-y-3">
-                <div className="flex items-center gap-2 text-slate-400">
+                <div className="flex items-center gap-2 text-black">
                   <Activity size={14} />
                   <p className="text-[9px] uppercase tracking-[0.4em] font-black">Finance Credit</p>
                 </div>
@@ -192,7 +192,7 @@ export default function GarageDealPage() {
               </div>
               
               <div className="bg-slate-50 p-6 rounded-3xl border border-slate-200 relative overflow-hidden">
-                <p className="text-[9px] uppercase tracking-[0.4em] text-slate-400 font-black mb-2">Remaining Balance</p>
+                <p className="text-[9px] uppercase tracking-[0.4em] text-black font-black mb-2">Remaining Balance</p>
                 <h2 className={`text-3xl md:text-5xl font-black font-mono tracking-tighter ${balanceDue > 0 ? 'text-amber-600 animate-pulse' : 'text-teal-600'}`}>
                   €{balanceDue.toLocaleString()}
                 </h2>
@@ -213,16 +213,16 @@ export default function GarageDealPage() {
                 <div className="space-y-3">
                   <div className="flex items-center gap-3 mb-2">
                     <span className="text-[9px] px-3 py-1 rounded-full bg-amber-50 text-amber-600 font-black tracking-[0.3em] uppercase border border-amber-100">Audit Secured</span>
-                    <span className="text-[9px] text-slate-400 font-mono tracking-widest uppercase">VIN: {deal?.vehicles?.vin}</span>
+                    <span className="text-[9px] text-black font-mono tracking-widest uppercase">VIN: {deal?.vehicles?.vin}</span>
                   </div>
                   <h3 className="text-3xl md:text-5xl font-black uppercase tracking-tighter leading-none text-foreground italic">
-                    {deal?.vehicles?.make} <span className="text-slate-400 font-normal not-italic">{deal?.vehicles?.model}</span>
+                    {deal?.vehicles?.make} <span className="text-black font-normal not-italic">{deal?.vehicles?.model}</span>
                   </h3>
                   <div className="flex items-center gap-3 mt-4">
                     <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 border border-blue-100">
                       <User size={16} />
                     </div>
-                    <p className="text-[10px] md:text-xs text-slate-400 font-bold tracking-[0.2em] uppercase">
+                    <p className="text-[10px] md:text-xs text-black font-bold tracking-[0.2em] uppercase">
                       Client Protocol: <span className="text-foreground">{deal?.customer_name}</span>
                     </p>
                   </div>
@@ -231,12 +231,12 @@ export default function GarageDealPage() {
               
               <div className="flex items-center gap-6">
                 <div className="text-right">
-                  <p className="text-[9px] text-slate-400 uppercase tracking-[0.3em] font-black mb-1">Telemetry Sync</p>
-                  <p className="text-[10px] font-mono text-slate-300 font-black">{new Date().toLocaleTimeString()}</p>
+                  <p className="text-[9px] text-black uppercase tracking-[0.3em] font-black mb-1">Telemetry Sync</p>
+                  <p className="text-[10px] font-mono text-black font-black">{new Date().toLocaleTimeString()}</p>
                 </div>
                 <div className="bg-teal-50 border border-teal-100 px-6 py-4 rounded-3xl flex items-center gap-4 shadow-sm">
                   <div className="flex flex-col">
-                    <span className="text-[8px] text-slate-400 uppercase tracking-widest mb-1 font-black">Protocol Status</span>
+                    <span className="text-[8px] text-black uppercase tracking-widest mb-1 font-black">Protocol Status</span>
                     <span className="text-[10px] font-black text-teal-600 uppercase tracking-[0.2em]">Verified</span>
                   </div>
                   <div className="w-2 h-2 bg-teal-500 rounded-full shadow-[0_0_15px_rgba(20,184,166,0.3)] animate-pulse" />
@@ -253,28 +253,28 @@ export default function GarageDealPage() {
 
             <div className="space-y-8">
                <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
-                 <h4 className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-400 mb-8 flex items-center gap-3">
+                 <h4 className="text-[10px] font-black uppercase tracking-[0.4em] text-black mb-8 flex items-center gap-3">
                    <Activity size={16} className="text-amber-500" />
                    Deal Vitals
                  </h4>
                  <div className="space-y-8">
                     <div className="flex justify-between items-end border-b border-slate-100 pb-6">
                       <div>
-                        <p className="text-[9px] text-slate-400 uppercase tracking-widest mb-1 font-black">Acquisition Date</p>
+                        <p className="text-[9px] text-black uppercase tracking-widest mb-1 font-black">Acquisition Date</p>
                         <p className="text-xs font-black text-foreground font-mono uppercase italic">{new Date(deal?.created_at || '').toLocaleDateString('en-IE')}</p>
                       </div>
                       <div className="text-right">
-                        <p className="text-[9px] text-slate-400 uppercase tracking-widest mb-1 font-black">Protocol Age</p>
+                        <p className="text-[9px] text-black uppercase tracking-widest mb-1 font-black">Protocol Age</p>
                         <p className="text-xs font-black text-amber-600 font-mono uppercase">Active</p>
                       </div>
                     </div>
                     <div className="flex justify-between items-end border-b border-slate-100 pb-6">
                       <div>
-                        <p className="text-[9px] text-slate-400 uppercase tracking-widest mb-1 font-black">Digital Signature</p>
+                        <p className="text-[9px] text-black uppercase tracking-widest mb-1 font-black">Digital Signature</p>
                         <p className="text-xs font-black text-blue-600 font-mono uppercase italic">SECURED-SHA256</p>
                       </div>
                       <div className="text-right">
-                        <p className="text-[9px] text-slate-400 uppercase tracking-widest mb-1 font-black">Compliance</p>
+                        <p className="text-[9px] text-black uppercase tracking-widest mb-1 font-black">Compliance</p>
                         <p className="text-[10px] font-black text-teal-600 uppercase tracking-[0.2em] italic">SECURE</p>
                       </div>
                     </div>

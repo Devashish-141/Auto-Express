@@ -57,7 +57,7 @@ export const ToastProvider = ({ children }: { children: React.ReactNode }) => {
 
               <button 
                 onClick={() => setToast(null)}
-                className="text-slate-500 hover:text-blue-600 transition-colors"
+                className="text-black hover:text-blue-600 transition-colors"
               >
                 <X size={16} />
               </button>

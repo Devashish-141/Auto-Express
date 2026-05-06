@@ -49,7 +49,7 @@ const ProfileModal = ({ isOpen, onClose }: ProfileModalProps) => {
               <div className="absolute top-8 right-8">
                 <button 
                   onClick={onClose}
-                  className="p-3 bg-slate-100 hover:bg-slate-200 rounded-2xl text-slate-400 hover:text-blue-600 transition-all border border-slate-200"
+                  className="p-3 bg-slate-100 hover:bg-slate-200 rounded-2xl text-black hover:text-blue-600 transition-all border border-slate-200"
                 >
                   <X size={20} />
                 </button>
@@ -81,11 +81,11 @@ const ProfileModal = ({ isOpen, onClose }: ProfileModalProps) => {
             <div className="flex-1 overflow-y-auto p-10 space-y-10 custom-scrollbar">
               <div className="grid grid-cols-2 gap-4">
                 <div className="bg-slate-50 border border-slate-200 rounded-3xl p-6 text-center">
-                  <p className="text-[9px] uppercase tracking-[0.4em] text-slate-400 font-black mb-2">Sold YTD</p>
+                  <p className="text-[9px] uppercase tracking-[0.4em] text-black font-black mb-2">Sold YTD</p>
                   <p className="text-3xl font-black text-foreground italic">14</p>
                 </div>
                 <div className="bg-slate-50 border border-slate-200 rounded-3xl p-6 text-center">
-                  <p className="text-[9px] uppercase tracking-[0.4em] text-slate-400 font-black mb-2">Performance</p>
+                  <p className="text-[9px] uppercase tracking-[0.4em] text-black font-black mb-2">Performance</p>
                   <p className="text-3xl font-black text-teal-600 italic">98%</p>
                 </div>
               </div>
@@ -98,7 +98,7 @@ const ProfileModal = ({ isOpen, onClose }: ProfileModalProps) => {
                       <Mail size={20} />
                     </div>
                     <div>
-                      <p className="text-[8px] uppercase tracking-[0.3em] text-slate-500 font-black mb-1">Electronic Mail</p>
+                      <p className="text-[8px] uppercase tracking-[0.3em] text-black font-black mb-1">Electronic Mail</p>
                       <p className="text-xs text-foreground font-bold lowercase tracking-wide">{repDetails.email || 'N/A'}</p>
                     </div>
                   </div>
@@ -108,7 +108,7 @@ const ProfileModal = ({ isOpen, onClose }: ProfileModalProps) => {
                       <Shield size={20} />
                     </div>
                     <div>
-                      <p className="text-[8px] uppercase tracking-[0.3em] text-slate-500 font-black mb-1">Clearance Tier</p>
+                      <p className="text-[8px] uppercase tracking-[0.3em] text-black font-black mb-1">Clearance Tier</p>
                       <p className="text-xs text-foreground font-bold uppercase tracking-widest italic">
                         {repDetails.rep_code === 'NICK-01' ? 'System Administrator' : 'Executive Representative'}
                       </p>
@@ -120,7 +120,7 @@ const ProfileModal = ({ isOpen, onClose }: ProfileModalProps) => {
                       <MapPin size={20} />
                     </div>
                     <div>
-                      <p className="text-[8px] uppercase tracking-[0.3em] text-slate-500 font-black mb-1">Active Showroom</p>
+                      <p className="text-[8px] uppercase tracking-[0.3em] text-black font-black mb-1">Active Showroom</p>
                       <p className="text-xs text-foreground font-bold uppercase tracking-widest">{location} Branch</p>
                     </div>
                   </div>
@@ -130,7 +130,7 @@ const ProfileModal = ({ isOpen, onClose }: ProfileModalProps) => {
                       <Calendar size={20} />
                     </div>
                     <div>
-                      <p className="text-[8px] uppercase tracking-[0.3em] text-slate-500 font-black mb-1">Registry Since</p>
+                      <p className="text-[8px] uppercase tracking-[0.3em] text-black font-black mb-1">Registry Since</p>
                       <p className="text-xs text-foreground font-bold uppercase tracking-widest">
                         {new Date(repDetails.created_at).toLocaleDateString('en-IE', { month: 'long', year: 'numeric' })}
                       </p>
@@ -152,7 +152,7 @@ const ProfileModal = ({ isOpen, onClose }: ProfileModalProps) => {
               
               <button
                 onClick={onClose}
-                className="w-full bg-white hover:bg-slate-100 text-slate-400 hover:text-blue-600 flex items-center justify-center gap-3 py-5 rounded-2xl font-black uppercase tracking-[0.4em] text-[11px] transition-all border border-slate-200 active:scale-[0.98]"
+                className="w-full bg-white hover:bg-slate-100 text-black hover:text-blue-600 flex items-center justify-center gap-3 py-5 rounded-2xl font-black uppercase tracking-[0.4em] text-[11px] transition-all border border-slate-200 active:scale-[0.98]"
               >
                 Cancel / Return
               </button>

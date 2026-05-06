@@ -29,7 +29,7 @@ const LenderCard = ({
       case 'approved': return 'text-teal-400';
       case 'declined': return 'text-rose-400';
       case 'pending': return 'text-amber-400';
-      default: return 'text-slate-600';
+      default: return 'text-black';
     }
   };
 
@@ -54,8 +54,8 @@ const LenderCard = ({
         
         {isLocked && (
           <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-slate-50 backdrop-blur-[2px]">
-            <Lock className="text-slate-600 mb-2" size={20} />
-            <span className="text-[9px] font-black uppercase tracking-[0.3em] text-slate-600 font-mono">Sequence Locked</span>
+            <Lock className="text-black mb-2" size={20} />
+            <span className="text-[9px] font-black uppercase tracking-[0.3em] text-black font-mono">Sequence Locked</span>
           </div>
         )}
 
@@ -66,7 +66,7 @@ const LenderCard = ({
           <div>
             <h4 className="text-xl font-black uppercase tracking-tight text-white group-hover:text-blue-400 transition-colors italic">{name}</h4>
             <div className="flex items-center gap-3 mt-1.5">
-              <span className="text-[8px] text-slate-600 uppercase tracking-widest font-black">Lender Signal:</span>
+              <span className="text-[8px] text-black uppercase tracking-widest font-black">Lender Signal:</span>
               <span className={`text-[8px] font-black uppercase tracking-[0.2em] ${getStatusColor()}`}>
                 {status}
               </span>
@@ -89,7 +89,7 @@ const LenderCard = ({
                     ? btn.id === 'pending' ? 'bg-amber-500 text-white shadow-[0_0_15px_rgba(245,158,11,0.3)]' 
                       : btn.id === 'approved' ? 'bg-teal-500 text-white shadow-[0_0_15px_rgba(20,184,166,0.3)]' 
                       : 'bg-rose-500 text-white shadow-[0_0_15px_rgba(244,63,94,0.3)]'
-                    : `text-slate-600 ${btn.color}`
+                    : `text-black ${btn.color}`
                 }`}
               >
                 {btn.label}
@@ -105,7 +105,7 @@ const LenderCard = ({
                 exit={{ opacity: 0, x: 20 }}
                 className="flex flex-col w-full sm:w-48"
               >
-                <span className="text-[8px] text-slate-600 uppercase tracking-widest mb-2 font-black ml-1">Manual Credit Input</span>
+                <span className="text-[8px] text-black uppercase tracking-widest mb-2 font-black ml-1">Manual Credit Input</span>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-teal-400 font-mono font-black">
                     <Euro size={12} />
@@ -115,7 +115,7 @@ const LenderCard = ({
                     value={approvedAmount || ''}
                     onChange={(e) => onAmountChange(Number(e.target.value))}
                     placeholder="0.00"
-                    className="w-full bg-slate-50 border border-slate-200 rounded-2xl py-3 pl-10 pr-4 text-sm font-mono font-black text-teal-400 focus:border-teal-500/50 outline-none transition-all placeholder:text-gray-800"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-2xl py-3 pl-10 pr-4 text-sm font-mono font-black text-teal-400 focus:border-teal-500/50 outline-none transition-all placeholder:text-black"
                   />
                 </div>
               </motion.div>

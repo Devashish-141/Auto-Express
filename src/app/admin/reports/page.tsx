@@ -129,7 +129,7 @@ export default function AdminReportsPage() {
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
               <h1 className="text-4xl font-black uppercase tracking-tighter mb-1 italic">Sales & Commissions</h1>
-              <p className="text-[10px] uppercase tracking-[0.4em] text-slate-400 font-black">Administrative Oversight & Reporting</p>
+              <p className="text-[10px] uppercase tracking-[0.4em] text-black font-black">Administrative Oversight & Reporting</p>
             </div>
             <button 
               onClick={handleExportCSV}
@@ -145,7 +145,7 @@ export default function AdminReportsPage() {
               <div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity">
                 <TrendingUp size={64} className="text-blue-600" />
               </div>
-              <p className="text-[9px] uppercase tracking-[0.4em] text-slate-400 font-black mb-6">Total Sales for Period</p>
+              <p className="text-[9px] uppercase tracking-[0.4em] text-black font-black mb-6">Total Sales for Period</p>
               <div className="flex items-end gap-4">
                 <h2 className="text-4xl font-black font-mono tracking-tighter text-foreground">€{summary.totalRevenue.toLocaleString()}</h2>
                 <span className="text-[10px] text-teal-600 font-black mb-1.5 uppercase tracking-[0.2em]">{summary.totalSalesCount} Units</span>
@@ -156,10 +156,10 @@ export default function AdminReportsPage() {
               <div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity">
                 <DollarSign size={64} className="text-teal-600" />
               </div>
-              <p className="text-[9px] uppercase tracking-[0.4em] text-slate-400 font-black mb-6">Total Commission Pool</p>
+              <p className="text-[9px] uppercase tracking-[0.4em] text-black font-black mb-6">Total Commission Pool</p>
               <div className="flex items-end gap-4">
                 <h2 className="text-4xl font-black font-mono tracking-tighter text-teal-600">€{summary.totalCommissionPool.toLocaleString()}</h2>
-                <span className="text-[10px] text-slate-400 font-black mb-1.5 uppercase tracking-[0.2em]">3% Baseline</span>
+                <span className="text-[10px] text-black font-black mb-1.5 uppercase tracking-[0.2em]">3% Baseline</span>
               </div>
             </div>
 
@@ -167,24 +167,24 @@ export default function AdminReportsPage() {
               <div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity">
                 <Award size={64} className="text-blue-600" />
               </div>
-              <p className="text-[9px] uppercase tracking-[0.4em] text-slate-400 font-black mb-6">Top Performing Rep</p>
+              <p className="text-[9px] uppercase tracking-[0.4em] text-black font-black mb-6">Top Performing Rep</p>
               <div className="flex items-end gap-4">
                 <h2 className="text-4xl font-black uppercase tracking-tighter text-blue-600 italic">{summary.topRepName}</h2>
-                <span className="text-[10px] text-slate-400 font-black mb-1.5 uppercase tracking-[0.2em]">Lead Velocity</span>
+                <span className="text-[10px] text-black font-black mb-1.5 uppercase tracking-[0.2em]">Lead Velocity</span>
               </div>
             </div>
           </div>
 
           <div className="bg-white p-6 border border-slate-200 flex flex-wrap items-center gap-8 rounded-[1.5rem] shadow-sm">
             <div className="flex items-center gap-3">
-              <Calendar size={14} className="text-slate-400" />
+              <Calendar size={14} className="text-black" />
               <input 
                 type="date" 
                 value={dateRange.start}
                 onChange={(e) => setDateRange(prev => ({ ...prev, start: e.target.value }))}
                 className="bg-transparent border-none text-[10px] font-black uppercase tracking-[0.2em] focus:ring-0 cursor-pointer text-foreground" 
               />
-              <span className="text-slate-200 font-black">/</span>
+              <span className="text-black font-black">/</span>
               <input 
                 type="date" 
                 value={dateRange.end}
@@ -196,7 +196,7 @@ export default function AdminReportsPage() {
             <div className="h-8 w-[1px] bg-slate-100 hidden md:block" />
 
             <div className="flex items-center gap-3">
-              <UserIcon size={14} className="text-slate-400" />
+              <UserIcon size={14} className="text-black" />
               <select 
                 value={selectedRep}
                 onChange={(e) => setSelectedRep(e.target.value)}
@@ -212,7 +212,7 @@ export default function AdminReportsPage() {
             <div className="h-8 w-[1px] bg-slate-100 hidden md:block" />
 
             <div className="flex items-center gap-3">
-              <Filter size={14} className="text-slate-400" />
+              <Filter size={14} className="text-black" />
               <select 
                 value={selectedStatus}
                 onChange={(e) => setSelectedStatus(e.target.value)}
@@ -230,7 +230,7 @@ export default function AdminReportsPage() {
             <div className="overflow-x-auto custom-scrollbar">
               <table className="w-full text-left border-collapse">
                 <thead>
-                  <tr className="border-b border-slate-200 text-[9px] text-slate-400 uppercase tracking-[0.3em] font-black bg-slate-50">
+                  <tr className="border-b border-slate-200 text-[9px] text-black uppercase tracking-[0.3em] font-black bg-slate-50">
                     <th className="px-8 py-5">Date</th>
                     <th className="px-8 py-5">Asset Identification</th>
                     <th className="px-8 py-5 text-right">Market Value</th>
@@ -247,17 +247,17 @@ export default function AdminReportsPage() {
                     
                     return (
                       <tr key={item.id} className="group hover:bg-slate-50 transition-colors">
-                        <td className="px-8 py-5 text-[10px] font-mono text-slate-400">
+                        <td className="px-8 py-5 text-[10px] font-mono text-black">
                           {new Date(item.created_at).toLocaleDateString('en-IE')}
                         </td>
                         <td className="px-8 py-5">
                           <p className="text-[11px] font-black uppercase tracking-tight text-foreground italic">{item.vehicle?.make} {item.vehicle?.model}</p>
-                          <p className="text-[9px] font-mono text-slate-400 uppercase tracking-widest">{item.vehicle?.vin}</p>
+                          <p className="text-[9px] font-mono text-black uppercase tracking-widest">{item.vehicle?.vin}</p>
                         </td>
                         <td className="px-8 py-5 text-right text-xs font-mono font-black text-foreground">
                           €{Number(item.vehicle?.price || 0).toLocaleString()}
                         </td>
-                        <td className="px-8 py-5 text-right text-xs font-mono text-slate-400">
+                        <td className="px-8 py-5 text-right text-xs font-mono text-black">
                           €{Number(item.vrt_amount || 0).toLocaleString()}
                         </td>
                         <td className="px-8 py-5 text-right text-xs font-mono font-black text-teal-600">
@@ -266,7 +266,7 @@ export default function AdminReportsPage() {
                         <td className="px-8 py-5">
                           <div className="flex items-center gap-3">
                             <div className="w-1.5 h-1.5 rounded-full bg-blue-500" />
-                            <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">{item.rep_code}</span>
+                            <span className="text-[10px] font-black uppercase tracking-widest text-black">{item.rep_code}</span>
                           </div>
                         </td>
                         <td className="px-8 py-5 text-right">
@@ -283,8 +283,8 @@ export default function AdminReportsPage() {
             
             {filteredData.length === 0 && (
               <div className="py-24 text-center flex flex-col items-center gap-6">
-                <Search size={48} className="text-slate-200" />
-                <p className="text-[10px] uppercase tracking-[0.4em] text-slate-400 font-black">No matching telemetry found</p>
+                <Search size={48} className="text-black" />
+                <p className="text-[10px] uppercase tracking-[0.4em] text-black font-black">No matching telemetry found</p>
               </div>
             )}
           </div>

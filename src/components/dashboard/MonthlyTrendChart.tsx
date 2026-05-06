@@ -33,7 +33,7 @@ const MonthlyTrendChart = ({ data: rawData }: { data: any[] }) => {
         <h3 className="text-xs font-black tracking-widest text-blue-600 uppercase">Stock by Manufacture Year</h3>
         <button 
           onClick={() => {}}
-          className="text-slate-400 hover:text-blue-600"
+          className="text-black hover:text-blue-600"
         >
           <MoreVertical size={16} />
         </button>
@@ -77,7 +77,7 @@ const MonthlyTrendChart = ({ data: rawData }: { data: any[] }) => {
             </AreaChart>
           </ResponsiveContainer>
         ) : (
-          <div className="flex items-center justify-center h-full text-slate-400 text-xs">Loading data...</div>
+          <div className="flex items-center justify-center h-full text-black text-xs">Loading data...</div>
         )}
       </div>
       

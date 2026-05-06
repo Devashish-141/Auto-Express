@@ -2,24 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;600;800&family=Instrument+Serif:italic@1&family=JetBrains+Mono:wght@500&display=swap');
-
 :root {
   --background: #ffffff;
-  --foreground: #0f172a; /* Slate 900 */
-  --secondary: #334155; /* Slate 700 */
-  --text-muted: #64748b; /* Slate 500 */
-  --accent: #000000; /* Primary Black */
+  --foreground: #000000; 
+  --secondary: #000000;
+  --text-muted: #000000;
+  --accent: #000000;
   
-  --brand-amber: #b45309; /* Darkened */
-  --brand-teal: #0f766e; /* Darkened */
+  --brand-amber: #b45309;
+  --brand-teal: #0f766e;
   --brand-rose: #e11d48;
   
   --transition-standard: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
-  --font-sans: 'Instrument Sans', system-ui, -apple-system, sans-serif;
+  --font-sans: var(--font-open-sans), system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
-  --font-serif: 'Instrument Serif', serif;
-  --font-header: 'Instrument Sans', sans-serif;
+  --font-serif: var(--font-open-sans), serif;
+  --font-header: var(--font-open-sans), sans-serif;
 }
 
 body {
@@ -38,7 +36,6 @@ body {
 
 .font-header {
   font-family: var(--font-header);
-  letter-spacing: -0.04em;
 }
 
 .glass-card {
@@ -67,25 +64,25 @@ body {
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: rgba(148, 163, 184, 0.2);
+  background: rgba(0, 0, 0, 0.1);
   border-radius: 10px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: rgba(148, 163, 184, 0.4);
+  background: rgba(0, 0, 0, 0.2);
 }
 
 /* Typography Helpers */
 .text-label {
-  @apply text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500;
+  @apply text-[10px] font-bold uppercase tracking-[0.2em] text-black;
 }
 
 .text-value {
-  @apply text-sm font-semibold text-slate-900;
+  @apply text-sm font-semibold text-black;
 }
 
 .text-heading {
-  @apply text-2xl font-bold uppercase tracking-tight text-slate-900 font-header;
+  @apply text-2xl font-bold uppercase tracking-tight text-black font-header;
 }
 
 /* Animations */
@@ -109,7 +106,7 @@ body {
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(37, 99, 235, 0.05),
+    rgba(0, 0, 0, 0.05),
     transparent
   );
   animation: shimmer 2s infinite;

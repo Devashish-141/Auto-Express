@@ -48,7 +48,7 @@ export default function InvoiceSection({ dealId, currentCode, stage, onUpdate }:
     <div className={`bg-white p-8 rounded-3xl border border-slate-200 relative overflow-hidden transition-all duration-500 shadow-sm`}>
       {isClosed && (
         <div className="absolute inset-0 bg-slate-50/80 backdrop-blur-[2px] z-30 flex items-center justify-center">
-          <div className="flex flex-col items-center gap-3 text-slate-400">
+          <div className="flex flex-col items-center gap-3 text-black">
             <Lock size={20} />
             <span className="text-[9px] font-black uppercase tracking-[0.3em]">Signature Locked</span>
           </div>
@@ -63,7 +63,7 @@ export default function InvoiceSection({ dealId, currentCode, stage, onUpdate }:
 
       <div className="space-y-6">
         <div className="space-y-3">
-          <label className="text-[9px] uppercase tracking-[0.4em] text-slate-500 font-black ml-1">Lender Identification</label>
+          <label className="text-[9px] uppercase tracking-[0.4em] text-black font-black ml-1">Lender Identification</label>
           <select 
             value={selectedCode}
             onChange={(e) => setSelectedCode(e.target.value)}

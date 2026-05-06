@@ -119,14 +119,14 @@ export default function PaymentLogger({ dealId, payments, onPaymentLogged }: Pay
         <div className="flex items-center justify-between mb-10">
           <div>
             <h3 className="text-2xl font-black uppercase tracking-tight text-foreground italic">Log Payment Protocol</h3>
-            <p className="text-[10px] text-slate-400 uppercase tracking-[0.4em] mt-2 font-black">
+            <p className="text-[10px] text-black uppercase tracking-[0.4em] mt-2 font-black">
               Attribution: <span className="text-blue-600">{rep ?? 'PENDING'}</span>
             </p>
           </div>
           <button 
             type="button"
             onClick={() => { setAmount(''); setMethod('Cash'); }}
-            className="w-12 h-12 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-400 hover:text-blue-600 transition-all hover:scale-110 active:scale-95"
+            className="w-12 h-12 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-center text-black hover:text-blue-600 transition-all hover:scale-110 active:scale-95"
           >
             <RotateCcw size={20} />
           </button>
@@ -134,9 +134,9 @@ export default function PaymentLogger({ dealId, payments, onPaymentLogged }: Pay
 
         <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-3 gap-8 items-end">
           <div className="space-y-3">
-            <label className="text-[9px] uppercase tracking-[0.4em] text-slate-500 font-black ml-1">Cash Value (€)</label>
+            <label className="text-[9px] uppercase tracking-[0.4em] text-black font-black ml-1">Cash Value (€)</label>
             <div className="relative">
-              <span className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-400 font-mono font-black">€</span>
+              <span className="absolute left-5 top-1/2 -translate-y-1/2 text-black font-mono font-black">€</span>
               <input
                 required
                 type="number"
@@ -144,13 +144,13 @@ export default function PaymentLogger({ dealId, payments, onPaymentLogged }: Pay
                 value={amount}
                 onChange={(e) => setAmount(e.target.value)}
                 placeholder="0.00"
-                className="w-full bg-slate-50 border border-slate-200 rounded-2xl py-4 pl-10 pr-6 text-sm font-mono font-black text-foreground focus:border-blue-500/50 outline-none transition-all placeholder:text-slate-300"
+                className="w-full bg-slate-50 border border-slate-200 rounded-2xl py-4 pl-10 pr-6 text-sm font-mono font-black text-foreground focus:border-blue-500/50 outline-none transition-all placeholder:text-black"
               />
             </div>
           </div>
 
           <div className="space-y-3">
-            <label className="text-[9px] uppercase tracking-[0.4em] text-slate-500 font-black ml-1">Execution Date</label>
+            <label className="text-[9px] uppercase tracking-[0.4em] text-black font-black ml-1">Execution Date</label>
             <input
               required
               type="date"
@@ -161,7 +161,7 @@ export default function PaymentLogger({ dealId, payments, onPaymentLogged }: Pay
           </div>
 
           <div className="space-y-3">
-            <label className="text-[9px] uppercase tracking-[0.4em] text-slate-500 font-black ml-1">Transfer Method</label>
+            <label className="text-[9px] uppercase tracking-[0.4em] text-black font-black ml-1">Transfer Method</label>
             <select
               value={method}
               onChange={(e) => setMethod(e.target.value as PaymentMethod)}
@@ -189,16 +189,16 @@ export default function PaymentLogger({ dealId, payments, onPaymentLogged }: Pay
       <div className="bg-white p-8 md:p-10 rounded-[2.5rem] border border-slate-200 shadow-sm overflow-hidden">
         <div className="flex items-center justify-between mb-10">
           <div className="flex items-center gap-5">
-            <div className="w-12 h-12 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-400">
+            <div className="w-12 h-12 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-center text-black">
               <History size={24} />
             </div>
             <div>
               <h3 className="text-2xl font-black uppercase tracking-tight text-foreground italic">Audit Signature</h3>
-              <p className="text-[9px] text-slate-400 uppercase tracking-[0.4em] font-black mt-2">Immutable Transaction Sequence</p>
+              <p className="text-[9px] text-black uppercase tracking-[0.4em] font-black mt-2">Immutable Transaction Sequence</p>
             </div>
           </div>
           <div className="text-right">
-            <p className="text-[9px] text-slate-400 uppercase tracking-[0.4em] font-black mb-2">Total Accumulated</p>
+            <p className="text-[9px] text-black uppercase tracking-[0.4em] font-black mb-2">Total Accumulated</p>
             <p className="text-3xl font-black font-mono text-teal-600 tracking-tighter italic">€{totalReceived.toLocaleString()}</p>
           </div>
         </div>
@@ -207,17 +207,17 @@ export default function PaymentLogger({ dealId, payments, onPaymentLogged }: Pay
           <table className="w-full text-left">
             <thead>
               <tr className="border-b border-slate-100">
-                <th className="pb-6 text-[9px] uppercase tracking-[0.4em] text-slate-400 font-black">Timestamp</th>
-                <th className="pb-6 text-[9px] uppercase tracking-[0.4em] text-slate-400 font-black">Methodology</th>
-                <th className="pb-6 text-[9px] uppercase tracking-[0.4em] text-slate-400 font-black">Attribution</th>
-                <th className="pb-6 text-[9px] uppercase tracking-[0.4em] text-slate-400 font-black text-right">Value</th>
-                <th className="pb-6 text-[9px] uppercase tracking-[0.4em] text-slate-400 font-black text-right">Action</th>
+                <th className="pb-6 text-[9px] uppercase tracking-[0.4em] text-black font-black">Timestamp</th>
+                <th className="pb-6 text-[9px] uppercase tracking-[0.4em] text-black font-black">Methodology</th>
+                <th className="pb-6 text-[9px] uppercase tracking-[0.4em] text-black font-black">Attribution</th>
+                <th className="pb-6 text-[9px] uppercase tracking-[0.4em] text-black font-black text-right">Value</th>
+                <th className="pb-6 text-[9px] uppercase tracking-[0.4em] text-black font-black text-right">Action</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-50">
               {payments.map((p) => (
                 <tr key={p.id} className={`group ${p.is_voided ? 'opacity-30 grayscale' : ''}`}>
-                  <td className="py-6 text-[10px] font-mono font-black text-slate-400 uppercase tracking-widest">
+                  <td className="py-6 text-[10px] font-mono font-black text-black uppercase tracking-widest">
                     {new Date(p.payment_date).toLocaleDateString('en-IE')}
                   </td>
                   <td className="py-6">
@@ -225,17 +225,17 @@ export default function PaymentLogger({ dealId, payments, onPaymentLogged }: Pay
                       <span className={`p-2 rounded-xl border ${METHOD_CONFIG[p.method]?.border} ${METHOD_CONFIG[p.method]?.color}`}>
                         {METHOD_CONFIG[p.method]?.icon}
                       </span>
-                      <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">{p.method}</span>
+                      <span className="text-[10px] font-black uppercase tracking-[0.2em] text-black">{p.method}</span>
                     </div>
                   </td>
                   <td className="py-6">
-                    <div className="flex items-center gap-3 text-[10px] font-black text-slate-400 uppercase tracking-widest">
-                      <User size={14} className="text-slate-300" />
+                    <div className="flex items-center gap-3 text-[10px] font-black text-black uppercase tracking-widest">
+                      <User size={14} className="text-black" />
                       {p.rep_code}
                     </div>
                   </td>
                   <td className="py-6 text-right">
-                    <p className={`text-sm font-mono font-black ${p.is_voided ? 'line-through text-slate-300' : 'text-foreground'}`}>
+                    <p className={`text-sm font-mono font-black ${p.is_voided ? 'line-through text-black' : 'text-foreground'}`}>
                       €{Number(p.amount).toLocaleString()}
                     </p>
                   </td>
@@ -259,7 +259,7 @@ export default function PaymentLogger({ dealId, payments, onPaymentLogged }: Pay
           </table>
 
           {payments.length === 0 && (
-            <div className="py-16 text-center text-slate-300 uppercase tracking-[0.4em] text-[10px] font-black">
+            <div className="py-16 text-center text-black uppercase tracking-[0.4em] text-[10px] font-black">
               Zero Signal: No Transactions Found
             </div>
           )}
@@ -281,26 +281,26 @@ export default function PaymentLogger({ dealId, payments, onPaymentLogged }: Pay
                 </div>
                 <div>
                   <h4 className="text-3xl font-black uppercase tracking-tight text-foreground italic">Invalidate Sequence</h4>
-                  <p className="text-[10px] text-slate-400 uppercase tracking-[0.3em] mt-3 font-black leading-relaxed">
+                  <p className="text-[10px] text-black uppercase tracking-[0.3em] mt-3 font-black leading-relaxed">
                     Critical Operation: This will strike the transaction from active balance and log the intent in the audit chain.
                   </p>
                 </div>
                 
                 <div className="w-full text-left space-y-3 mt-6">
-                  <label className="text-[9px] uppercase tracking-[0.4em] text-slate-500 font-black ml-1">Void Intent Signature</label>
+                  <label className="text-[9px] uppercase tracking-[0.4em] text-black font-black ml-1">Void Intent Signature</label>
                   <textarea
                     required
                     value={voidReason}
                     onChange={(e) => setVoidReason(e.target.value)}
                     placeholder="Provide rationale for ledger invalidation..."
-                    className="w-full bg-slate-50 border border-slate-200 rounded-3xl p-6 text-sm text-foreground focus:border-red-500/50 outline-none h-32 resize-none transition-all placeholder:text-slate-300"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-3xl p-6 text-sm text-foreground focus:border-red-500/50 outline-none h-32 resize-none transition-all placeholder:text-black"
                   />
                 </div>
 
                 <div className="grid grid-cols-2 gap-6 w-full mt-6">
                   <button
                     onClick={() => setVoidingId(null)}
-                    className="py-5 bg-slate-50 text-slate-400 text-[10px] font-black uppercase tracking-[0.3em] rounded-2xl hover:bg-slate-100 transition-all"
+                    className="py-5 bg-slate-50 text-black text-[10px] font-black uppercase tracking-[0.3em] rounded-2xl hover:bg-slate-100 transition-all"
                   >
                     Abort
                   </button>

@@ -27,7 +27,7 @@ const TopNav = () => {
           <Link 
             href="/"
             className={`flex items-center gap-3 px-6 py-3 rounded-xl text-[10px] font-black uppercase tracking-[0.2em] transition-all ${
-              pathname === '/' ? 'bg-slate-900 text-white shadow-xl italic' : 'text-slate-400 hover:text-slate-900 hover:bg-white'
+              pathname === '/' ? 'bg-slate-900 text-white shadow-xl italic' : 'text-black hover:text-black hover:bg-white'
             }`}
           >
             <Car size={16} />
@@ -36,7 +36,7 @@ const TopNav = () => {
           <Link 
             href="/garage"
             className={`flex items-center gap-3 px-6 py-3 rounded-xl text-[10px] font-black uppercase tracking-[0.2em] transition-all ${
-              isGarage ? 'bg-slate-900 text-white shadow-xl italic' : 'text-slate-400 hover:text-slate-900 hover:bg-white'
+              isGarage ? 'bg-slate-900 text-white shadow-xl italic' : 'text-black hover:text-black hover:bg-white'
             }`}
           >
             <CreditCard size={16} />
@@ -45,7 +45,7 @@ const TopNav = () => {
           <Link 
             href="/admin/reports"
             className={`flex items-center gap-3 px-6 py-3 rounded-xl text-[10px] font-black uppercase tracking-[0.2em] transition-all ${
-              isReports ? 'bg-slate-900 text-white shadow-xl italic' : 'text-slate-400 hover:text-slate-900 hover:bg-white'
+              isReports ? 'bg-slate-900 text-white shadow-xl italic' : 'text-black hover:text-black hover:bg-white'
             }`}
           >
             <BarChart3 size={16} />
@@ -57,14 +57,9 @@ const TopNav = () => {
       {/* Center Section - Logo */}
       <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 flex-col items-center">
         <Link href="/" className="group">
-          <h2 className="text-[2rem] font-serif italic text-black group-hover:scale-105 transition-transform uppercase">LUXE AUTO</h2>
+          <h2 className="text-[2rem] font-serif italic text-black group-hover:scale-105 transition-transform uppercase text-center">AUTOEXPRESS</h2>
         </Link>
-        <div className="flex items-center gap-2 mt-1">
-          <div className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse" />
-          <p className="text-[9px] tracking-[0.5em] text-slate-600 font-black uppercase">
-            {isReports ? 'ADMIN // ANALYTICS' : isGarage ? 'FINANCE // PROTOCOL' : 'GLOBAL // INVENTORY'}
-          </p>
-        </div>
+
       </div>
 
       {/* Right Section - Actions */}
@@ -76,10 +71,10 @@ const TopNav = () => {
             className="flex items-center gap-3 px-6 py-3 bg-slate-50 border border-slate-200 rounded-2xl hover:border-slate-900 transition-all group shadow-sm"
           >
             <MapPin size={14} className="text-blue-600" />
-            <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest group-hover:text-slate-900">
+            <span className="text-[10px] font-black text-black uppercase tracking-widest group-hover:text-black">
               {location}
             </span>
-            <ChevronDown size={14} className={`text-slate-400 transition-transform ${isLocDropdownOpen ? 'rotate-180' : ''}`} />
+            <ChevronDown size={14} className={`text-black transition-transform ${isLocDropdownOpen ? 'rotate-180' : ''}`} />
           </button>
 
           <AnimatePresence>
@@ -98,7 +93,7 @@ const TopNav = () => {
                       setIsLocDropdownOpen(false);
                     }}
                     className={`w-full text-left px-5 py-3.5 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all ${
-                      location === loc ? 'bg-slate-900 text-white shadow-lg' : 'text-slate-400 hover:bg-slate-50 hover:text-slate-900'
+                      location === loc ? 'bg-slate-900 text-white shadow-lg' : 'text-black hover:bg-slate-50 hover:text-black'
                     }`}
                   >
                     {loc} DEPOT
@@ -116,10 +111,10 @@ const TopNav = () => {
             className="flex items-center gap-3 px-6 py-3 bg-slate-50 border border-slate-200 rounded-2xl hover:border-slate-900 transition-all group shadow-sm"
           >
             <div className="w-1.5 h-1.5 rounded-full bg-teal-500 shadow-[0_0_10px_rgba(20,184,166,0.2)] animate-pulse" />
-            <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest group-hover:text-slate-900">
+            <span className="text-[10px] font-black text-black uppercase tracking-widest group-hover:text-black">
               {rep || 'GUEST'}
             </span>
-            <ChevronDown size={14} className={`text-slate-400 transition-transform ${isRepDropdownOpen ? 'rotate-180' : ''}`} />
+            <ChevronDown size={14} className={`text-black transition-transform ${isRepDropdownOpen ? 'rotate-180' : ''}`} />
           </button>
 
           <AnimatePresence>
@@ -138,7 +133,7 @@ const TopNav = () => {
                       setIsRepDropdownOpen(false);
                     }}
                     className={`w-full text-left px-5 py-3.5 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all ${
-                      rep === r ? 'bg-slate-900 text-white shadow-lg' : 'text-slate-400 hover:bg-slate-50 hover:text-slate-900'
+                      rep === r ? 'bg-slate-900 text-white shadow-lg' : 'text-black hover:bg-slate-50 hover:text-black'
                     }`}
                   >
                     ID: {r}
@@ -156,7 +151,7 @@ const TopNav = () => {
           className="relative group"
         >
           <div className="w-12 h-12 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-center group-hover:border-slate-900 transition-all shadow-sm group-hover:scale-110 active:scale-95">
-            <User size={20} className="text-slate-400 group-hover:text-slate-900 transition-colors" />
+            <User size={20} className="text-black group-hover:text-black transition-colors" />
           </div>
           <div className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-blue-600 rounded-full border-2 border-white animate-pulse shadow-sm" />
         </button>

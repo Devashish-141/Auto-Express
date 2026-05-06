@@ -58,35 +58,35 @@ const LoginPage = () => {
             >
               <Cpu size={32} className="text-white" />
             </motion.div>
-            <h1 className="text-3xl font-black tracking-tight text-foreground mb-2 italic">AUTO EXPRESS</h1>
-            <p className="text-slate-400 text-[10px] uppercase tracking-[0.4em] font-black">Secured Management Protocol</p>
+            <h1 className="text-3xl font-black tracking-tight text-foreground mb-2 italic">AUTOEXPRESS</h1>
+
           </div>
 
           <form onSubmit={handleLogin} className="space-y-5">
             <div className="space-y-2">
-              <label className="text-[9px] uppercase tracking-[0.3em] text-slate-500 font-black ml-1">Registry Identity / Email</label>
+              <label className="text-[9px] uppercase tracking-[0.3em] text-black font-black ml-1">Registry Identity / Email</label>
               <div className="relative group">
-                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-300 group-focus-within:text-blue-500 transition-colors" size={18} />
+                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-black group-focus-within:text-blue-500 transition-colors" size={18} />
                 <input
                   type="text"
                   placeholder="name@autoexpress.ie"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full bg-slate-50 border-slate-200 border rounded-2xl py-4 pl-12 pr-4 text-foreground text-sm outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/20 transition-all placeholder:text-slate-300 font-black"
+                  className="w-full bg-slate-50 border-slate-200 border rounded-2xl py-4 pl-12 pr-4 text-foreground text-sm outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/20 transition-all placeholder:text-black font-black"
                 />
               </div>
             </div>
 
             <div className="space-y-2">
-              <label className="text-[9px] uppercase tracking-[0.4em] text-slate-500 font-black ml-1">Access Signature / Token</label>
+              <label className="text-[9px] uppercase tracking-[0.4em] text-black font-black ml-1">Access Signature / Token</label>
               <div className="relative group">
-                <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-300 group-focus-within:text-blue-500 transition-colors" size={18} />
+                <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-black group-focus-within:text-blue-500 transition-colors" size={18} />
                 <input
                   type="password"
                   placeholder="••••••••"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full bg-slate-50 border-slate-200 border rounded-2xl py-4 pl-12 pr-4 text-foreground text-sm outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/20 transition-all placeholder:text-slate-300 font-black"
+                  className="w-full bg-slate-50 border-slate-200 border rounded-2xl py-4 pl-12 pr-4 text-foreground text-sm outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/20 transition-all placeholder:text-black font-black"
                 />
               </div>
             </div>
@@ -108,9 +108,7 @@ const LoginPage = () => {
           </form>
 
           <div className="mt-10 pt-8 border-t border-slate-100 text-center">
-            <p className="text-[9px] text-slate-400 tracking-[0.3em] font-black uppercase italic">
-              Unified Stock & Garage Protocol v2.6.0
-            </p>
+
           </div>
         </div>
       </motion.div>

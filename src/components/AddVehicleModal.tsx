@@ -140,11 +140,11 @@ const AddVehicleModal = ({ isOpen, onClose, onSuccess }: AddVehicleModalProps) =
                   <Plus className="text-blue-500" size={28} />
                   Register Asset
                 </h3>
-                <p className="text-[10px] text-slate-400 uppercase tracking-[0.4em] mt-2 font-black">
+                <p className="text-[10px] text-black uppercase tracking-[0.4em] mt-2 font-black">
                   Inventory Acquisition & Photo Registration Protocol
                 </p>
               </div>
-              <button onClick={onClose} className="p-3 hover:bg-slate-100 rounded-full transition-colors text-slate-400 hover:text-foreground">
+              <button onClick={onClose} className="p-3 hover:bg-slate-100 rounded-full transition-colors text-black hover:text-foreground">
                 <X size={24} />
               </button>
             </div>
@@ -152,51 +152,51 @@ const AddVehicleModal = ({ isOpen, onClose, onSuccess }: AddVehicleModalProps) =
             <form onSubmit={handleSubmit} className="p-10 space-y-8 max-h-[75vh] overflow-y-auto custom-scrollbar">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div className="space-y-2">
-                  <label className="text-[9px] uppercase tracking-[0.4em] text-slate-600 font-black flex items-center gap-2">
+                  <label className="text-[9px] uppercase tracking-[0.4em] text-black font-black flex items-center gap-2">
                     <Car size={14} /> Manufacturer
                   </label>
-                  <input required value={formData.make} onChange={e => setFormData({ ...formData, make: e.target.value })} placeholder="e.g. BMW" className="w-full bg-slate-50 border border-slate-200 rounded-2xl p-4 text-sm font-black text-foreground outline-none focus:border-blue-500/50 transition-all placeholder:text-slate-300" />
+                  <input required value={formData.make} onChange={e => setFormData({ ...formData, make: e.target.value })} placeholder="e.g. BMW" className="w-full bg-slate-50 border border-slate-200 rounded-2xl p-4 text-sm font-black text-foreground outline-none focus:border-blue-500/50 transition-all placeholder:text-black" />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-[9px] uppercase tracking-[0.4em] text-slate-600 font-black flex items-center gap-2">
+                  <label className="text-[9px] uppercase tracking-[0.4em] text-black font-black flex items-center gap-2">
                     <Layers size={14} /> Variant
                   </label>
-                  <input required value={formData.model} onChange={e => setFormData({ ...formData, model: e.target.value })} placeholder="e.g. 520d M-Sport" className="w-full bg-slate-50 border border-slate-200 rounded-2xl p-4 text-sm font-black text-foreground outline-none focus:border-blue-500/50 transition-all placeholder:text-slate-300" />
+                  <input required value={formData.model} onChange={e => setFormData({ ...formData, model: e.target.value })} placeholder="e.g. 520d M-Sport" className="w-full bg-slate-50 border border-slate-200 rounded-2xl p-4 text-sm font-black text-foreground outline-none focus:border-blue-500/50 transition-all placeholder:text-black" />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-[9px] uppercase tracking-[0.4em] text-slate-600 font-black flex items-center gap-2">
+                  <label className="text-[9px] uppercase tracking-[0.4em] text-black font-black flex items-center gap-2">
                     <Settings size={14} /> Chassis ID (VIN)
                   </label>
-                  <input required value={formData.vin} onChange={e => setFormData({ ...formData, vin: e.target.value.toUpperCase() })} placeholder="IDENTIFICATION PHOTO" className="w-full bg-slate-50 border border-slate-200 rounded-2xl p-4 text-sm font-mono font-black text-foreground outline-none focus:border-blue-500/50 transition-all placeholder:text-slate-300" />
+                  <input required value={formData.vin} onChange={e => setFormData({ ...formData, vin: e.target.value.toUpperCase() })} placeholder="IDENTIFICATION PHOTO" className="w-full bg-slate-50 border border-slate-200 rounded-2xl p-4 text-sm font-mono font-black text-foreground outline-none focus:border-blue-500/50 transition-all placeholder:text-black" />
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-[9px] uppercase tracking-[0.4em] text-slate-600 font-black flex items-center gap-2">
+                  <label className="text-[9px] uppercase tracking-[0.4em] text-black font-black flex items-center gap-2">
                     <Euro size={14} /> Acquisition Cost
                   </label>
-                  <input required type="number" value={formData.price} onChange={e => setFormData({ ...formData, price: e.target.value })} placeholder="0.00" className="w-full bg-slate-50 border border-slate-200 rounded-2xl p-4 text-sm font-mono font-black text-blue-600 outline-none focus:border-blue-500/50 transition-all placeholder:text-slate-300" />
+                  <input required type="number" value={formData.price} onChange={e => setFormData({ ...formData, price: e.target.value })} placeholder="0.00" className="w-full bg-slate-50 border border-slate-200 rounded-2xl p-4 text-sm font-mono font-black text-blue-600 outline-none focus:border-blue-500/50 transition-all placeholder:text-black" />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-[9px] uppercase tracking-[0.4em] text-slate-600 font-black flex items-center gap-2">
+                  <label className="text-[9px] uppercase tracking-[0.4em] text-black font-black flex items-center gap-2">
                     <Euro size={14} /> Target Price
                   </label>
-                  <input required type="number" value={formData.sale_price} onChange={e => setFormData({ ...formData, sale_price: e.target.value })} placeholder="0.00" className="w-full bg-slate-50 border border-slate-200 rounded-2xl p-4 text-sm font-mono font-black text-foreground outline-none focus:border-blue-500/50 transition-all placeholder:text-slate-300" />
+                  <input required type="number" value={formData.sale_price} onChange={e => setFormData({ ...formData, sale_price: e.target.value })} placeholder="0.00" className="w-full bg-slate-50 border border-slate-200 rounded-2xl p-4 text-sm font-mono font-black text-foreground outline-none focus:border-blue-500/50 transition-all placeholder:text-black" />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-[9px] uppercase tracking-[0.4em] text-slate-600 font-black flex items-center gap-2">
+                  <label className="text-[9px] uppercase tracking-[0.4em] text-black font-black flex items-center gap-2">
                     <Hash size={14} /> Irish Registration
                   </label>
-                  <input value={formData.registration_number} onChange={e => setFormData({ ...formData, registration_number: e.target.value.toUpperCase() })} placeholder="221-D-XXXX" className="w-full bg-slate-50 border border-slate-200 rounded-2xl p-4 text-sm font-mono font-black text-foreground outline-none focus:border-blue-500/50 transition-all placeholder:text-slate-300" />
+                  <input value={formData.registration_number} onChange={e => setFormData({ ...formData, registration_number: e.target.value.toUpperCase() })} placeholder="221-D-XXXX" className="w-full bg-slate-50 border border-slate-200 rounded-2xl p-4 text-sm font-mono font-black text-foreground outline-none focus:border-blue-500/50 transition-all placeholder:text-black" />
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-[9px] uppercase tracking-[0.4em] text-slate-600 font-black flex items-center gap-2">
+                  <label className="text-[9px] uppercase tracking-[0.4em] text-black font-black flex items-center gap-2">
                     <Hash size={14} /> Mileage (KM)
                   </label>
-                  <input type="number" value={formData.mileage} onChange={e => setFormData({ ...formData, mileage: e.target.value })} placeholder="0" className="w-full bg-slate-50 border border-slate-200 rounded-2xl p-4 text-sm font-mono font-black text-foreground outline-none focus:border-blue-500/50 transition-all placeholder:text-slate-300" />
+                  <input type="number" value={formData.mileage} onChange={e => setFormData({ ...formData, mileage: e.target.value })} placeholder="0" className="w-full bg-slate-50 border border-slate-200 rounded-2xl p-4 text-sm font-mono font-black text-foreground outline-none focus:border-blue-500/50 transition-all placeholder:text-black" />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-[9px] uppercase tracking-[0.4em] text-slate-600 font-black flex items-center gap-2">
+                  <label className="text-[9px] uppercase tracking-[0.4em] text-black font-black flex items-center gap-2">
                     <Settings size={14} /> Transmission
                   </label>
                   <select value={formData.transmission} onChange={e => setFormData({ ...formData, transmission: e.target.value })} className="w-full bg-slate-50 border border-slate-200 rounded-2xl p-4 text-sm font-black text-foreground outline-none focus:border-blue-500/50 transition-all appearance-none">
@@ -205,7 +205,7 @@ const AddVehicleModal = ({ isOpen, onClose, onSuccess }: AddVehicleModalProps) =
                   </select>
                 </div>
                 <div className="space-y-2">
-                  <label className="text-[9px] uppercase tracking-[0.4em] text-slate-600 font-black flex items-center gap-2">
+                  <label className="text-[9px] uppercase tracking-[0.4em] text-black font-black flex items-center gap-2">
                     <Fuel size={14} /> Fuel Protocol
                   </label>
                   <select value={formData.fuel_type} onChange={e => setFormData({ ...formData, fuel_type: e.target.value })} className="w-full bg-slate-50 border border-slate-200 rounded-2xl p-4 text-sm font-black text-foreground outline-none focus:border-blue-500/50 transition-all appearance-none">
@@ -219,7 +219,7 @@ const AddVehicleModal = ({ isOpen, onClose, onSuccess }: AddVehicleModalProps) =
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-2">
-                  <label className="text-[9px] uppercase tracking-[0.4em] text-slate-600 font-black flex items-center gap-2">
+                  <label className="text-[9px] uppercase tracking-[0.4em] text-black font-black flex items-center gap-2">
                     <MapPin size={14} /> Logistics Hub
                   </label>
                   <select value={formData.location} onChange={e => setFormData({ ...formData, location: e.target.value })} className="w-full bg-slate-50 border border-slate-200 rounded-2xl p-4 text-sm font-black text-foreground outline-none focus:border-blue-500/50 transition-all appearance-none">
@@ -230,7 +230,7 @@ const AddVehicleModal = ({ isOpen, onClose, onSuccess }: AddVehicleModalProps) =
                 
                 {/* Photo Upload Option */}
                 <div className="space-y-2">
-                  <label className="text-[9px] uppercase tracking-[0.4em] text-slate-600 font-black flex items-center gap-2">
+                  <label className="text-[9px] uppercase tracking-[0.4em] text-black font-black flex items-center gap-2">
                     <ImageIcon size={14} /> Asset Visual Photo
                   </label>
                   <div 
@@ -273,8 +273,8 @@ const AddVehicleModal = ({ isOpen, onClose, onSuccess }: AddVehicleModalProps) =
                           key="idle"
                           className="flex items-center gap-3"
                         >
-                          <Upload size={18} className="text-slate-400 group-hover:text-blue-600 transition-colors" />
-                          <span className="text-[9px] font-black uppercase tracking-[0.2em] text-slate-400 group-hover:text-slate-600 transition-colors">Capture Asset Visual</span>
+                          <Upload size={18} className="text-black group-hover:text-blue-600 transition-colors" />
+                          <span className="text-[9px] font-black uppercase tracking-[0.2em] text-black group-hover:text-black transition-colors">Capture Asset Visual</span>
                         </motion.div>
                       )}
                     </AnimatePresence>
@@ -283,7 +283,7 @@ const AddVehicleModal = ({ isOpen, onClose, onSuccess }: AddVehicleModalProps) =
               </div>
 
               <div className="pt-10 flex gap-6">
-                <button type="button" onClick={onClose} className="flex-1 py-5 text-[10px] font-black uppercase tracking-[0.4em] text-slate-500 bg-slate-50 rounded-2xl hover:bg-slate-100 transition-all border border-slate-200">
+                <button type="button" onClick={onClose} className="flex-1 py-5 text-[10px] font-black uppercase tracking-[0.4em] text-black bg-slate-50 rounded-2xl hover:bg-slate-100 transition-all border border-slate-200">
                   Abort Registration
                 </button>
                 <button type="submit" disabled={isSubmitting || isUploading} className="flex-[2] py-5 bg-blue-600 text-white text-[10px] font-black uppercase tracking-[0.4em] rounded-2xl flex items-center justify-center gap-4 shadow-xl shadow-blue-100 hover:bg-blue-700 transition-all active:scale-[0.98] disabled:opacity-50">
