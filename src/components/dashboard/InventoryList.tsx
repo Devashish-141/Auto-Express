@@ -124,7 +124,7 @@ const InventoryList = ({ data, onRefresh }: { data: any[], onRefresh?: () => voi
       <div className="relative z-20 flex items-center justify-between mb-10">
         <div>
           <h3 className="text-[11px] tracking-[0.4em] text-slate-600 uppercase font-bold mb-1">Stock Telemetry</h3>
-          <p className="text-2xl font-black italic uppercase tracking-tighter text-slate-900 font-header">Real-Time Inventory</p>
+          <p className="text-2xl font-extrabold uppercase tracking-tighter text-slate-900 font-sans">Real-Time Inventory</p>
         </div>
         
         <div className="flex items-center gap-4">
@@ -222,9 +222,9 @@ const InventoryList = ({ data, onRefresh }: { data: any[], onRefresh?: () => voi
                       {statusDetails.label}
                     </span>
                   </td>
-                  <td className="py-5 px-4 text-[11px] text-slate-600 font-mono tracking-widest uppercase">VIN: {item.vin.slice(-8)}</td>
+                  <td className="py-5 px-4 text-[11px] text-slate-800 font-mono tracking-widest uppercase">VIN: {item.vin.slice(-8)}</td>
                   <td className="py-5 px-4 text-[11px] text-slate-600 font-bold uppercase tracking-widest italic">{item.location}</td>
-                  <td className="py-5 px-6 text-sm text-blue-600 text-right font-mono font-bold tracking-tight whitespace-nowrap">€{item.price?.toLocaleString()}</td>
+                  <td className="py-5 px-6 text-sm text-slate-800 text-right font-mono font-bold tracking-tight whitespace-nowrap">€{item.price?.toLocaleString()}</td>
                   <td className="py-5 px-4 text-right">
                     <div className="flex items-center justify-end gap-3">
                       {isAvailable ? (
@@ -308,7 +308,7 @@ const InventoryList = ({ data, onRefresh }: { data: any[], onRefresh?: () => voi
                   <span className={`text-[10px] px-4 py-1.5 rounded-full border ${getStatusDetails(selectedVehicle.status).color} font-black tracking-[0.2em] uppercase shadow-sm`}>
                     {getStatusDetails(selectedVehicle.status).label}
                   </span>
-                  <span className="text-[10px] text-slate-500 font-mono tracking-widest uppercase font-bold">VIN: {selectedVehicle.vin}</span>
+                  <span className="text-[10px] text-slate-800 font-mono tracking-widest uppercase font-bold">VIN: {selectedVehicle.vin}</span>
                 </div>
 
                 <div className="flex items-end justify-between mb-10">
@@ -320,7 +320,7 @@ const InventoryList = ({ data, onRefresh }: { data: any[], onRefresh?: () => voi
                   </div>
                   <div className="text-right">
                     <p className="text-[11px] text-slate-500 uppercase tracking-widest mb-2 font-black">Market Valuation</p>
-                    <p className="text-4xl font-black text-blue-600 font-mono leading-none tracking-tighter italic">€{selectedVehicle.price?.toLocaleString()}</p>
+                    <p className="text-4xl font-black text-slate-800 font-mono leading-none tracking-tighter italic">€{selectedVehicle.price?.toLocaleString()}</p>
                   </div>
                 </div>
 
@@ -333,7 +333,7 @@ const InventoryList = ({ data, onRefresh }: { data: any[], onRefresh?: () => voi
                     <div className="grid grid-cols-2 gap-4">
                       <div className="bg-slate-50 p-4 rounded-[1.5rem] border border-slate-100 shadow-inner">
                         <p className="text-[9px] text-slate-400 uppercase tracking-widest mb-2 font-black">Mileage Telemetry</p>
-                        <p className="text-lg text-slate-900 font-black font-mono">{selectedVehicle.mileage?.toLocaleString()} <span className="text-[10px] text-slate-400 ml-1">KM</span></p>
+                        <p className="text-lg text-slate-800 font-black font-mono">{selectedVehicle.mileage?.toLocaleString()} <span className="text-[10px] text-slate-400 ml-1">KM</span></p>
                       </div>
                       <div className="bg-slate-50 p-4 rounded-[1.5rem] border border-slate-100 shadow-inner">
                         <p className="text-[9px] text-slate-400 uppercase tracking-widest mb-2 font-black">Release Epoch</p>

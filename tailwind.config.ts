@@ -9,9 +9,10 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-sans)", "Inter", "sans-serif"],
+        sans: ["var(--font-sans)", "Instrument Sans", "sans-serif"],
         mono: ["var(--font-mono)", "JetBrains Mono", "monospace"],
-        header: ["var(--font-header)", "Montserrat", "sans-serif"],
+        serif: ["var(--font-serif)", "Instrument Serif", "serif"],
+        header: ["var(--font-header)", "Instrument Sans", "sans-serif"],
       },
       colors: {
         background: "var(--background)",
