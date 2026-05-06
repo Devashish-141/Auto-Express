@@ -58,7 +58,7 @@ const LoginPage = () => {
             >
               <Cpu size={32} className="text-white" />
             </motion.div>
-            <h1 className="text-3xl font-black tracking-tight text-foreground mb-2 italic">AUTOEXPRESS</h1>
+            <h1 className="text-4xl font-black tracking-tighter text-black mb-2">AutoExpress</h1>
 
           </div>
 

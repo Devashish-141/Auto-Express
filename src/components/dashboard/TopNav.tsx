@@ -57,7 +57,7 @@ const TopNav = () => {
       {/* Center Section - Logo */}
       <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 flex-col items-center">
         <Link href="/" className="group">
-          <h2 className="text-[2rem] font-serif italic text-black group-hover:scale-105 transition-transform uppercase text-center">AUTOEXPRESS</h2>
+          <h2 className="text-[2.2rem] font-black text-black group-hover:scale-105 transition-transform text-center uppercase tracking-tighter">AutoExpress</h2>
         </Link>
 
       </div>
