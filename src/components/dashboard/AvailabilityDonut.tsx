@@ -38,7 +38,7 @@ const AvailabilityDonut = ({ data: rawData }: { data: any[] }) => {
   return (
     <div className="bg-white border border-slate-200 rounded-2xl p-6 h-full flex flex-col relative overflow-hidden shadow-sm">
       <div className="relative z-10 flex items-center justify-between mb-4">
-        <h3 className="text-[10px] font-black tracking-[0.4em] text-black uppercase">Vehicle Availability</h3>
+        <h3 className="text-[10px] tracking-[0.4em] uppercase force-black">Vehicle Availability</h3>
         <button className="text-black hover:text-blue-600 transition-colors">
           <MoreVertical size={16} />
         </button>
@@ -77,7 +77,7 @@ const AvailabilityDonut = ({ data: rawData }: { data: any[] }) => {
               <div key={item.name} className="flex items-center gap-3">
                 <div className="w-2 h-2 rounded-full" style={{ backgroundColor: COLORS[i % COLORS.length] }} />
                 <div>
-                  <p className="text-[9px] text-black font-black uppercase tracking-widest leading-none mb-1">{item.name}</p>
+                  <p className="text-[9px] uppercase tracking-widest leading-none mb-1 force-black">{item.name}</p>
                   <p className="text-sm font-black text-foreground font-mono leading-none italic">{item.percentage}%</p>
                 </div>
               </div>

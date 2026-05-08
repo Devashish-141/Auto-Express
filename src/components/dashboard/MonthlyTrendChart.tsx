@@ -54,13 +54,13 @@ const MonthlyTrendChart = ({ data: rawData }: { data: any[] }) => {
                 dataKey="name" 
                 axisLine={false} 
                 tickLine={false} 
-                tick={{ fill: '#1e3a8a', fontSize: 10, fontWeight: 700 }} 
+                tick={{ fill: '#000000', fontSize: 10, fontWeight: 900 }} 
                 dy={10}
               />
               <YAxis 
                 axisLine={false} 
                 tickLine={false} 
-                tick={{ fill: '#94a3b8', fontSize: 10 }}
+                tick={{ fill: '#000000', fontSize: 10, fontWeight: 900 }}
               />
               <Tooltip 
                 contentStyle={{ backgroundColor: '#ffffff', borderColor: '#e2e8f0', fontSize: '12px', borderRadius: '8px', boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)' }}

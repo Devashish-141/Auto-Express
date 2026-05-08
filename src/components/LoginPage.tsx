@@ -56,7 +56,7 @@ const LoginPage = () => {
               animate={{ scale: 1 }}
               className="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-xl shadow-blue-100"
             >
-              <Cpu size={32} className="text-white" />
+              <Cpu size={32} className="text-black" />
             </motion.div>
             <h1 className="text-4xl font-black tracking-tighter text-black mb-2">AutoExpress</h1>
 
@@ -72,7 +72,7 @@ const LoginPage = () => {
                   placeholder="name@autoexpress.ie"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full bg-slate-50 border-slate-200 border rounded-2xl py-4 pl-12 pr-4 text-foreground text-sm outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/20 transition-all placeholder:text-black font-black"
+                  className="w-full bg-slate-50 border-slate-200 border rounded-2xl py-4 pl-12 pr-4 text-foreground text-sm outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/20 transition-all font-black"
                 />
               </div>
             </div>
@@ -86,7 +86,7 @@ const LoginPage = () => {
                   placeholder="••••••••"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full bg-slate-50 border-slate-200 border rounded-2xl py-4 pl-12 pr-4 text-foreground text-sm outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/20 transition-all placeholder:text-black font-black"
+                  className="w-full bg-slate-50 border-slate-200 border rounded-2xl py-4 pl-12 pr-4 text-foreground text-sm outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/20 transition-all font-black"
                 />
               </div>
             </div>
@@ -94,7 +94,7 @@ const LoginPage = () => {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full group bg-blue-600 text-white flex items-center justify-center gap-3 py-4 rounded-2xl font-black uppercase tracking-[0.3em] text-[10px] hover:bg-blue-700 transition-all shadow-xl shadow-blue-100 active:scale-95 disabled:opacity-50"
+              className="w-full group bg-blue-600 text-black flex items-center justify-center gap-3 py-4 rounded-2xl font-black uppercase tracking-[0.3em] text-[10px] hover:bg-blue-700 transition-all shadow-xl shadow-blue-100 active:scale-95 disabled:opacity-50"
             >
               {isLoading ? (
                 <Loader2 size={16} className="animate-spin" />

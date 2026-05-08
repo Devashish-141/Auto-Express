@@ -113,7 +113,7 @@ const VehicleCard = ({ vehicle, onStatusChange }: VehicleCardProps) => {
         {vehicle.status === 'available' && (
           <button 
             onClick={() => onStatusChange?.(vehicle.id, 'garage')}
-            className="flex-1 py-3 rounded-xl border border-slate-200 text-black font-black uppercase text-[9px] tracking-[0.2em] hover:bg-gray-800 transition-all flex items-center justify-center gap-2"
+            className="flex-1 py-3 rounded-xl border border-slate-200 text-black font-black uppercase text-[9px] tracking-[0.2em] hover:bg-slate-200 transition-all flex items-center justify-center gap-2"
           >
             Send to Garage
           </button>

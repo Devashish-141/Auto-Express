@@ -25,20 +25,20 @@ export const UpcomingAcquisitions = ({ data: vehicles }: { data: any[] }) => {
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50/10 to-transparent pointer-events-none" />
       
       <div className="relative z-10 flex items-center justify-between mb-6">
-        <h3 className="text-[10px] font-bold tracking-[0.4em] text-black uppercase font-header">Acquisitions Overview</h3>
+        <h3 className="text-[10px] tracking-[0.4em] uppercase font-header force-black">Acquisitions Overview</h3>
       </div>
 
       <div className="relative z-10 flex-1 flex flex-col justify-between">
         <div className="flex items-center justify-between py-3 border-b border-slate-100">
-          <span className="text-[10px] text-black font-bold uppercase tracking-widest">Total Acquired</span>
+          <span className="text-[10px] uppercase tracking-widest force-black">Total Acquired</span>
           <span className="text-sm text-black font-black font-mono">{stats.count}</span>
         </div>
         <div className="flex items-center justify-between py-3 border-b border-slate-100">
-          <span className="text-[10px] text-black font-bold uppercase tracking-widest">Total Value</span>
+          <span className="text-[10px] uppercase tracking-widest force-black">Total Value</span>
           <span className="text-sm text-blue-600 font-black font-mono">€{(stats.revenue / 1000000).toFixed(1)}M</span>
         </div>
         <div className="flex items-center justify-between py-3">
-          <span className="text-[10px] text-black font-bold uppercase tracking-widest">Inventory Turn</span>
+          <span className="text-[10px] uppercase tracking-widest force-black">Inventory Turn</span>
           <span className="text-sm text-black font-black font-mono">{stats.turn}</span>
         </div>
       </div>
@@ -73,7 +73,7 @@ export const StockPerformance = ({ data: vehicles }: { data: any[] }) => {
       <div className="absolute inset-0 bg-gradient-to-br from-slate-50/10 to-transparent pointer-events-none" />
       
       <div className="relative z-10 flex items-center justify-between mb-6">
-        <h3 className="text-[10px] font-bold tracking-[0.4em] text-black uppercase font-header">Stock Performance</h3>
+        <h3 className="text-[10px] tracking-[0.4em] uppercase font-header force-black">Stock Performance</h3>
         <button className="text-black hover:text-blue-600 transition-colors">
           <MoreVertical size={16} />
         </button>
@@ -86,7 +86,7 @@ export const StockPerformance = ({ data: vehicles }: { data: any[] }) => {
               dataKey="name" 
               axisLine={false} 
               tickLine={false} 
-              tick={{ fill: '#64748b', fontSize: 10, fontWeight: 700 }} 
+              tick={{ fill: '#000000', fontSize: 10, fontWeight: 900 }} 
             />
             <Tooltip 
               cursor={{ fill: '#f1f5f9' }}

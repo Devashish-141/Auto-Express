@@ -13,7 +13,7 @@ const mockSparklineData = [
 const Card = ({ title, value, color = "#2563eb" }: { title: string, value: string | number, color?: string }) => (
   <div className="relative overflow-hidden rounded-[2rem] bg-white border border-slate-200 p-8 flex flex-col justify-between h-[160px] shadow-sm group hover:border-blue-500/30 transition-all">
     <div className="relative z-10">
-      <h3 className="text-[10px] text-black uppercase tracking-[0.4em] mb-3 font-bold font-header">{title}</h3>
+      <h3 className="text-[10px] uppercase tracking-[0.4em] mb-3 font-header force-black">{title}</h3>
       <p className="text-5xl font-black text-black tracking-tighter leading-none italic">{value}</p>
     </div>
 

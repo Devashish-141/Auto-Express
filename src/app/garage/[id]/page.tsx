@@ -222,8 +222,8 @@ export default function GarageDealPage() {
                     <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 border border-blue-100">
                       <User size={16} />
                     </div>
-                    <p className="text-[10px] md:text-xs text-black font-bold tracking-[0.2em] uppercase">
-                      Client Protocol: <span className="text-foreground">{deal?.customer_name}</span>
+                    <p className="text-[10px] md:text-xs text-black font-bold tracking-[0.2em] uppercase force-black">
+                      Client Protocol: <span className="force-black">{deal?.customer_name}</span>
                     </p>
                   </div>
                 </div>

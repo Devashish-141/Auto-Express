@@ -64,7 +64,7 @@ const LenderCard = ({
             {getIcon()}
           </div>
           <div>
-            <h4 className="text-xl font-black uppercase tracking-tight text-white group-hover:text-blue-400 transition-colors italic">{name}</h4>
+            <h4 className="text-xl font-black uppercase tracking-tight text-black group-hover:text-blue-400 transition-colors italic">{name}</h4>
             <div className="flex items-center gap-3 mt-1.5">
               <span className="text-[8px] text-black uppercase tracking-widest font-black">Lender Signal:</span>
               <span className={`text-[8px] font-black uppercase tracking-[0.2em] ${getStatusColor()}`}>

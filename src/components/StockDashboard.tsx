@@ -54,7 +54,7 @@ const StockDashboard = () => {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
         <div>
           <h2 className="text-3xl font-black tracking-tight mb-2 uppercase italic text-foreground">Stock Bridge</h2>
-          <p className="text-black uppercase tracking-widest text-[10px] font-mono">Live Inventory Management & Attribution</p>
+          <p className="uppercase tracking-widest text-[10px] font-mono force-black">Live Inventory Management & Attribution</p>
         </div>
 
         <div className="flex items-center gap-3">

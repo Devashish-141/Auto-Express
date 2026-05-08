@@ -9,10 +9,10 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-open-sans)", "sans-serif"],
+        sans: ["var(--font-helvetica)", "sans-serif"],
         mono: ["var(--font-mono)", "JetBrains Mono", "monospace"],
-        serif: ["var(--font-open-sans)", "serif"],
-        header: ["var(--font-open-sans)", "sans-serif"],
+        serif: ["var(--font-helvetica)", "sans-serif"],
+        header: ["var(--font-helvetica)", "sans-serif"],
       },
       colors: {
         background: "var(--background)",

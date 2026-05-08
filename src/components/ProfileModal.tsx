@@ -62,7 +62,7 @@ const ProfileModal = ({ isOpen, onClose }: ProfileModalProps) => {
                       <User size={40} className="text-blue-500" />
                     </div>
                   </div>
-                  <div className="absolute -bottom-1 -right-1 bg-teal-500 text-white p-2 rounded-xl border-4 border-white shadow-lg">
+                  <div className="absolute -bottom-1 -right-1 bg-teal-500 text-black p-2 rounded-xl border-4 border-white shadow-lg">
                     <BadgeCheck size={16} />
                   </div>
                 </div>
@@ -70,7 +70,7 @@ const ProfileModal = ({ isOpen, onClose }: ProfileModalProps) => {
                 <h3 className="text-3xl font-black tracking-tight text-foreground uppercase italic leading-none">{repDetails.name}</h3>
                 <div className="flex items-center gap-2 mt-3 bg-blue-500/10 px-4 py-1.5 rounded-full border border-blue-500/20">
                   <Cpu size={12} className="text-blue-500" />
-                  <p className="text-[10px] text-blue-600 font-black uppercase tracking-[0.3em]">
+                  <p className="text-[10px] text-blue-600 font-black uppercase tracking-[0.3em] force-black">
                     Registry ID: {repDetails.rep_code}
                   </p>
                 </div>
@@ -91,15 +91,15 @@ const ProfileModal = ({ isOpen, onClose }: ProfileModalProps) => {
               </div>
 
               <div className="space-y-4">
-                <p className="text-[10px] font-black uppercase tracking-[0.5em] text-blue-600/50 ml-1">Identity Profile</p>
+                <p className="text-[10px] font-black uppercase tracking-[0.5em] ml-1 force-black">Identity Profile</p>
                 <div className="space-y-3">
                   <div className="bg-slate-50 border border-slate-200 rounded-[1.5rem] p-5 flex items-center gap-5">
                     <div className="w-12 h-12 rounded-2xl bg-blue-500/10 flex items-center justify-center text-blue-500 border border-blue-500/10">
                       <Mail size={20} />
                     </div>
                     <div>
-                      <p className="text-[8px] uppercase tracking-[0.3em] text-black font-black mb-1">Electronic Mail</p>
-                      <p className="text-xs text-foreground font-bold lowercase tracking-wide">{repDetails.email || 'N/A'}</p>
+                      <p className="text-[8px] uppercase tracking-[0.3em] mb-1 force-black">Electronic Mail</p>
+                      <p className="text-xs font-bold lowercase tracking-wide force-black">{repDetails.email || 'N/A'}</p>
                     </div>
                   </div>
 
@@ -108,8 +108,8 @@ const ProfileModal = ({ isOpen, onClose }: ProfileModalProps) => {
                       <Shield size={20} />
                     </div>
                     <div>
-                      <p className="text-[8px] uppercase tracking-[0.3em] text-black font-black mb-1">Clearance Tier</p>
-                      <p className="text-xs text-foreground font-bold uppercase tracking-widest italic">
+                      <p className="text-[8px] uppercase tracking-[0.3em] mb-1 force-black">Clearance Tier</p>
+                      <p className="text-xs font-bold uppercase tracking-widest italic force-black">
                         {repDetails.rep_code === 'NICK-01' ? 'System Administrator' : 'Executive Representative'}
                       </p>
                     </div>
@@ -120,8 +120,8 @@ const ProfileModal = ({ isOpen, onClose }: ProfileModalProps) => {
                       <MapPin size={20} />
                     </div>
                     <div>
-                      <p className="text-[8px] uppercase tracking-[0.3em] text-black font-black mb-1">Active Showroom</p>
-                      <p className="text-xs text-foreground font-bold uppercase tracking-widest">{location} Branch</p>
+                      <p className="text-[8px] uppercase tracking-[0.3em] mb-1 force-black">Active Showroom</p>
+                      <p className="text-xs font-bold uppercase tracking-widest force-black">{location} Branch</p>
                     </div>
                   </div>
 
@@ -130,8 +130,8 @@ const ProfileModal = ({ isOpen, onClose }: ProfileModalProps) => {
                       <Calendar size={20} />
                     </div>
                     <div>
-                      <p className="text-[8px] uppercase tracking-[0.3em] text-black font-black mb-1">Registry Since</p>
-                      <p className="text-xs text-foreground font-bold uppercase tracking-widest">
+                      <p className="text-[8px] uppercase tracking-[0.3em] mb-1 force-black">Registry Since</p>
+                      <p className="text-xs font-bold uppercase tracking-widest force-black">
                         {new Date(repDetails.created_at).toLocaleDateString('en-IE', { month: 'long', year: 'numeric' })}
                       </p>
                     </div>
@@ -144,7 +144,7 @@ const ProfileModal = ({ isOpen, onClose }: ProfileModalProps) => {
             <div className="p-10 bg-slate-50 border-t border-slate-200 space-y-4">
               <button
                 onClick={handleLogout}
-                className="w-full bg-red-600 text-white flex items-center justify-center gap-4 py-5 rounded-2xl font-black uppercase tracking-[0.4em] text-[11px] transition-all shadow-xl shadow-red-100 hover:bg-red-700 active:scale-[0.98]"
+                className="w-full bg-red-600 text-black flex items-center justify-center gap-4 py-5 rounded-2xl font-black uppercase tracking-[0.4em] text-[11px] transition-all shadow-xl shadow-red-100 hover:bg-red-700 active:scale-[0.98]"
               >
                 <Power size={18} />
                 Logout Protocol

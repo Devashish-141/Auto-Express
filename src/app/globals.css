@@ -1,3 +1,5 @@
+@import url('https://fonts.cdnfonts.com/css/helvetica-neue-55');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -14,19 +16,24 @@
   --brand-rose: #e11d48;
   
   --transition-standard: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
-  --font-sans: var(--font-open-sans), system-ui, -apple-system, sans-serif;
+  --font-helvetica: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-sans: var(--font-helvetica);
   --font-mono: 'JetBrains Mono', monospace;
-  --font-serif: var(--font-open-sans), serif;
-  --font-header: var(--font-open-sans), sans-serif;
+  --font-serif: var(--font-helvetica);
+  --font-header: var(--font-helvetica);
 }
 
 body {
   background-color: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans);
+  font-family: var(--font-sans) !important;
   font-feature-settings: "tnum" on, "lnum" on;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
+}
+
+html {
+  font-family: var(--font-sans) !important;
 }
 
 .font-data {
@@ -83,6 +90,12 @@ body {
 
 .text-heading {
   @apply text-2xl font-bold uppercase tracking-tight text-black font-header;
+}
+
+.force-black, .force-black * {
+  color: #000000 !important;
+  opacity: 1 !important;
+  font-weight: 900 !important;
 }
 
 /* Animations */

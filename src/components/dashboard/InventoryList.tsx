@@ -123,7 +123,7 @@ const InventoryList = ({ data, onRefresh }: { data: any[], onRefresh?: () => voi
       
       <div className="relative z-20 flex items-center justify-between mb-10">
         <div>
-          <h3 className="text-[11px] tracking-[0.4em] text-black uppercase font-bold mb-1">Stock Telemetry</h3>
+          <h3 className="text-[11px] tracking-[0.4em] uppercase mb-1 force-black">Stock Telemetry</h3>
           <p className="text-2xl font-extrabold uppercase tracking-tighter text-black font-sans">Real-Time Inventory</p>
         </div>
         
@@ -185,13 +185,13 @@ const InventoryList = ({ data, onRefresh }: { data: any[], onRefresh?: () => voi
       <div className="relative z-10 flex-1 overflow-x-auto custom-scrollbar">
         <table className="w-full text-left border-collapse">
           <thead>
-            <tr className="border-b border-slate-200 text-[10px] text-black uppercase tracking-[0.3em] font-header font-black">
-              <th className="pb-6 px-4">Asset Matrix</th>
-              <th className="pb-6 px-4">Status</th>
-              <th className="pb-6 px-4">Identification</th>
-              <th className="pb-6 px-4">Deployment Site</th>
-              <th className="pb-6 px-4 text-right">Market Value</th>
-              <th className="pb-6 px-4 text-right">Protocol</th>
+            <tr className="border-b border-slate-200 text-[11px] uppercase tracking-[0.3em] font-header">
+              <th className="pb-6 px-4 force-black">Asset Matrix</th>
+              <th className="pb-6 px-4 force-black">Status</th>
+              <th className="pb-6 px-4 force-black">Identification</th>
+              <th className="pb-6 px-4 force-black">Deployment Site</th>
+              <th className="pb-6 px-4 text-right force-black">Market Value</th>
+              <th className="pb-6 px-4 text-right force-black">Protocol</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-slate-100">

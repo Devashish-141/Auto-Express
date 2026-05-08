@@ -27,7 +27,7 @@ const TopNav = () => {
           <Link 
             href="/"
             className={`flex items-center gap-3 px-6 py-3 rounded-xl text-[10px] font-black uppercase tracking-[0.2em] transition-all ${
-              pathname === '/' ? 'bg-slate-900 text-white shadow-xl italic' : 'text-black hover:text-black hover:bg-white'
+              pathname === '/' ? 'bg-white text-black shadow-xl italic border border-slate-200' : 'text-black hover:text-black hover:bg-white'
             }`}
           >
             <Car size={16} />
@@ -36,7 +36,7 @@ const TopNav = () => {
           <Link 
             href="/garage"
             className={`flex items-center gap-3 px-6 py-3 rounded-xl text-[10px] font-black uppercase tracking-[0.2em] transition-all ${
-              isGarage ? 'bg-slate-900 text-white shadow-xl italic' : 'text-black hover:text-black hover:bg-white'
+              isGarage ? 'bg-white text-black shadow-xl italic border border-slate-200' : 'text-black hover:text-black hover:bg-white'
             }`}
           >
             <CreditCard size={16} />
@@ -45,7 +45,7 @@ const TopNav = () => {
           <Link 
             href="/admin/reports"
             className={`flex items-center gap-3 px-6 py-3 rounded-xl text-[10px] font-black uppercase tracking-[0.2em] transition-all ${
-              isReports ? 'bg-slate-900 text-white shadow-xl italic' : 'text-black hover:text-black hover:bg-white'
+              isReports ? 'bg-white text-black shadow-xl italic border border-slate-200' : 'text-black hover:text-black hover:bg-white'
             }`}
           >
             <BarChart3 size={16} />
@@ -93,7 +93,7 @@ const TopNav = () => {
                       setIsLocDropdownOpen(false);
                     }}
                     className={`w-full text-left px-5 py-3.5 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all ${
-                      location === loc ? 'bg-slate-900 text-white shadow-lg' : 'text-black hover:bg-slate-50 hover:text-black'
+                      location === loc ? 'bg-slate-100 text-black shadow-lg border border-slate-200' : 'text-black hover:bg-slate-50 hover:text-black'
                     }`}
                   >
                     {loc} DEPOT
@@ -133,7 +133,7 @@ const TopNav = () => {
                       setIsRepDropdownOpen(false);
                     }}
                     className={`w-full text-left px-5 py-3.5 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all ${
-                      rep === r ? 'bg-slate-900 text-white shadow-lg' : 'text-black hover:bg-slate-50 hover:text-black'
+                      rep === r ? 'bg-slate-100 text-black shadow-lg border border-slate-200' : 'text-black hover:bg-slate-50 hover:text-black'
                     }`}
                   >
                     ID: {r}

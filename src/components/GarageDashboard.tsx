@@ -129,7 +129,7 @@ const GarageDashboard = () => {
       <div className="flex items-center justify-between">
         <div>
           <h2 className="text-4xl font-black tracking-tighter mb-2 uppercase italic text-foreground">Deal Ledger</h2>
-          <p className="text-black uppercase tracking-[0.4em] text-[10px] font-mono">Active Finance Pipeline & Garage Handshakes</p>
+          <p className="uppercase tracking-[0.4em] text-[10px] font-mono force-black">Active Finance Pipeline & Garage Handshakes</p>
         </div>
         <div className="flex items-center gap-4">
           <button 
@@ -244,7 +244,7 @@ const GarageDashboard = () => {
               <div className="p-8 border-b border-slate-200 flex items-center justify-between bg-slate-50">
                 <div>
                   <h3 className="text-3xl font-black uppercase tracking-tight text-foreground italic">Create Manual Deal</h3>
-                  <p className="text-[10px] text-black uppercase tracking-[0.4em] mt-1 font-mono">New Inventory Attribution Pipeline</p>
+                  <p className="text-[10px] uppercase tracking-[0.4em] mt-1 font-mono force-black">New Inventory Attribution Pipeline</p>
                 </div>
                 <button 
                   onClick={() => setIsModalOpen(false)}
@@ -324,9 +324,9 @@ const GarageDashboard = () => {
                   <button 
                     type="submit"
                     disabled={isSubmitting}
-                    className="flex-[2] py-4 bg-blue-600 text-white text-[10px] font-black uppercase tracking-[0.3em] rounded-2xl flex items-center justify-center gap-3 shadow-xl shadow-blue-100 hover:bg-blue-700 transition-all disabled:opacity-50 active:scale-95"
+                    className="flex-[2] py-4 bg-blue-600 text-black text-[10px] font-black uppercase tracking-[0.3em] rounded-2xl flex items-center justify-center gap-3 shadow-xl shadow-blue-100 hover:bg-blue-700 transition-all disabled:opacity-50 active:scale-95"
                   >
-                    {isSubmitting ? <Loader2 size={18} className="animate-spin" /> : <Euro size={18} />}
+                    {isSubmitting ? <Loader2 size={18} className="animate-spin" /> : <Euro size={18} className="text-black" />}
                     Establish Deal Pipeline
                   </button>
                 </div>

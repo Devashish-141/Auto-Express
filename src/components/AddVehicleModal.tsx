@@ -140,7 +140,7 @@ const AddVehicleModal = ({ isOpen, onClose, onSuccess }: AddVehicleModalProps) =
                   <Plus className="text-blue-500" size={28} />
                   Register Asset
                 </h3>
-                <p className="text-[10px] text-black uppercase tracking-[0.4em] mt-2 font-black">
+                <p className="text-[10px] uppercase tracking-[0.4em] mt-2 force-black">
                   Inventory Acquisition & Photo Registration Protocol
                 </p>
               </div>
@@ -286,8 +286,8 @@ const AddVehicleModal = ({ isOpen, onClose, onSuccess }: AddVehicleModalProps) =
                 <button type="button" onClick={onClose} className="flex-1 py-5 text-[10px] font-black uppercase tracking-[0.4em] text-black bg-slate-50 rounded-2xl hover:bg-slate-100 transition-all border border-slate-200">
                   Abort Registration
                 </button>
-                <button type="submit" disabled={isSubmitting || isUploading} className="flex-[2] py-5 bg-blue-600 text-white text-[10px] font-black uppercase tracking-[0.4em] rounded-2xl flex items-center justify-center gap-4 shadow-xl shadow-blue-100 hover:bg-blue-700 transition-all active:scale-[0.98] disabled:opacity-50">
-                  {isSubmitting ? <Loader2 size={20} className="animate-spin" /> : <Plus size={20} />}
+                <button type="submit" disabled={isSubmitting || isUploading} className="flex-[2] py-5 bg-blue-600 text-black text-[10px] font-black uppercase tracking-[0.4em] rounded-2xl flex items-center justify-center gap-4 shadow-xl shadow-blue-100 hover:bg-blue-700 transition-all active:scale-[0.98] disabled:opacity-50">
+                  {isSubmitting ? <Loader2 size={20} className="animate-spin text-black" /> : <Plus size={20} className="text-black" />}
                   Commit to Inventory Photo
                 </button>
               </div>

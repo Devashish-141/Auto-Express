@@ -230,14 +230,14 @@ export default function AdminReportsPage() {
             <div className="overflow-x-auto custom-scrollbar">
               <table className="w-full text-left border-collapse">
                 <thead>
-                  <tr className="border-b border-slate-200 text-[9px] text-black uppercase tracking-[0.3em] font-black bg-slate-50">
-                    <th className="px-8 py-5">Date</th>
-                    <th className="px-8 py-5">Asset Identification</th>
-                    <th className="px-8 py-5 text-right">Market Value</th>
-                    <th className="px-8 py-5 text-right">VRT Offset</th>
-                    <th className="px-8 py-5 text-right">Total Realized</th>
-                    <th className="px-8 py-5">Protocol</th>
-                    <th className="px-8 py-5 text-right text-blue-600">Commissionable</th>
+                  <tr className="border-b border-slate-200 text-[9px] uppercase tracking-[0.3em] font-black bg-slate-50">
+                    <th className="px-8 py-5 force-black">Date</th>
+                    <th className="px-8 py-5 force-black">Asset Identification</th>
+                    <th className="px-8 py-5 text-right force-black">Market Value</th>
+                    <th className="px-8 py-5 text-right force-black">VRT Offset</th>
+                    <th className="px-8 py-5 text-right force-black">Total Realized</th>
+                    <th className="px-8 py-5 force-black">Protocol</th>
+                    <th className="px-8 py-5 text-right force-black">Commissionable</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-100">
